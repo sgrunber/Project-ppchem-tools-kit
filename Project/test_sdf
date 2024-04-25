@@ -1,0 +1,32 @@
+import os
+from rdkit import Chem
+
+# Chemin du dossier contenant les fichiers SDF
+folder_path = "/Users/gruenbergsebastien/ppchem/sdf"
+
+# Initialise une liste pour stocker les chemins de tous les fichiers SDF
+sdf_files = []
+
+# Parcourt tous les fichiers du dossier
+for file_name in os.listdir(folder_path):
+    # Vérifie si le fichier est un fichier SDF
+    if file_name.endswith(".sdf"):
+        # Ajoute le chemin complet du fichier SDF à la liste
+        sdf_files.append(os.path.join(folder_path, file_name))
+
+# Initialise une liste pour stocker les molécules
+mols = []
+
+# Parcourt tous les fichiers SDF et ajoute les molécules à la liste
+for sdf_file in sdf_files:
+    suppl = Chem.SDMolSupplier(sdf_file)
+    for mol in suppl:
+        if mol is not None:
+            mols.append(mol)
+
+# Écrit les molécules dans un fichier SDF unique
+output_file = "output.sdf"
+w = Chem.SDWriter(output_file)
+for mol in mols:
+    w.write(mol)
+w.close()

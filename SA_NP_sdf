@@ -1,0 +1,41 @@
+from rdkit import Chem
+from rdkit.Chem import Descriptors
+from rdkit.Chem import rdMolDescriptors
+import pandas as pd
+
+# Fonction pour calculer le SA score
+def calculate_sa_score(mol):
+    sa_score = rdMolDescriptors.CalcPBF(mol)
+    return sa_score
+
+# Fonction pour calculer le NP score
+def calculate_np_score(mol):
+    np_score = rdMolDescriptors.CalcNumAliphaticCarbocycles(mol) + \
+               rdMolDescriptors.CalcNumAliphaticHeterocycles(mol) + \
+               rdMolDescriptors.CalcNumAliphaticRings(mol)
+    return np_score
+
+# Charger le fichier SDF
+sdf_file = 'output.sdf'
+suppl = Chem.SDMolSupplier(sdf_file)
+
+# Initialiser des listes pour stocker les scores
+sa_scores = []
+np_scores = []
+
+# Parcourir les molécules dans le fichier SDF
+for mol in suppl:
+    if mol is not None:
+        # Calculer le SA score et le NP score pour chaque molécule
+        sa_score = calculate_sa_score(mol)
+        np_score = calculate_np_score(mol)
+        
+        # Ajouter les scores aux listes
+        sa_scores.append(sa_score)
+        np_scores.append(np_score)
+
+# Créer un DataFrame pandas pour stocker les données
+data = pd.DataFrame({'SA Score': sa_scores, 'NP Score': np_scores})
+
+# Afficher les premières lignes du DataFrame
+print(data.head())
