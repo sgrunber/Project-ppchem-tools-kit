@@ -1,0 +1,21 @@
+import pubchempy as pcp
+
+def name_to_smiles(molecule_name, max_attempts=3):
+    attempts = 0
+    while attempts < max_attempts:
+        try:
+            compound = pcp.get_compounds(molecule_name, 'name')
+            return compound[0].canonical_smiles if compound else None
+        except pcp.PubChemHTTPError:
+            attempts += 1
+    return None
+
+# Input molecule name
+molecule_name = input("Enter the molecule's name: ")
+
+smiles_molecule = name_to_smiles(molecule_name)
+
+if smiles_molecule is not None:
+    print("The SMILES for the molecule", molecule_name, "is:", smiles_molecule)
+else:
+    print("The SMILES for the molecule", molecule_name, "was not found.")
