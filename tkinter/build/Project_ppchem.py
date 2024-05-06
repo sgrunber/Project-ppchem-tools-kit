@@ -19,7 +19,7 @@ plt.rcParams['font.family'] = 'Times New Roman'
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/gruenbergsebastien/Project-ppchem-tools-kit/tkinter/build/assets/frame0")
-
+coucouc
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
