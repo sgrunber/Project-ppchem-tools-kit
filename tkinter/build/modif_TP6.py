@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
@@ -99,37 +98,6 @@ def linear_regression(file_path, x_label, y_label, title, grid=True, save_as=Non
         messagebox.showerror("Error", "The data file was not found.")
 
 
-def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
-    try:
-       
-        df = pd.read_excel(filepath)
-        data_list = df.values.tolist()
-        x_values = [row[0] for row in data_list]  
-        y_values = [row[1] for row in data_list]  
-
-        #plt.scatter(x_values, y_values, color='blue', label='Data Points')  (ici on pourait ajouté un truc qui permet d'affiché les point ou non)
-        plt.plot(x_values, y_values, linestyle=line_style, color=line_color)
-        plt.xlabel(x_label, fontsize = 15)  
-        plt.ylabel(y_label, fontsize = 15) 
-        plt.title(title, fontsize = 20)
-        plt.rcParams['figure.dpi'] = 300
-        plt.rcParams['savefig.dpi'] = 300
-        plt.tight_layout()
-        
-    
-        if grid:
-            plt.grid(True)
-        else:
-            plt.grid(False)
-
-        plt.show()
-
-        if save_as:
-            plt.savefig(save_as)
-
-    except FileNotFoundError:
-        messagebox.showerror("Error", "The data file was not found.")
-
 def process_input(event=None):
     input_text = entry_1.get().strip()
     if not input_text:
@@ -167,6 +135,52 @@ def process_input(event=None):
     display_result(result_text)
 
 
+
+def make_graph(file_path, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_colors=('#FF1D18', "#00c04b", '#2196F3')):
+    try:
+        df = pd.read_excel(file_path)
+        data_list = df.values.tolist()
+        x_values = [row[0] for row in data_list]
+        y_values = [row[1] for row in data_list]
+
+        # Diviser les données en trois parties
+        x_values_part1 = x_values[1:39]
+        y_values_part1 = y_values[1:39]
+        x_values_part2 = x_values[38:51]
+        y_values_part2 = y_values[38:51]
+        x_values_part3 = x_values[50:]
+        y_values_part3 = y_values[50:]
+
+        # Tracer chaque partie avec une couleur différente
+        plt.plot(x_values_part1, y_values_part1, linestyle=line_style, color=line_colors[0], label="1$^{st}$ region", linewidth=3.0)
+        plt.plot(x_values_part2, y_values_part2, linestyle=line_style, color=line_colors[1], label='2$^{nd}$ region', linewidth=3.0)
+        plt.plot(x_values_part3, y_values_part3, linestyle=line_style, color=line_colors[2], label='3$^{rd}$ region', linewidth=3.0)
+
+        plt.scatter(x_values_part1, y_values_part1, color=line_colors[0])
+        plt.scatter(x_values_part2, y_values_part2, color=line_colors[1])
+        plt.scatter(x_values_part3, y_values_part3, color=line_colors[2])
+
+        plt.xlabel(x_label, fontsize=15)
+        plt.ylabel(y_label, fontsize=15)
+        plt.title(title, fontsize=20)
+        plt.rcParams['figure.dpi'] = 300
+        plt.rcParams['savefig.dpi'] = 300
+        plt.tight_layout()
+
+        if grid:
+            plt.grid(True)
+        else:
+            plt.grid(False)
+
+        plt.legend()
+        plt.show()
+
+        if save_as:
+            plt.savefig(save_as)
+
+    except FileNotFoundError:
+        messagebox.showerror("Error", "The data file was not found.")
+    make_graph(file_path, x_label, y_label, title, line_colors=line_colors)
 
 def display_result(result_text):
     result_window = tk.Toplevel(window)
