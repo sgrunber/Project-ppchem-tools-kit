@@ -15,20 +15,17 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from tkinter import IntVar, Radiobutton
-from IPython.display import set_matplotlib_formats
-set_matplotlib_formats('svg', 'pdf')
+from matplotlib_inline.backend_inline import set_matplotlib_formats
+set_matplotlib_formats('png', 'pdf')
 
 plt.rcParams['font.family'] = 'Times New Roman'
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/meloenzinger/Desktop/EPFL/BA4/prog/Project-ppchem-tools-kit/tkinter/build/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/gruenbergsebastien/Project-ppchem-tools-kit/tkinter/build/assets/frame0")
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-
-def select_mode(mode):
-    print("Selected mode:", mode)
 
 def name_to_smiles(molecule_name):
     try:
@@ -49,25 +46,24 @@ def smiles_to_molar_mass(smiles):
     else:
         return None
 
+
+
 def linear_regression(file_path, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
     try:
-        # Lecture des données à partir du fichier Excel
+
         df = pd.read_excel(file_path)
         data_list = df.values.tolist()
         x_values = np.array([row[0] for row in data_list]).reshape(-1, 1) 
         y_values = [row[1] for row in data_list]
 
-        # Création du modèle de régression linéaire
         model = LinearRegression()
         model.fit(x_values, y_values)
 
-        # Prédictions pour les valeurs de x
+
         y_pred = model.predict(x_values)
 
-        # Calcul du coefficient de détermination (R^2)
         r2 = r2_score(y_values, y_pred)
 
-        # Affichage de la régression linéaire et du coefficient R^2
         plt.plot(x_values, y_pred, color='red', label='Linear Regression', linestyle=line_style, linewidth=1)
         plt.scatter(x_values, y_values, color='blue', label='Data Points')
         plt.xlabel(x_label, fontsize=15)
@@ -84,13 +80,11 @@ def linear_regression(file_path, x_label, y_label, title, grid=True, save_as=Non
 
         plt.legend()
 
-        # Affichage du coefficient de détermination (R^2) sur le graphe
+
         plt.text(0.6, 0.8, f'$R^2 = {r2:.2f}$', ha='center', va='center', transform=plt.gca().transAxes, fontsize=13, fontname='Times New Roman')
 
-        # Affichage de la figure
         plt.show()
 
-        # Sauvegarde de la figure si spécifié
         if save_as:
             plt.savefig(save_as)
 
@@ -130,7 +124,7 @@ def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_
         messagebox.showerror("Error", "The data file was not found.")
 
 def process_input(event=None):
-    input_text = entry_1.get().strip()
+    input_text = entry_input.get().strip()
     if not input_text:
         messagebox.showerror("Error", "Please enter a molecule name, SMILES code, or file path.")
         return
@@ -148,22 +142,24 @@ def process_input(event=None):
         else:
             result_text = "Invalid SMILES or molecule not found."
     elif selected_radio.get() == "3":
-        file_path = entry_1.get().strip()  
-        x_label = entry_3.get().strip()  
-        y_label = entry_2.get().strip()
-        title = entry_4.get().strip()  
+        file_path = entry_input.get().strip()  
+        x_label = entry_x_axis.get().strip()  
+        y_label = entry_y_axis.get().strip()
+        title = entry_graph_title.get().strip()  
         make_graph(file_path, x_label, y_label, title)
     elif selected_radio.get() == "4":  # Linear regression option
-        file_path = entry_1.get().strip()  
-        x_label = entry_3.get().strip()  
-        y_label = entry_2.get().strip()
-        title = entry_4.get().strip()  
+        file_path = entry_input.get().strip()  
+        x_label = entry_x_axis.get().strip()  
+        y_label = entry_y_axis.get().strip()
+        title = entry_graph_title.get().strip()  
         linear_regression(file_path, x_label, y_label, title)
         return  # Return to prevent displaying the result window
     else:
         result_text = "Please select an input type."
 
     display_result(result_text)
+
+
 
 
 
@@ -177,15 +173,15 @@ def display_result(result_text):
     result_textbox.config(state="disabled")
     result_textbox.grid(row=0, column=0, padx=0, pady=0)
 
-    result_textbox.bind("<Control-a>", select_all)  
-    result_textbox.bind("<Control-c>", copy_text)  
+
+
 
 def browse_excel_file():
     filepath = filedialog.askopenfilename(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
     if filepath:
         try:
-            entry_1.delete(0, tk.END)  
-            entry_1.insert(0, filepath)  
+            entry_input.delete(0, tk.END)  
+            entry_input.insert(0, filepath)  
             print("Selected Excel file:", filepath)
             print("File path copied to clipboard.")
         except Exception as e:
@@ -202,169 +198,163 @@ def copy_text(event):
 
 
 
-window = tk.Tk()
+window = tk.Tk()  #creates a Tkinter window instance
 
 window.geometry(f"{window.winfo_reqwidth()}x{window.winfo_reqheight()}+{window.winfo_screenwidth()//2 - window.winfo_reqwidth()//2}+{window.winfo_screenheight()//2 - window.winfo_reqheight()//2}")
-
-input_type = tk.IntVar()
+window.title("Project Tools-Kit")
+input_type = tk.IntVar() #creates a Tkinter IntVar variable, which is used to track the value of the selected input type. In this case, it's initialized to 1
 input_type.set(1)
 
 def welcome_message():
     welcome_window = tk.Toplevel(window)
     welcome_window.title("Welcome Message")
-    welcome_window.geometry("600x200")
-    
-    
-    welcome_label = tk.Label(welcome_window, text="Welcome! \n  \n Here is our project : https://github.com/sgrunber/Project-ppchem-tools-kit \n \n Enjoy ;)", font=("Times New Roman", 20)) 
-    welcome_label.pack(pady=20)
+
+    welcome_text = (
+        "Welcome!\n\n"
+        "Here is our project: https://github.com/sgrunber/Project-ppchem-tools-kit\n\n"
+        "Enjoy ;)"
+    )
+    welcome_textbox = tk.Text(welcome_window, wrap="word", font=("Times New Roman", 25), fg="#BBE1FA", bg = "#1B262C", height=7, width=45)
+    welcome_textbox.insert("1.0", welcome_text)
+    welcome_textbox.config(state="disabled")
+    welcome_textbox.grid(row=0, column=0, padx=0, pady=0)
 
 
 
-def bind_enter(event):
-    process_input()
-
-window.bind('<Return>', bind_enter)
 
 window.geometry("1000x800")
-window.configure(bg = "#228B22")
+window.configure(bg = "#1B262C")
 
-canvas = Canvas(
+
+canvas = Canvas( #creates an instance of the Canvas class in Tkinter
     window,
-    bg = "#1B262C",
-    height = 800,
-    width = 1000,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
+    bg = "#1B262C", #sets the background color of the Canvas
+    height = 800, #sets the height of the Canvas in pixels
+    width = 1000, #sets the width of the Canvas in pixels
+    bd = 0, #sets the border size of the Canvas
+    highlightthickness = 0, #sets the thickness of the Canvas highlight border
+    relief = "ridge" #
 )
 
-canvas.place(x=0, y=0)
-canvas.create_text(
-    12.0,
-    194.0,
-    anchor="nw",
-    text="Choose Input Type :",
-    fill="#BBE1FA",
-    font=("Times New Roman", 27, "bold")  
+canvas.place(x=0, y=0) #This places the Canvas at the coordinates (x, y)
+
+canvas.create_text( #creates a text object on the Canvas
+    12.0, # x coordinate
+    194.0, # y coordinate
+    anchor="nw",  #sets the anchor point of the text
+    text="Choose Input Type :", #specifies the text to be displayed
+    fill="#BBE1FA", #sets the fill color of the text
+    font=("Times New Roman", 27, "bold") #specifies the font family, size, and weight of the text
 )
 
 
 
-canvas.create_text(
+canvas.create_text(  #principal input text label
     92.0,
     378.0,
-    anchor="nw",
+    anchor="nw",    
     text="Input :",
     fill="#BBE1FA",
     font=("Times New Roman", 30, "bold")
 )
-'''
-entry_image_1 = PhotoImage(
-    file=relative_to_assets("entry_1.png"))
-entry_bg_1 = canvas.create_image(
-    574.0,
-    402.5,
-    image=entry_image_1
-)
-'''
-entry_1 = Entry(
-    bd=1,
+
+entry_input = Entry( #principal input entry
+    bd=1, 
     bg="#0F4C75",
-    fg="#BBE1FA",
+    fg="#BBE1FA", #sets the text color of the Entry widget 
     highlightthickness=0,
     font=("Times New Roman", 25) 
 )
-entry_1.place(
+entry_input.place( #principal input entry place
     x=272.5,
     y=368.0,
-    width=605.0,
-    height=74.0
+    width=605.0, #sets the width of the Entry widget in pixel
+    height=74.0  #sets the height of the Entry widget in pixel
 )
 
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
-button_1 = Button(
-    image=button_image_1,
+
+
+button_image_browse = PhotoImage( #browse button
+    file=relative_to_assets("button_browse.png"))  
+button_browse = Button(
+    image=button_image_browse,
     borderwidth=0,
     highlightthickness=0,
     command=browse_excel_file, 
     relief="flat"
 )
 
-button_1.place(
+button_browse.place( #browse button place
     x=70.0,
     y=526.5,
     width=154.2904052734375,
     height=60.0
 )
 
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
-button_2 = Button(
-    image=button_image_2,
+button_image_process = PhotoImage(  #Process button
+    file=relative_to_assets("button_process.png"))
+button_process = Button(
+    image=button_image_process,
     borderwidth=0,
     highlightthickness=0,
     command=process_input,
     relief="flat"
 )
-button_2.place(
+button_process.place( #process button place
     x=409.0,
     y=680.0,
     width=182.0,
     height=73.0
 )
 
-def clear_input():
-    entry_1.delete(0, tk.END)
+def clear_input():  #defined to clear the content of the input field 
+    entry_input.delete(0, tk.END)
 
-def on_radio_select(value):
+def on_radio_select(value): #defined to update the selected_radio variable with the selected value and clear the content of the input field 
     selected_radio.set(value)
     clear_input()
 
-
-
-# Fonction pour créer les Radiobuttons
-def create_radio_button(x, y, text, value):
+def create_radio_button(x, y, text, value):    #defined to create a radio button with the specified text and value at the given position (x, y)
     radio_button = tk.Radiobutton(canvas, text=text, variable=selected_radio, value=value,
                                   command=lambda: on_radio_select(value),
                                   font=("Times New Roman", 20), bg="#1B262C")
     canvas.create_window(x, y, anchor="nw", window=radio_button)
 
-# Coordonnées et textes pour les Radiobuttons
+
 radio_button_data = [
-    (291, 193, "Molecule Name", "1"),
-    (599, 192, "Excel Graph", "3"),
-    (748, 192, "Linear Regression", "4"), 
+    (291, 194, "Molecule Name", "1"),
+    (599, 194, "Excel Graph", "3"),
+    (748, 194, "Linear Regression", "4"), 
     (774, 252, "Random", "random1"),
     (315, 252, "Random", "random2"),
     (469, 252, "Random", "random3"),
     (621, 252, "Random", "random4"),
-    (469, 192, "SMILEs", "2")
+    (469, 194, "SMILEs", "2")
 ]  
-# Variable pour suivre le Radiobutton sélectionné
 selected_radio = tk.StringVar(value="none")
 
-# Création des Radiobuttons à partir des données
 for data in radio_button_data:
     create_radio_button(*data)
 
-button_image_3 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
-button_3 = Button(
-    image=button_image_3,
+
+button_image_title = PhotoImage( #principale title button
+    file=relative_to_assets("button_title.png"))
+button_title = Button(
+    image=button_image_title,
     borderwidth=0,
     highlightthickness=0,
-    command=welcome_message,
+    command=welcome_message, #command associated to this button
     relief="flat"
 )
-button_3.place(
+button_title.place( #principale title button place
     x=273.0,
     y=36.0,
     width=455.0,
     height=90.0
 )
 
-canvas.create_text(
+
+canvas.create_text(  #Y axis label text
     590.0,
     500.0,
     anchor="nw",
@@ -372,38 +362,23 @@ canvas.create_text(
     fill="#FFFFFF",
     font=("Times New Roman", 20 * -1)
 )
-'''
-entry_image_2 = PhotoImage(
-    file=relative_to_assets("entry_2.png"))
-entry_bg_2 = canvas.create_image(
-    657.0,
-    520.5,
-    image=entry_image_2
-)
-'''
-entry_2 = Entry(
+
+entry_y_axis = Entry( #Y axis input
     bd=1,
     bg="#0F4C75",
     fg="#BBE1FA",
     highlightthickness=0,
     font=("Times New Roman", 20) 
 )
-entry_2.place(
+entry_y_axis.place( # Y axis input place
     x=710.0,
     y=489.0,
     width=190.0,
     height=41.0
 )
 
-canvas.create_text(
-    260.0,
-    500.0,
-    anchor="nw",
-    text="X Axis Label :",
-    fill="#FFFFFF",
-    font=("Times New Roman", 20 * -1)
-)
-canvas.create_text(
+
+canvas.create_text( # Graph title label text
     300.0,
     570.0,
     anchor="nw",
@@ -411,36 +386,37 @@ canvas.create_text(
     fill="#FFFFFF",
     font=("Times New Roman", 22 * -1)
 )
-entry_4 = Entry(
+entry_graph_title = Entry( #Graph title input
     bd=1,
     bg="#0F4C75",
     fg="#BBE1FA",
     highlightthickness=0,
     font=("Times New Roman", 20) 
 )
-entry_4.place(
+entry_graph_title.place( #Graph title input place
     x=380.0,
     y=560.0,
     width=190.0,
     height=41.0
 )
-'''
-entry_image_3 = PhotoImage(
-    file=relative_to_assets("entry_3.png"))
-entry_bg_3 = canvas.create_image(
-    657.0,
-    596.5,
-    image=entry_image_3
+
+
+canvas.create_text(  #X axis label text
+    260.0,
+    500.0,
+    anchor="nw",
+    text="X Axis Label :",
+    fill="#FFFFFF",
+    font=("Times New Roman", 20 * -1)
 )
-'''
-entry_3 = Entry(
+entry_x_axis = Entry(  #X axis input
     bd=1,
     bg="#0F4C75",
     fg="#BBE1FA",
     highlightthickness=0,
     font=("Times New Roman", 20) 
 )
-entry_3.place(
+entry_x_axis.place(  #X axis input place
     x=380.0,
     y=489.0,
     width=190.0,
@@ -448,13 +424,12 @@ entry_3.place(
 )
 
 
+def bind_enter(event):
+    process_input()
 
+window.bind('<Return>', bind_enter)
 
 
 window.resizable(False, False)
 window.mainloop()
 
-
-print("coucou")
-print('oui')
-print('non')
