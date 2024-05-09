@@ -3,13 +3,19 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from pathlib import Path
 import numpy as np
-from tkinter import messagebox, filedialog
+from tkinter import ttk
+from tkinter import messagebox
+from tkinter import filedialog
+import subprocess
 import pubchempy as pcp
 from rdkit import Chem
 from rdkit.Chem import Descriptors
 import matplotlib.pyplot as plt
 import pandas as pd
-
+from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from tkinter import IntVar, Radiobutton
+from matplotlib_inline.backend_inline import set_matplotlib_formats
+set_matplotlib_formats('png', 'pdf')
 # Définition des chemins
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/gruenbergsebastien/Project-ppchem-tools-kit/tkinter/build/assets/frame0")
@@ -24,13 +30,14 @@ entry_x_axis = None
 entry_y_axis = None
 entry_graph_title = None
 
+'''
 button_browse = None
 button_process = None
 button_title = None
-
+'''
 # Définition des variables de radio
 selected_radio = None
-
+'''
 # Définition des images
 button_image_browse = None
 button_image_process = None
@@ -44,6 +51,27 @@ window = None
 
 # Autres initialisations globales
 canvas = None
+'''
+def name_to_smiles(molecule_name):
+    try:
+        compound = pcp.get_compounds(molecule_name, 'name')
+        if compound:
+            return compound[0].canonical_smiles
+        else:
+            return None
+    except pcp.PubChemHTTPError as e:
+        print("Error occurred while fetching data from PubChem:", e)
+        return None
+
+
+def smiles_to_molar_mass(smiles):
+    mol = Chem.MolFromSmiles(smiles)
+    if mol is not None:
+        return Descriptors.ExactMolWt(mol)
+    else:
+        return None
+
+
 
 def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
     global entry_input, entry_x_axis, entry_y_axis, entry_graph_title
@@ -165,7 +193,7 @@ def process_input(event=None):
     display_result(result_text)
 
 def display_result(result_text):
-    global entry_input
+    global entry_input, canvas
     result_window = tk.Toplevel(window)
     result_window.title("Result")
 
@@ -198,6 +226,22 @@ def bind_enter(event):
     process_input()
 
 
+def welcome_message():
+    global entry_input
+    welcome_window = tk.Toplevel(window)
+    welcome_window.title("Welcome Message")
+
+    welcome_text = (
+        "Welcome!\n\n"
+        "Here is our project: https://github.com/sgrunber/Project-ppchem-tools-kit\n\n"
+        "Enjoy ;)"
+    )
+    welcome_textbox = tk.Text(welcome_window, wrap="word", font=("Times New Roman", 25), fg="#BBE1FA", bg = "#1B262C", height=7, width=45)
+    welcome_textbox.insert("1.0", welcome_text)
+    welcome_textbox.config(state="disabled")
+    welcome_textbox.grid(row=0, column=0, padx=0, pady=0)
+
+
 window = tk.Tk()  #creates a Tkinter window instance
 
 window.geometry(f"{window.winfo_reqwidth()}x{window.winfo_reqheight()}+{window.winfo_screenwidth()//2 - window.winfo_reqwidth()//2}+{window.winfo_screenheight()//2 - window.winfo_reqheight()//2}")
@@ -208,27 +252,39 @@ input_type.set(1)
 window.geometry("1000x800")
 window.configure(bg = "#1B262C")
 
-canvas = canvas(window, bg="#1B262C", height=800, width=1000, bd=0, highlightthickness=0, relief="ridge")
+canvas = Canvas(window, bg="#1B262C", height=800, width=1000, bd=0, highlightthickness=0, relief="ridge")
 canvas.place(x=0, y=0)
 
+canvas.create_text(12.0, 194.0, anchor="nw", text="Choose Input Type :", fill="#BBE1FA", font=("Times New Roman", 27, "bold"))
+
+
+canvas.create_text(92.0, 378.0, anchor="nw",text="Input :", fill="#BBE1FA", font=("Times New Roman", 30, "bold"))
 entry_input = Entry(bd=1, bg="#0F4C75", fg="#BBE1FA", highlightthickness=0, font=("Times New Roman", 25))
 entry_input.place(x=272.5, y=368.0, width=605.0, height=74.0)
 
+button_image_browse = PhotoImage(file=relative_to_assets("button_browse.png")) 
 button_browse = Button(image=button_image_browse, borderwidth=0, highlightthickness=0, command=browse_excel_file, relief="flat")
 button_browse.place(x=70.0, y=526.5, width=154.2904052734375, height=60.0)
 
+button_image_process = PhotoImage(file=relative_to_assets("button_process.png"))
 button_process = Button(image=button_image_process, borderwidth=0, highlightthickness=0, command=process_input, relief="flat")
 button_process.place(x=409.0, y=680.0, width=182.0, height=73.0)
 
+button_image_title = PhotoImage(file=relative_to_assets("button_title.png"))
 button_title = Button(image=button_image_title, borderwidth=0, highlightthickness=0, command=welcome_message, relief="flat")
 button_title.place(x=273.0, y=36.0, width=455.0, height=90.0)
 
+canvas.create_text(590.0, 500.0, anchor="nw", text="Y Axis Label :", fill="#FFFFFF", font=("Times New Roman", 20 * -1))
 entry_y_axis = Entry(bd=1, bg="#0F4C75", fg="#BBE1FA", highlightthickness=0, font=("Times New Roman", 20))
 entry_y_axis.place(x=710.0, y=489.0, width=190.0, height=41.0)
 
+
+canvas.create_text(300.0, 570.0, anchor="nw", text="Title :", fill="#FFFFFF", font=("Times New Roman", 22 * -1))
 entry_graph_title = Entry(bd=1, bg="#0F4C75", fg="#BBE1FA", highlightthickness=0, font=("Times New Roman", 20))
 entry_graph_title.place(x=380.0, y=560.0, width=190.0, height=41.0)
 
+
+canvas.create_text(260.0, 500.0, anchor="nw", text="X Axis Label :", fill="#FFFFFF", font=("Times New Roman", 20 * -1))
 entry_x_axis = Entry(bd=1, bg="#0F4C75", fg="#BBE1FA", highlightthickness=0, font=("Times New Roman", 20))
 entry_x_axis.place(x=380.0, y=489.0, width=190.0, height=41.0)
 
@@ -261,20 +317,6 @@ for data in radio_button_data:
     create_radio_button(*data)
 
 
-def welcome_message():
-    global entry_input
-    welcome_window = tk.Toplevel(window)
-    welcome_window.title("Welcome Message")
-
-    welcome_text = (
-        "Welcome!\n\n"
-        "Here is our project: https://github.com/sgrunber/Project-ppchem-tools-kit\n\n"
-        "Enjoy ;)"
-    )
-    welcome_textbox = tk.Text(welcome_window, wrap="word", font=("Times New Roman", 25), fg="#BBE1FA", bg = "#1B262C", height=7, width=45)
-    welcome_textbox.insert("1.0", welcome_text)
-    welcome_textbox.config(state="disabled")
-    welcome_textbox.grid(row=0, column=0, padx=0, pady=0)
 
 window.resizable(False, False)
 window.mainloop()
