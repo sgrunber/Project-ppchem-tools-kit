@@ -21,13 +21,32 @@ set_matplotlib_formats('png', 'pdf')
 plt.rcParams['font.family'] = 'Times New Roman'
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/gruenbergsebastien/Project-ppchem-tools-kit/tkinter/build/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/meloenzinger/Documents/GitHub/Project-ppchem-tools-kit-bis/tkinter/build/assets/frame0")
 
 def relative_to_assets(path: str) -> Path:
+    """Constructs a path to a file located in the assets directory by combining the provided relative path with the ASSETS_PATH
+    
+    Args : 
+        path (str) ; the relative path to be appended
+    
+    Returns : 
+        the full path to the asset
+    """
     return ASSETS_PATH / Path(path)
 
 
 def name_to_smiles(molecule_name):
+    """Fetches the SMILES representation of a molecule from its name from PubChem.
+
+    Args:
+        molecule_name (str): The name of the molecule.
+
+    Returns:
+        str: The canonical SMILES string if found, None otherwise.
+    
+    Raises:
+        PubChemHTTPError: If any issue is encountered with the PubChem API request.
+    """
     try:
         compound = pcp.get_compounds(molecule_name, 'name')
         if compound:
@@ -40,6 +59,14 @@ def name_to_smiles(molecule_name):
 
 
 def smiles_to_molar_mass(smiles):
+    """Calculates the molar mass of a molecule from a given SMILES using RDKit.
+
+    Args:
+        smiles (str): The SMILES string of the molecule.
+
+    Returns:
+        float: The molar mass of the molecules (in grams per mole) if the SMILES string is valid, None otherwise.
+    """
     mol = Chem.MolFromSmiles(smiles)
     if mol is not None:
         return Descriptors.ExactMolWt(mol)
@@ -49,6 +76,21 @@ def smiles_to_molar_mass(smiles):
 
 
 def linear_regression(file_path, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
+    """Performs a linear regression from an Excel file and plots the graph and R^2 value.
+
+    Args:
+        file_path (str): Path to the Excel file containing the data.
+        x_label (str): x-axis label.
+        y_label (_type_): y - axis label.
+        title (str): Title of the graph.
+        grid (bool): Whether to display grid lines on the plot. Defaults to True.
+        save_as (str, optional): File path to save the graph. Defaults to None, in which case it is not saved.
+        line_style (str, optional): Style of the line plot. Defaults to '-'.
+        line_color (str, optional): Color of the plot line. Defaults to 'k' (black).
+    
+    Raises:
+        FileNotFoundError: If the specified file_path does not exist
+    """
     try:
 
         df = pd.read_excel(file_path)
@@ -93,6 +135,18 @@ def linear_regression(file_path, x_label, y_label, title, grid=True, save_as=Non
 
 
 def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
+    """Creates a scatter plot from data in a given Excel file.
+
+    Args:
+        filepath (str): Path to the Excel file containing the data.
+        x_label (str): x-axis label.
+        y_label (str): y- axis label.
+        title (str): Plot title.
+        grid (bool, optional): Whether to display grid lines on the plot. Defaults to True.
+        save_as (str, optional): File path to save the plot. Defaults to None, in which case it is not saved.
+        line_style (str, optional): Style of the line plot. Defaults to '-'.
+        line_color (str, optional): Color of the plot line. Defaults to 'k' (black).
+    """
     try:
        
         df = pd.read_excel(filepath)
@@ -124,6 +178,14 @@ def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_
         messagebox.showerror("Error", "The data file was not found.")
 
 def process_input(event=None):
+    """Processes the input based on the selected mode (molecule name, SMILES, file path for plotting). Validates the input and displays the appropriate results or errors.
+
+    Args:
+        event (Event, optional): The event that triggered this function, such as a button click or another event from a GUI component. Defaults to None.
+
+    Returns:
+        None: Does not return any values, directly affects the GUI by displaying messages or updating GUI components.
+    """
     input_text = entry_input.get().strip()
     if not input_text:
         messagebox.showerror("Error", "Please enter a molecule name, SMILES code, or file path.")
@@ -164,6 +226,11 @@ def process_input(event=None):
 
 
 def display_result(result_text):
+    """Displays the result of an operation in a new window
+
+    Args:
+        result_text (str): The text to be displayed in the result window
+    """
     result_window = tk.Toplevel(window)
     result_window.title("Result")
 
@@ -177,6 +244,8 @@ def display_result(result_text):
 
 
 def browse_excel_file():
+    """Opens a file dialog to select an Excel file, and updates the input field with the selected file path. Copies the file path to the clipboard.
+    """
     filepath = filedialog.askopenfilename(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
     if filepath:
         try:
@@ -188,11 +257,27 @@ def browse_excel_file():
             print("Error:", e)
 
 def select_all(event):
+    """Selects all text in a widget, typically bound to a text-related widget event.
+
+    Args:
+        event: The event that triggered the function.
+
+    Returns:
+        None: Does not return any values.
+    """
     event.widget.tag_add("sel", "1.0", "end")
     return "break"
 
 
 def copy_text(event):
+    """Copies selected text to the clipboard. Bound to an event.
+
+    Args:
+        event: The event that triggered the function.
+
+    Returns:
+        None: Does not return any values.
+    """
     event.widget.event_generate("<<Copy>>")
     return "break"
 
@@ -206,6 +291,8 @@ input_type = tk.IntVar() #creates a Tkinter IntVar variable, which is used to tr
 input_type.set(1)
 
 def welcome_message():
+    """Displays a welcome message in a top-level when triggered by a GUI event.
+    """
     welcome_window = tk.Toplevel(window)
     welcome_window.title("Welcome Message")
 
@@ -307,14 +394,29 @@ button_process.place( #process button place
     height=73.0
 )
 
-def clear_input():  #defined to clear the content of the input field 
+def clear_input(): 
+    """Clears the content of the input field in the GUI.
+    """
     entry_input.delete(0, tk.END)
 
-def on_radio_select(value): #defined to update the selected_radio variable with the selected value and clear the content of the input field 
+def on_radio_select(value): 
+    """Updates the selected_radio variable with the selected value and clears the content of the input field.
+
+    Args:
+        value (str): Value of the radio button that has been selected.
+    """
     selected_radio.set(value)
     clear_input()
 
-def create_radio_button(x, y, text, value):    #defined to create a radio button with the specified text and value at the given position (x, y)
+def create_radio_button(x, y, text, value):
+    """Creates a radio button with the specified text and value at the specified position (x, y)
+
+    Args:
+        x (int): The x-coordinate for placing the radio button.
+        y (int): The y-coordinate for placing the radio button.
+        text (str): The label text for the radio button.
+        value (str): The value associated with the radio button.
+    """
     radio_button = tk.Radiobutton(canvas, text=text, variable=selected_radio, value=value,
                                   command=lambda: on_radio_select(value),
                                   font=("Times New Roman", 20), bg="#1B262C")
@@ -425,6 +527,11 @@ entry_x_axis.place(  #X axis input place
 
 
 def bind_enter(event):
+    """Binds the 'Enter' key to trigger the process_input function.
+
+    Args:
+        event: The event that triggered the function.
+    """
     process_input()
 
 window.bind('<Return>', bind_enter)
