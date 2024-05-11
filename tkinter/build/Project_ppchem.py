@@ -21,7 +21,7 @@ set_matplotlib_formats('png', 'pdf')
 plt.rcParams['font.family'] = 'Times New Roman'
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/gruenbergsebastien/Project-ppchem-tools-kit/tkinter/build/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/meloenzinger/Documents/GitHub/Project-ppchem-tools-kit-bis/tkinter/build/assets/frame0")
 
 def relative_to_assets(path: str) -> Path:
     """Constructs a path to a file located in the assets directory by combining the provided relative path with the ASSETS_PATH
