@@ -1,4 +1,4 @@
-
+'''
 import unittest
 from unittest.mock import patch
 import sys
@@ -10,11 +10,11 @@ from Project_ppchem import linear_regression
 from Project_ppchem import relative_to_assets, ASSETS_PATH
 from Project_ppchem import name_to_smiles
 
-'''def run_tests():
+def run_tests():
     suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(RelativePathTest))
     runner = unittest.TextTestRunner()
-    runner.run(suite)'''
+    runner.run(suite)
 
 #RELATIVE TO ASSETS
 class TestRelativePath(unittest.TestCase):
@@ -35,7 +35,7 @@ class TestRelativePath(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
     
-    '''suite = unittest.TestSuite()
+    suite = unittest.TestSuite()
     suite.addTest(unittest.makeSuite(TestRelativePath))
     runner = unittest.TextTestRunner()
     runner.run(suite)
@@ -55,3 +55,60 @@ if __name__ == '__main__':
     runner.run(suite)
 '''
 
+def setUp(self):
+        # Setting up mocks for GUI elements
+        self.mock_entry = MagicMock()
+        self.mock_messagebox = MagicMock()
+        self.mock_radiobutton = MagicMock(return_value="1")
+
+        # Patching the Tkinter components
+        self.patcher_entry = patch('tkinter.Entry', return_value=self.mock_entry)
+        self.patcher_messagebox = patch('tkinter.messagebox', self.mock_messagebox)
+        self.patcher_radiobutton = patch('tkinter.IntVar.get', self.mock_radiobutton)
+
+        self.patcher_entry.start()
+        self.patcher_messagebox.start()
+        self.patcher_radiobutton.start()
+
+    def tearDown(self):
+        self.patcher_entry.stop()
+        self.patcher_messagebox.stop()
+        self.patcher_radiobutton.stop()
+
+    def test_empty_input(self):
+        """Test process_input with empty input."""
+        self.mock_entry.get.return_value = ''
+        process_input()
+        self.mock_messagebox.showerror.assert_called_once_with("Error", "Please enter a molecule name, SMILES code, or file path.")
+
+
+
+def setUp(self):
+        # Mocking the Entry widget and other necessary GUI components
+        self.mock_entry_input = MagicMock()
+        self.mock_selected_radio = MagicMock()
+        self.mock_messagebox = MagicMock()
+
+        # Patching GUI components
+        self.patch_entry = patch('tkinter.Entry', return_value=self.mock_entry_input)
+        self.patch_radio = patch('tkinter.IntVar', return_value=self.mock_selected_radio)
+        self.patch_msgbox = patch('tkinter.messagebox', self.mock_messagebox)
+
+        self.mock_entry_input.get.return_value = ''
+
+        self.entry = self.patch_entry.start()
+        self.radio = self.patch_radio.start()
+        self.msgbox = self.patch_msgbox.start()
+
+    def tearDown(self):
+        self.patch_entry.stop()
+        self.patch_radio.stop()
+        self.patch_msgbox.stop()
+
+    def test_empty_input(self):
+        """Test process_input with empty input."""
+        # Set radio value to trigger a specific path, if needed
+        self.mock_selected_radio.get.return_value = '1'
+        
+        process_input()
+        self.mock_messagebox.showerror.assert_called_once_with("Error", "Please enter a molecule name, SMILES code, or file path.")  
