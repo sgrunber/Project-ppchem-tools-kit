@@ -1,0 +1,14 @@
+cairocffi
+cairosvg
+scikit-learn
+numpy
+Pillow
+pubchempy
+rdkit
+requests
+tkinterweb
+py3Dmol
+matplotlib
+pandas
+svglib
+reportlab
