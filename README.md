@@ -24,16 +24,23 @@ Run the code in order for the interface to appear.
 
 Upon entering the molecule's raw formula, the Tools Kit will output the SMILEs of that molecule.
 
-**ii** *SMILEs*
+**ii** *Molecular Weight*
 
 Input of the molecule's SMILEs gives the corresponding molar mass, in g/mol.
 
-**iii.** *Excel Graph*
-
-By inputting an excel document with only x and y values arranged in two columns, the Tools Kit will print out the corresponding graph, plotting all the values.
-
-**iv.** *Linear Regression* 
+**iii.** *Linear Regression* 
 
 By inputting an excel document, found by pressing the *browse* key and importing the file, the Tools Kit will output the linear regression regression graph, with the corresponding R<sup>2</sup> value.
 
+**iv.** *Excel Graph*
+
+By inputting an excel document with only x and y values arranged in two columns, the Tools Kit will print out the corresponding graph, plotting all the values.
+
 The graphs in part iii. and iv. can also take input Title, and X, Y axis labels. 
+
+**v.** *Error Calculation*
+
+
+**vi.** *Show Molecule*
+Input : SMILE
+Output : Molecular structure
