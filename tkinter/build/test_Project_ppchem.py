@@ -325,3 +325,4 @@ if __name__ == '__main__':
     suite.addTest(unittest.makeSuite(TestBindEnter))
     runner = unittest.TextTestRunner()
     runner.run(suite)
+
