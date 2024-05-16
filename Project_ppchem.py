@@ -1,27 +1,69 @@
 
+
+from tkinter import ttk
 import tkinter as tk
+from tkinter import simpledialog, colorchooser
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from pathlib import Path
+from IPython.display import display, Image
+import os
+
+
+from tkinterweb import HtmlFrame
+
+from tkinter import *
+from matplotlib import colors as mcolors
 import numpy as np
-from tkinter import ttk
+from PIL import Image, ImageDraw, ImageTk
 from tkinter import messagebox
 from tkinter import filedialog
+from tkinter import colorchooser
 import subprocess
-import pubchempy as pcp
+
 from rdkit import Chem
-from rdkit.Chem import Descriptors
+from rdkit.Chem import Draw
+import tempfile
+import requests
+from rdkit.Chem import ChemicalFeatures, MolFromSmiles, Draw
+from rdkit.Chem import Draw, Lipinski, Crippen, Descriptors
+from rdkit.Chem import ChemicalFeatures
+from rdkit.Chem.Draw import rdMolDraw2D
+from rdkit.Chem.Draw.rdMolDraw2D import *
+from rdkit.Chem import rdDepictor
+rdDepictor.SetPreferCoordGen(True)
+from rdkit.Chem.Draw import IPythonConsole
+from IPython.display import SVG
+from rdkit import Chem
+from rdkit.Chem import Draw, AllChem
+from rdkit.Chem.Draw import rdMolDraw2D
+from collections import defaultdict
+
 import matplotlib.pyplot as plt
 import pandas as pd
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from tkinter import IntVar, Radiobutton
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk, FigureCanvasTk
+import matplotlib.pyplot as plt
 from matplotlib_inline.backend_inline import set_matplotlib_formats
+from matplotlib.figure import Figure
+from datetime import datetime
 set_matplotlib_formats('png', 'pdf')
+plt.rcParams['font.family'] = 'Times New Roman'
+import sys
+sys.path.insert(0, "../src")
+#from "src/name_to_smiles" import name_to_smiles
 
+from Chem_pack.smiles_to_molar_mass import smiles_to_molar_mass
+from Chem_pack.name_to_smiles import name_to_smiles
+from Chem_pack.display_molecule import display_molecule
+
+set_matplotlib_formats('png', 'pdf')
 plt.rcParams['font.family'] = 'Times New Roman'
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"/Users/meloenzinger/Documents/GitHub/Project-ppchem-tools-kit-bis/tkinter/build/assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path("../assets/frame0")
 
 def relative_to_assets(path: str) -> Path:
     """Constructs a path to a file located in the assets directory by combining the provided relative path with the ASSETS_PATH
