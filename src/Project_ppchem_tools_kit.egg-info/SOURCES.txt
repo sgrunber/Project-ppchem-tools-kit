@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+src/Chem_pack/__init__.py
+src/Chem_pack/display_molecule.py
+src/Chem_pack/module.py
+src/Chem_pack/name_to_smiles.py
+src/Chem_pack/project.py
+src/Chem_pack/smiles_to_molar_mass.py
+src/Project_ppchem_tools_kit.egg-info/PKG-INFO
+src/Project_ppchem_tools_kit.egg-info/SOURCES.txt
+src/Project_ppchem_tools_kit.egg-info/dependency_links.txt
+src/Project_ppchem_tools_kit.egg-info/requires.txt
+src/Project_ppchem_tools_kit.egg-info/top_level.txt
