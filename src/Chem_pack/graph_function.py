@@ -29,8 +29,8 @@ def display_max_point_and_coords(ax, plot_canvas):
             y_rel = (max_y - y_lim[0]) / (y_lim[1] - y_lim[0])
             
             # Calculer les décalages en fonction de la position relative
-            dx = 0.03 * (x_lim[1] - x_lim[0])
-            dy = 0.03 * (y_lim[1] - y_lim[0])
+            dx = 0.01 * (x_lim[1] - x_lim[0])
+            dy = 0.05 * (y_lim[1] - y_lim[0])
             
             # Si le point est proche du bord droit, décaler à gauche
             if x_rel > 0.95:

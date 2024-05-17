@@ -1,26 +1,28 @@
-[project]
-name = "Project-ppchem-tools-kit"
+[tool.poetry]
+name = "Chem-tools-kit"
 version = "0.1.0"
-authors = [
-    { name = "Sébastien Grunberg", email = "sebastien.grunberg@epfl.ch" },
-    { name = "Méloé Enzinger", email = "meloe.enzinger@epfl.ch"}
-]
-dependencies = [
-    "cairocffi==1.7.0",
-    "CairoSVG==2.7.1",
-    "scikit-learn==1.3.0",
-    "numpy",
-    "Pillow==10.2.0",
-    "PubChemPy==1.0.4",
-    "rdkit==2023.9.6",
-    "requests==2.31.0",
-    "matplotlib==3.7.2",
-    "pandas==2.0.3",
-    "svglib==1.5.1",
-    "reportlab==4.2.0"
-    "pyperclip==1.8.2"
-]
+description = "Basic Chemistry Toolkit"
+authors = ["Méloé Enzinger <meloe.enzinger@epfl.ch> and Sébastien Grunberg <sebastien.grunberg@epfl.ch>"]
+license = "MIT"
+readme = "README.md"
 
+[tool.poetry.dependencies]
+python = "^3.10"
+scikit-learn = "1.3.0"
+numpy5 = "^0.1"
+numpy = "^1.26.4"
+pillow = "10.2.0"
+pubchempy = "1.0.4"
+rdkit = "2023.9.6"
+requests = "2.31.0"
+matplotlib = "3.7.2"
+pandas = "2.0.3"
+reportlab = "4.2.0"
+pyperclip = "1.8.2"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.0"
 
-
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
