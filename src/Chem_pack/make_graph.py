@@ -17,8 +17,7 @@ def make_graph(entry_input, x_label, y_label, title, grid=True, save_as=None, li
         plt.xlabel(x_label, fontsize=20)
         plt.ylabel(y_label, fontsize=20)
         plt.title(title, fontsize=25, fontweight='bold')
-        plt.rcParams['figure.dpi'] = 300
-        plt.rcParams['savefig.dpi'] = 300
+
         plt.tight_layout()
 
         if save_as:
@@ -28,3 +27,4 @@ def make_graph(entry_input, x_label, y_label, title, grid=True, save_as=None, li
 
     except FileNotFoundError:
         messagebox.showerror("Error", "The data file was not found.")
+        

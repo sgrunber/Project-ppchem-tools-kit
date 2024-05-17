@@ -5,6 +5,7 @@ from tkinter import messagebox
 from tkinter import simpledialog, colorchooser
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk, FigureCanvasTk
+from matplotlib.figure import Figure
 
 
 graph_window = None 
@@ -178,6 +179,10 @@ def set_custom_labels_and_title(ax, plot_canvas):
 
 
 def display_graph(fig):
+    global graph_window
+    if graph_window:
+        graph_window.destroy()
+
     graph_window = tk.Toplevel()
     graph_window.title("Graph")
     graph_window.geometry("1000x600")
@@ -189,9 +194,14 @@ def display_graph(fig):
 
     toolbar = NavigationToolbar2Tk(plot_canvas, graph_window)
     toolbar.update()
+
     
     for ax in fig.get_axes():
         ax.set_autoscale_on(False)
+        ax.set_xlim(auto=True)
+        ax.set_ylim(auto=True)
+        ax.lines[0].set_linewidth(1)  # Reset line width
+
 
     custom_button = tk.Button(graph_window, text="Custom Labels and Title", command=lambda: set_custom_labels_and_title(fig.axes[0], plot_canvas))
     custom_button.pack(side=tk.LEFT, padx=5)
@@ -213,10 +223,11 @@ def display_graph(fig):
     
     
     def on_closing_graph():
-        #global graph_window
         if messagebox.askokcancel("Quit", "Are you sure you want to quit?"):
-            graph_window.destroy()
+            graph_window.withdraw()  # Hide the window
+            graph_window.quit()  # Quit the main loop
+
             
-    on_closing_graph
+    graph_window.protocol("WM_DELETE_WINDOW", on_closing_graph)
     graph_window.mainloop()
 

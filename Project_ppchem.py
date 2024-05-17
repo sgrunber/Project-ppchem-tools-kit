@@ -8,6 +8,7 @@ from sklearn.metrics import r2_score
 from pathlib import Path
 from IPython.display import display, Image
 import os
+import pubchempy as pcp
 
 
 from tkinterweb import HtmlFrame
@@ -129,7 +130,6 @@ def smiles_to_molar_mass(smiles):
     else:
         return None
 
-'''
 def display_molecule(entry_input):
     
     smiles = entry_input.get().strip()  # Obtenir la chaîne SMILES à partir de l'entrée utilisateur
@@ -138,28 +138,17 @@ def display_molecule(entry_input):
     if mol is not None:
         # Fonction pour afficher la molécule en 2D
         def show_molecule_2d():
-            def get_svg(mol):
-                d2d = Draw.MolDraw2DSVG(350, 300)
-                d2d.DrawMolecule(mol)
-                svg_data = d2d.GetDrawingText()
-                drawing = svg2rlg(BytesIO(svg_data.encode()))
-                renderPM.drawToFile(drawing, "temp.png", fmt="PNG")
-            get_svg(mol)
-            img = Image.open('temp.png')
+            img = Draw.MolToImage(mol)
 
-            # Créer une nouvelle figure matplotlib
-            fig, ax = plt.subplots(figsize=(4, 3))  # Définir la taille de la figure
-            ax.imshow(img)  # Afficher l'image sur la figure
-            ax.axis('off')  # Désactiver les axes
-            plt.tight_layout()
-            # Créer une fenêtre Tkinter pour afficher la structure moléculaire en 2D
-            
+            # Créer une nouvelle fenêtre Tkinter pour afficher la structure moléculaire en 2D
             mol_window = tk.Toplevel()
             mol_window.title("Molecular Structure")
 
-            # Convertir la figure en format Tkinter PhotoImage
-            pimg = FigureCanvasTkAgg(fig, master=mol_window)
-            pimg.draw()
+            # Convertir l'image en format Tkinter PhotoImage
+            pimg = FigureCanvasTkAgg(plt.Figure(figsize=(4, 3)), master=mol_window)
+            ax = pimg.figure.add_subplot(111)
+            ax.imshow(img, interpolation='bilinear')
+            ax.axis('off')
 
             # Créer un canevas Tkinter pour afficher l'image
             canvas = pimg.get_tk_widget()
@@ -169,11 +158,6 @@ def display_molecule(entry_input):
             toolbar = NavigationToolbar2Tk(pimg, mol_window)  # Passer la figure à la barre d'outils
             toolbar.update()
             toolbar.pack()
-            # Enregistrer l'image avec une meilleure qualité
-
-
-            # Ajouter une barre d'outils pour enregistrer l'image
-
 
             mol_window.mainloop()
 
@@ -181,7 +165,6 @@ def display_molecule(entry_input):
     else:
         print("Erreur : Impossible de générer une structure moléculaire à partir du SMILES fourni.")
 
-'''
 
 def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
     """Creates a scatter plot from data in a given Excel file.
@@ -208,8 +191,6 @@ def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_
         plt.xlabel(x_label, fontsize=20)
         plt.ylabel(y_label, fontsize=20)
         plt.title(title, fontsize=25, fontweight='bold')
-        plt.rcParams['figure.dpi'] = 300
-        plt.rcParams['savefig.dpi'] = 300
         plt.tight_layout()
 
         if save_as:
@@ -239,47 +220,35 @@ def linear_regression(file_path, x_label, y_label, title, grid=True, save_as=Non
         FileNotFoundError: If the specified file_path does not exist
     """
     try:
-
-        df = pd.read_excel(file_path)
+        # Récupérez les données du fichier Excel ou d'une autre source
+        df = pd.read_excel(entry_input.get().strip())  # Utilisez entry_input pour obtenir le chemin du fichier
         data_list = df.values.tolist()
-        x_values = np.array([row[0] for row in data_list]).reshape(-1, 1) 
+        x_values = np.array([row[0] for row in data_list]).reshape(-1, 1)
         y_values = [row[1] for row in data_list]
 
         model = LinearRegression()
         model.fit(x_values, y_values)
 
-
         y_pred = model.predict(x_values)
-
         r2 = r2_score(y_values, y_pred)
 
+        fig, ax = plt.subplots()
         plt.plot(x_values, y_pred, color='red', label='Linear Regression', linestyle=line_style, linewidth=1)
-        plt.scatter(x_values, y_values, color='blue', label='Data Points')
-        plt.xlabel(x_label, fontsize=15)
-        plt.ylabel(y_label, fontsize=15)
-        plt.title(title, fontsize=20)
-        plt.rcParams['figure.dpi'] = 300
-        plt.rcParams['savefig.dpi'] = 300
+        plt.scatter(x_values, y_values, color='blue', label='Data Points') # peut-être enlevé les label
+        plt.xlabel(x_label, fontsize=20)
+        plt.ylabel(y_label, fontsize=20)
+        plt.title(title, fontsize=25, fontweight='bold')
         plt.tight_layout()
-
-        if grid:
-            plt.grid(True)
-        else:
-            plt.grid(False)
-
         plt.legend()
-
-
-        plt.text(0.6, 0.8, f'$R^2 = {r2:.2f}$', ha='center', va='center', transform=plt.gca().transAxes, fontsize=13, fontname='Times New Roman')
-
-        plt.show()
+        plt.text(0.6, 0.8, f'$R^2 = {r2:.2f}$', ha='center', va='center', transform=ax.transAxes, fontsize=13, fontname='Times New Roman')
 
         if save_as:
             plt.savefig(save_as)
 
+        display_graph(fig)
+
     except FileNotFoundError:
         messagebox.showerror("Error", "The data file was not found.")
-
 
 def display_max_point_and_coords(ax, plot_canvas):
     def display_max_point(color):
@@ -448,17 +417,17 @@ def set_custom_labels_and_title(ax, plot_canvas):
         plt.tight_layout() 
         plot_canvas.draw_idle()
         
-def refresh_graph_window_with_radio():
-    global graph_window
 
-    # Mettre à jour les tâches en attente pour que la fenêtre se rafraîchisse
-    graph_window.update_idletasks()
 
 def display_graph(fig):
+    global graph_window
+    if graph_window:
+        graph_window.destroy()
 
     graph_window = tk.Toplevel()
     graph_window.title("Graph")
-    graph_window.geometry("800x700")
+    graph_window.geometry("1000x600")
+
 
     plot_canvas = FigureCanvasTkAgg(fig, master=graph_window)
     plot_canvas.draw()
@@ -466,10 +435,14 @@ def display_graph(fig):
 
     toolbar = NavigationToolbar2Tk(plot_canvas, graph_window)
     toolbar.update()
+
     
-    # Empêcher le zoom automatique du graphe
     for ax in fig.get_axes():
         ax.set_autoscale_on(False)
+        ax.set_xlim(auto=True)
+        ax.set_ylim(auto=True)
+        ax.lines[0].set_linewidth(1)  # Reset line width
+
 
     custom_button = tk.Button(graph_window, text="Custom Labels and Title", command=lambda: set_custom_labels_and_title(fig.axes[0], plot_canvas))
     custom_button.pack(side=tk.LEFT, padx=5)
@@ -477,7 +450,6 @@ def display_graph(fig):
     add_data_point_button = tk.Button(graph_window, text="Add Data Point", command=lambda: add_data_point(fig.axes[0], plot_canvas))
     add_data_point_button.pack(side=tk.LEFT, padx=5)
 
-    
     set_scale_button = tk.Button(graph_window, text="Set Scale", command=lambda: set_scale(fig.axes[0], plot_canvas))
     set_scale_button.pack(side=tk.LEFT, padx=5)
 
@@ -489,28 +461,25 @@ def display_graph(fig):
 
     graph_settings_button = tk.Button(graph_window, text="Graph Settings", command=lambda: open_graph_settings_window(fig, plot_canvas))
     graph_settings_button.pack(side=tk.LEFT, padx=5, pady=5)
-    refresh_button = tk.Button(graph_window, text="Refresh", command=refresh_graph_window_with_radio)
-    refresh_button.pack(side=tk.LEFT, padx=5)
+    
+    
+    def on_closing_graph():
+        if messagebox.askokcancel("Quit", "Are you sure you want to quit?"):
+            graph_window.withdraw()  # Hide the window
+            graph_window.quit()  # Quit the main loop
 
-    graph_window.protocol("WM_DELETE_WINDOW", on_closing_graph)
-    graph_window.mainloop()
-
-def on_closing_graph():
-    #global graph_window
-    if messagebox.askokcancel("Quit", "Are you sure you want to quit?"):
-        graph_window.destroy()
             
-    on_closing_graph
+    graph_window.protocol("WM_DELETE_WINDOW", on_closing_graph)
     graph_window.mainloop()
 
 
 def error_calculation_interface():
     # Fonction pour calculer la propagation d'erreur
     def calculate_error_propagation(derivatives, uncertainties):
-        average_values = sum(derivatives)/len(derivatives)
+        average_values = sum(derivatives) / len(derivatives)
         error = sum((unc / deriv) ** 2 for deriv, unc in zip(derivatives, uncertainties))
-        standard_dev = (error**0.5)*average_values
-        return standard_dev
+        standard_dev = (error** 0.5) * average_values
+        return standard_dev, average_values 
 
     def copy_latex_code(latex_code):
         pyperclip.copy(latex_code)
@@ -672,9 +641,9 @@ def process_input(event=None):
             result_text = "Invalid SMILES or molecule not found."
     elif selected_radio.get() in ["3", "4"]:
         if selected_radio.get() == "3":
-            make_graph(x_label, y_label, title)
+            make_graph(entry_input, x_label, y_label, title)
         else:
-            linear_regression(x_label, y_label, title)
+            linear_regression(entry_input, x_label, y_label, title)
         return  # Return to prevent displaying the result window
     elif selected_radio.get() == "5":  # Ajouter cette condition pour le bouton radio "5"
         display_molecule(entry_input)  # Appeler la fonction pour afficher la structure moléculaire
@@ -684,8 +653,6 @@ def process_input(event=None):
         error_calculation_interface()
     else:
         result_text = "Please select an input type."
-
-    display_result(result_text)
 
     display_result(result_text)
 
@@ -863,14 +830,12 @@ def create_radio_button(x, y, text, value):
 
 radio_button_data = [
     (291, 194, "Molecule Name", "1"),
-    (599, 194, "Excel Graph", "3"),
-    (748, 194, "Linear Regression", "4"), 
-    (774, 252, "Random", "random1"),
-    (315, 252, "Random", "random2"),
-    (469, 252, "Random", "random3"),
-    (621, 252, "Random", "random4"),
-    (469, 194, "SMILEs", "2")
-]  
+    (291, 252, "Excel Graph", "3"),
+    (700, 194, "Linear Regression", "4"), 
+    (700, 252, "Show Molecule", "5"),
+    (469, 252, "Error calculation", "6"),
+    (469, 194, "Molecular weight", "2")
+]   
 selected_radio = tk.StringVar(value="none")
 
 for data in radio_button_data:
@@ -897,7 +862,7 @@ window.unbind_all("<Return>")
 
 def on_closing():
     global window
-    if messagebox.askokcancel("Quitter", "Êtes-vous sûr de vouloir quitter ?"):
+    if messagebox.askokcancel("Quit", "Are you sure you want to quit?"):
         window.destroy()
 window.protocol("WM_DELETE_WINDOW", on_closing)
 

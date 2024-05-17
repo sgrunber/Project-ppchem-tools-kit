@@ -27,8 +27,6 @@ def linear_regression(entry_input, x_label, y_label, title, grid=True, save_as=N
         plt.xlabel(x_label, fontsize=20)
         plt.ylabel(y_label, fontsize=20)
         plt.title(title, fontsize=25, fontweight='bold')
-        plt.rcParams['figure.dpi'] = 300
-        plt.rcParams['savefig.dpi'] = 300
         plt.tight_layout()
         plt.legend()
         plt.text(0.6, 0.8, f'$R^2 = {r2:.2f}$', ha='center', va='center', transform=ax.transAxes, fontsize=13, fontname='Times New Roman')
