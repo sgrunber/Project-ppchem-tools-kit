@@ -26,16 +26,16 @@ To do so, navigate to the repository page and click the *"Fork"* button. The rep
 ### 2. 📥 Clone the Repository
 Next, clone the repository using the following command (replace *username* with your GitHub username):
 
-\`\`\`bash
+```bash
 git clone https://github.com/*username*/Project-ppchem-tools-kit.git
-\`\`\`
+```
 
 ### 3. ⬇️ Install with pip
 You can also install Tools Kit using pip:
 
-\`\`\`bash
+```bash
 pip install Project_ppchem-tools-kit
-\`\`\`
+```
 
 ## 🚀 Usage
 
@@ -84,4 +84,4 @@ Contributions are welcome! Please read the CONTRIBUTING.md file for details.
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## 📸 Screenshots
-\`\`\`
+
