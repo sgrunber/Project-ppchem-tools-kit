@@ -52,10 +52,10 @@ from matplotlib.figure import Figure
 from datetime import datetime
 set_matplotlib_formats('png', 'pdf')
 plt.rcParams['font.family'] = 'Times New Roman'
-import sys
-sys.path.insert(0, "../src")
+'''import sys
+sys.path.insert(0, "./src")
 #from "src/name_to_smiles" import name_to_smiles``
-
+'''
 import pyperclip
 
 '''from Chem_pack.smiles_to_molar_mass import smiles_to_molar_mass
@@ -66,7 +66,7 @@ set_matplotlib_formats('png', 'pdf')
 plt.rcParams['font.family'] = 'Times New Roman'
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path("./assets/frame0")
+ASSETS_PATH = OUTPUT_PATH / Path("/Users/meloenzinger/Documents/GitHub/Project-ppchem-tools-kit-bis/assets/frame0")
 
 def relative_to_assets(path: str) -> Path:
     """Constructs a path to a file located in the assets directory by combining the provided relative path with the ASSETS_PATH
