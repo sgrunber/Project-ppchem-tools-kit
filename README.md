@@ -1,5 +1,5 @@
 # Tools Kit
-![logo](https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2e4590b3-7015-4f69-9746-d950e87a7f8f =250x)
+![logo](https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2e4590b3-7015-4f69-9746-d950e87a7f8f)
 
 The **tools kit** package allows chemistry students to find basic information on molecules as well as providing an easy access to some graphs and calculations required in the experimental laboratories carried out.
 
