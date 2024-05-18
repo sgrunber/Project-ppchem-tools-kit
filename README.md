@@ -1,46 +1,173 @@
-# Tools Kit
 
-The **tools kit** package allows chemistry students to find basic information on molecules as well as providing an easy access to some graphs and calculations required in the experimental laboratories carried out.
+<p align="center">
+  <img width="1245" alt="logo_3" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2cd965b1-c81f-4828-8671-1ec25f8a6204">
+ </p>
+
+ <h1 align="center">🧰 Tools Kit</h1>
+
+ <p align="center">
+  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status"></a>
+  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit"><img src="https://img.shields.io/badge/coverage-95%25-brightgreen" alt="Coverage"></a>
+  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
+</p>
+
+## 📖 Description
+The **Tools Kit** package allows chemistry students to find basic information on molecules and provides easy access to some graphs and calculations required in experimental laboratories.
+
+## 📚 Table of Contents
+- [Installation](#️-installation)
+- [Usage](#️-usage)
+- [Features](#️-features)
+- [Contributing](#️-contributing)
+- [Cite Us](#️-cite-us)
+- [License](#️-license)
+- [Screenshots](#️-screenshots)
+
+## 🛠️ Installation
+<a id="installation"></a>
+### 1. 🍴 Fork the Repository
+To start, fork the repository to your own GitHub account.  
+To do so, navigate to the repository page and click the *"Fork"* button. The repository will then be copied to your account, and you will be able to access it.
+
+### 2. 📥 Clone the Repository
+Next, clone the repository using the following command (replace *username* with your GitHub username):
+
+```bash
+git clone https://github.com/*username*/Project-ppchem-tools-kit.git
+```
+
+### 3. ⬇️ Install with pip
+You can also install Tools Kit using pip:
+
+```bash
+pip install Project_ppchem-tools-kit
+```
+
+## 🚀 Usage
+<a id="usage"></a>
+
+To use Tools Kit and access its features, follow these steps after cloning the repository:
+
+### Using Jupyter Notebook:
+
+1. Launch Jupyter Notebook by navigating to the cloned repository directory in your terminal and running the command:
+   ```bash
+   jupyter notebook
+   ```
+2. In the Jupyter Notebook interface, navigate to the `notebooks` directory.
+
+3. Open the notebook named `project_report.ipynb`.
+
+4. Follow the instructions inside the notebook to interact with the Tools Kit interface and utilize its features for molecule analysis, graph plotting, error calculation, and more.
+This notebook provides an interactive environment for convenient usage of Tools Kit directly within Visual Studio Code.
 
 
-## How to use the Tools Kit package
+### Usage with Visual Studio Code:
 
-### 1. Forking the repository
-To begin, fork the repository to your own GitHub account.
-In order to do so, the student must navigate to the repository page and press the *"Fork"* button. The repository will then be copied to your account and you will be able to access it.
+1. Open Visual Studio Code and navigate to the cloned directory.
 
-### 2. Cloning of the repository
+2. Install the Jupyter extension if not already installed. You can do this by searching for "Jupyter" in the Extensions view (Ctrl+Shift+X) and installing the "Python" extension pack.
 
-With the code `git clone https://github.com/*username*/Project-ppchem-tools-kit.git` and replacing *username* by your github username, a local copy is created.
+3. Open the `notebooks` directory in Visual Studio Code.
 
-### 3. Using the Tools Kit
+4. Open the notebook named `project_report.ipynb`.
 
-Line 24: replace the line ASSETS_PATH = OUTPUT_PATH / Path(r"**path to your folder**"), with the pathname of your forked repository.
+5. Follow the instructions inside the notebook to interact with the Tools Kit interface and utilize its features for molecule analysis, graph plotting, error calculation, and more.
+This notebook provides an interactive environment for convenient usage of Tools Kit with Jupyter Notebook.
 
-Run the code in order for the interface to appear.
+## 🧪 Features
 
-### 4. Navigating the interface
-**i.** *Molecule Name*
+1. 🧬 Molecule Name
+   - Input: Raw formula of the molecule
+   - Output: SMILES of the molecule
 
-Upon entering the molecule's raw formula, the Tools Kit will output the SMILEs of that molecule.
+2. ⚖️ Molecular Weight
+   - Input: SMILES of the molecule
+   - Output: Corresponding molar mass in g/mol
 
-**ii** *Molecular Weight*
+3. 📈 Linear Regression
+   - Input: Excel document (imported by pressing the Browse button)
+   - Output: Linear regression graph with the R<sup>2</sup> value
 
-Input of the molecule's SMILEs gives the corresponding molar mass, in g/mol.
-
-**iii.** *Linear Regression* 
-
-By inputting an excel document, found by pressing the *browse* key and importing the file, the Tools Kit will output the linear regression regression graph, with the corresponding R<sup>2</sup> value.
-
-**iv.** *Excel Graph*
-
-By inputting an excel document with only x and y values arranged in two columns, the Tools Kit will print out the corresponding graph, plotting all the values.
-
-The graphs in part iii. and iv. can also take input Title, and X, Y axis labels. 
-
-**v.** *Error Calculation*
+4. 📊 Graph Maker
+   - Input: Excel document with x and y values arranged in two columns
+   - Output: Graph plotting all values
+      - Options: The graph allows customization of various parameters such as changing scales, axis labels, title, displaying maximum values, enabling gridlines, adjusting line types and colors, modifying grid and label axes, and background color.
 
 
-**vi.** *Show Molecule*
-Input : SMILE
-Output : Molecular structure
+5. 📉 Error Propagation
+   - Input: Variables, their values, and their uncertainties.
+   - Output: Mean value, its uncertainty, and the result can be copied as LaTeX code for easy inclusion in documents.
+
+6. 🧪 Show Molecule
+   - Input: SMILES
+   - Output: Molecular structure
+
+The graphs in sections 3 and 4 can also include input for the title and X, Y axis labels.
+
+## 🤝 Contributing
+<a id="contributing"></a>
+
+Contributions are welcome! To contribute to **Tools Kit**, please follow these steps:
+
+1. **Fork** the project to your GitHub account.
+2. Create a new branch for your feature or bug fix: 
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Create a new branch for your feature or bug fix:**
+
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+
+4. **Make your changes and ensure they adhere to the project's coding conventions and style guidelines.**
+
+5. **Commit your changes with descriptive messages explaining the purpose of your changes:**
+
+    ```bash
+    git commit -am 'Add some feature'
+    ```
+
+6. **Push your changes to your branch on your forked repository:**
+
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+
+7. **Once you've pushed your changes, you can open a Pull Request (PR) in the original repository. Provide a clear description of the changes you've made in the PR.**
+
+8. **After reviewing your PR, if everything looks good, it will be merged into the main repository. Congratulations, you've successfully contributed to *Tools Kit*!**
+
+Thank you for your contribution! Your efforts help improve the project for everyone.
+
+## 📚 Cite Us
+<a id="cite-us"></a>
+
+If you use Tools Kit in your research work or academic projects, we would appreciate it if you could cite us. You can use the following BibTeX entry:
+
+```bibtex
+@misc{project-ppchem-tools-kit,
+  title = {Project-ppchem-tools-kit},
+  author = {{Méloé Enzinger & Sébastien Grunberg}},
+  year = {2024},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/username/Project-ppchem-tools-kit}}
+}
+```
+
+### Chicago Style
+```bash
+Enzinger, Méloé, and Sébastien Grunberg. 2024. Project-ppchem-tools-kit. Computer software. GitHub. https://github.com/username/Project-ppchem-tools-kit.` 
+```
+## 📜 License
+<a id="license"></a>
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+## 📸 Screenshots
+<a id="screenshots"></a>
+<img width="1002" alt="Capture d’écran 2024-05-18 à 16 44 09" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/a44379f4-8cf2-4ac8-b370-36fee552ee6a">
+
+
