@@ -19,7 +19,7 @@ The **Tools Kit** package allows chemistry students to find basic information on
 - [Screenshots](#️-screenshots)
 
 ## 🛠️ Installation
-
+<a name="installation"></a>
 ### 1. 🍴 Fork the Repository
 To start, fork the repository to your own GitHub account.  
 To do so, navigate to the repository page and click the *"Fork"* button. The repository will then be copied to your account, and you will be able to access it.
@@ -39,6 +39,7 @@ pip install Project_ppchem-tools-kit
 ```
 
 ## 🚀 Usage
+<a name="usage"></a>
 
 To use Tools Kit and access its features, follow these steps after cloning the repository:
 
@@ -100,6 +101,7 @@ This notebook provides an interactive environment for convenient usage of Tools 
 The graphs in sections 3 and 4 can also include input for the title and X, Y axis labels.
 
 ## 🤝 Contributing
+<a name="contributing"></a>
 
 Contributions are welcome! To contribute to **Tools Kit**, please follow these steps:
 
@@ -135,6 +137,7 @@ Contributions are welcome! To contribute to **Tools Kit**, please follow these s
 Thank you for your contribution! Your efforts help improve the project for everyone.
 
 ## 📚 Cite Us
+<a name="cite-us"></a>
 
 If you use Tools Kit in your research work or academic projects, we would appreciate it if you could cite us. You can use the following BibTeX entry:
 
@@ -154,8 +157,10 @@ If you use Tools Kit in your research work or academic projects, we would apprec
 Enzinger, Méloé, and Sébastien Grunberg. 2024. Project-ppchem-tools-kit. Computer software. GitHub. https://github.com/username/Project-ppchem-tools-kit.` 
 ```
 ## 📜 License
+<a name="license"></a>
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## 📸 Screenshots
+<a name="screenshots"></a>
 
