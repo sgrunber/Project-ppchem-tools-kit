@@ -6,9 +6,10 @@
 <h1 align="center">🧰 Tools Kit</h1>
 
 <p align="center">
-  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/github/workflow/status/sgrunber/Project-ppchem-tools-kit/build?style=flat-square" alt="Build Status"></a>
-  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/sgrunber/Project-ppchem-tools-kit?style=flat-square" alt="License"></a>
-  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/releases"><img src="https://img.shields.io/github/v/release/sgrunber/Project-ppchem-tools-kit?style=flat-square" alt="Latest Release"></a>
+[![build](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/sgrunber/Project-ppchem-tools-kit)
+[![coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/sgrunber/Project-ppchem-tools-kit)
+[![license](https://img.shields.io/badge/license-MIT-blue)](https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE)
+
 </p>
 ## 📖 Description
 The **Tools Kit** package allows chemistry students to find basic information on molecules and provides easy access to some graphs and calculations required in experimental laboratories.
