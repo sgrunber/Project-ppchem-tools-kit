@@ -104,7 +104,20 @@ Contributions are welcome! To contribute to **Tools Kit**, please follow these s
 
 Thank you for your contribution! Your efforts help improve the project for everyone.
 
+## 📚 Cite Us
 
+If you use Tools Kit in your research work or academic projects, we would appreciate it if you could cite us. You can use the following BibTeX entry:
+
+```bibtex
+@misc{project-ppchem-tools-kit,
+  title = {Project-ppchem-tools-kit},
+  author = {{Méloé Enzinger & Sébastien Grunberg}},
+  year = {2024},
+  publisher = {GitHub},
+  journal = {GitHub Repository},
+  howpublished = {\url{https://github.com/username/Project-ppchem-tools-kit}}
+}
+```
 
 ## 📜 License
 
