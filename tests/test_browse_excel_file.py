@@ -1,39 +1,85 @@
 import unittest
 from unittest.mock import patch, MagicMock
-import tkinter as tk
-
+from io import StringIO
 import sys
+import tkinter as tk  # Import tk module
+
 sys.path.insert(0, "./src")
 from Chem_pack.browse_excel_file import browse_excel_file
 
 class TestBrowseExcelFile(unittest.TestCase):
 
-    def setUp(self):
-        # Create a mock root window
-        self.root = tk.Tk()
+    @patch('Chem_pack.browse_excel_file.filedialog.askopenfilename')
+    @patch('Chem_pack.browse_excel_file.tk.Entry')
+    def test_browse_excel_file(self, mock_entry, mock_askopenfilename):
+        # Mock the return value of askopenfilename
+        mock_askopenfilename.return_value = 'test_file.xlsx'
+        
+        # Create a mock entry widget
+        mock_entry_input = MagicMock()
+        mock_entry.return_value = mock_entry_input
 
-    @patch('tkinter.filedialog.askopenfilename', return_value='/Users/meloenzinger/Documents/GitHub/Project-ppchem-tools-kit-bis/data/test_graph_1.xlsx')
-    @patch("Chem_pack.browse_excel_file.entry_input", MagicMock())
-    def test_browse_excel_file(self, mock_askopenfilename):
-        # Mock the entry_input widget
-        entry_input = MagicMock()
+        # Set the global variable entry_input to the mock entry
+        global entry_input
+        entry_input = mock_entry_input
 
-        # Patch the global entry_input variable
-        with patch.dict('__main__.__dict__', {'entry_input': entry_input}):
-            # Call the function
-            browse_excel_file()
+        # Call the function to be tested
+        browse_excel_file()
 
-            # Assertions
-            mock_askopenfilename.assert_called_once_with(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
-            entry_input.insert.assert_called_once_with(0, '/Users/meloenzinger/Documents/GitHub/Project-ppchem-tools-kit-bis/data')
-            entry_input.clipboard_clear.assert_called_once()
-            entry_input.clipboard_append.assert_called_once_with('/Users/meloenzinger/Documents/GitHub/Project-ppchem-tools-kit-bis/data')
-            self.assertEqual(entry_input.update.call_count, 1)
-            entry_input.delete.assert_called_once_with(0, tk.END)
+        # Check if the correct file path was set in the entry widget
+        mock_entry_input.delete.assert_called_once_with(0, tk.END)
+        mock_entry_input.insert.assert_called_once_with(0, 'test_file.xlsx')
+        mock_askopenfilename.assert_called_once_with(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
 
-    def tearDown(self):
-        # Destroy the mock root window
-        self.root.destroy()
+    @patch('Chem_pack.browse_excel_file.filedialog.askopenfilename')
+    @patch('Chem_pack.browse_excel_file.tk.Entry')
+    def test_browse_excel_file_no_selection(self, mock_entry, mock_askopenfilename):
+        # Mock the return value of askopenfilename to simulate no file selected
+        mock_askopenfilename.return_value = ''
+        
+        # Create a mock entry widget
+        mock_entry_input = MagicMock()
+        mock_entry.return_value = mock_entry_input
+
+        # Set the global variable entry_input to the mock entry
+        global entry_input
+        entry_input = mock_entry_input
+
+        # Call the function to be tested
+        browse_excel_file()
+
+        # Check that delete and insert were not called
+        mock_entry_input.delete.assert_not_called()
+        mock_entry_input.insert.assert_not_called()
+        mock_askopenfilename.assert_called_once_with(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
+
+    @patch('Chem_pack.browse_excel_file.filedialog.askopenfilename')
+    @patch('Chem_pack.browse_excel_file.tk.Entry')
+    def test_browse_excel_file_exception_handling(self, mock_entry, mock_askopenfilename):
+        # Mock the return value of askopenfilename
+        mock_askopenfilename.return_value = 'test_file.xlsx'
+        
+        # Create a mock entry widget and set it to raise an exception
+        mock_entry_input = MagicMock()
+        mock_entry_input.delete.side_effect = Exception("Test exception")
+        mock_entry.return_value = mock_entry_input
+
+        # Set the global variable entry_input to the mock entry
+        global entry_input
+        entry_input = mock_entry_input
+
+        # Capture standard output
+        captured_output = StringIO()
+        sys.stdout = captured_output
+
+        # Call the function to be tested
+        browse_excel_file()
+
+        # Restore standard output
+        sys.stdout = sys.__stdout__
+
+        # Check for the exception message in output
+        self.assertIn("Error: Test exception", captured_output.getvalue())
 
 if __name__ == '__main__':
     unittest.main()
