@@ -119,6 +119,10 @@ If you use Tools Kit in your research work or academic projects, we would apprec
 }
 ```
 
+### Chicago Style
+```bash
+Enzinger, Méloé, and Sébastien Grunberg. 2024. Project-ppchem-tools-kit. Computer software. GitHub. https://github.com/username/Project-ppchem-tools-kit.` 
+```
 ## 📜 License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
