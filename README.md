@@ -14,6 +14,9 @@
 ## 📖 Description
 The **Tools Kit** package allows chemistry students to find basic information on molecules and provides easy access to some graphs and calculations required in experimental laboratories.
 
+**Note**: For an aesthetically pleasing experience, it is recommended to use the dark mode interface if you are on a Mac or any other platform that supports it.
+
+
 ## 📚 Table of Contents
 - [Installation](#️-installation)
 - [Usage](#️-usage)
