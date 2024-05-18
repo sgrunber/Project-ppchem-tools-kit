@@ -10,12 +10,13 @@
 The **Tools Kit** package allows chemistry students to find basic information on molecules and provides easy access to some graphs and calculations required in experimental laboratories.
 
 ## 📚 Table of Contents
-- [Installation](#-installation)
-- [Usage](#-usage)
-- [Features](#-features)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Screenshots](#-screenshots)
+- [Installation](#️-installation)
+- [Usage](#️-usage)
+- [Features](#️-features)
+- [Contributing](#️-contributing)
+- [Cite Us](#️-cite-us)
+- [License](#️-license)
+- [Screenshots](#️-screenshots)
 
 ## 🛠️ Installation
 
@@ -39,7 +40,34 @@ pip install Project_ppchem-tools-kit
 
 ## 🚀 Usage
 
-To launch the interface, run the code after configuring the path.
+To use Tools Kit and access its features, follow these steps after cloning the repository:
+
+### Using Jupyter Notebook:
+
+1. Launch Jupyter Notebook by navigating to the cloned repository directory in your terminal and running the command:
+   ```bash
+   jupyter notebook
+   ```
+2. In the Jupyter Notebook interface, navigate to the `notebooks` directory.
+
+3. Open the notebook named `project_report.ipynb`.
+
+4. Follow the instructions inside the notebook to interact with the Tools Kit interface and utilize its features for molecule analysis, graph plotting, error calculation, and more.
+This notebook provides an interactive environment for convenient usage of Tools Kit directly within Visual Studio Code.
+
+
+### Usage with Visual Studio Code:
+
+1. Open Visual Studio Code and navigate to the cloned directory.
+
+2. Install the Jupyter extension if not already installed. You can do this by searching for "Jupyter" in the Extensions view (Ctrl+Shift+X) and installing the "Python" extension pack.
+
+3. Open the `notebooks` directory in Visual Studio Code.
+
+4. Open the notebook named `project_report.ipynb`.
+
+5. Follow the instructions inside the notebook to interact with the Tools Kit interface and utilize its features for molecule analysis, graph plotting, error calculation, and more.
+This notebook provides an interactive environment for convenient usage of Tools Kit with Jupyter Notebook.
 
 ## 🧪 Features
 
@@ -55,13 +83,15 @@ To launch the interface, run the code after configuring the path.
    - Input: Excel document (imported by pressing the Browse button)
    - Output: Linear regression graph with the R<sup>2</sup> value
 
-4. 📊 Excel Graph
+4. 📊 Graph Maker
    - Input: Excel document with x and y values arranged in two columns
    - Output: Graph plotting all values
+      - Options: The graph allows customization of various parameters such as changing scales, axis labels, title, displaying maximum values, enabling gridlines, adjusting line types and colors, modifying grid and label axes, and background color.
 
-5. 📉 Error Calculation
-   - Input: (to be specified)
-   - Output: (to be specified)
+
+5. 📉 Error Propagation
+   - Input: Variables, their values, and their uncertainties.
+   - Output: Mean value, its uncertainty, and the result can be copied as LaTeX code for easy inclusion in documents.
 
 6. 🧪 Show Molecule
    - Input: SMILES
