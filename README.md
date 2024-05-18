@@ -1,7 +1,7 @@
 <p align="center">
-  <img src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/91afff6f-db4a-4233-94d9-59432eabec23.png" alt="Tools Kit Logo">
-</p>
-<h1 align="center">🧰 Tools Kit</h1>
+</h<img width="1245" alt="logo_3" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2cd965b1-c81f-4828-8671-1ec25f8a6204"></p>
+<h1 align="center">🧰 Tools Kit
+1>
 
 <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status"></a>
