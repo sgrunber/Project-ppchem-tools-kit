@@ -71,13 +71,40 @@ The graphs in sections 3 and 4 can also include input for the title and X, Y axi
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read the CONTRIBUTING.md file for details.
+Contributions are welcome! To contribute to **Tools Kit**, please follow these steps:
 
-1. Fork the project
-2. Create your feature branch (git checkout -b feature/fooBar)
-3. Commit your changes (git commit -am 'Add some fooBar')
-4. Push to the branch (git push origin feature/fooBar)
-5. Open a Pull Request
+1. **Fork** the project to your GitHub account.
+2. Create a new branch for your feature or bug fix: 
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+3. **Create a new branch for your feature or bug fix:**
+
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+
+4. **Make your changes and ensure they adhere to the project's coding conventions and style guidelines.**
+
+5. **Commit your changes with descriptive messages explaining the purpose of your changes:**
+
+    ```bash
+    git commit -am 'Add some feature'
+    ```
+
+6. **Push your changes to your branch on your forked repository:**
+
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+
+7. **Once you've pushed your changes, you can open a Pull Request (PR) in the original repository. Provide a clear description of the changes you've made in the PR.**
+
+8. **After reviewing your PR, if everything looks good, it will be merged into the main repository. Congratulations, you've successfully contributed to *Tools Kit*!**
+
+Thank you for your contribution! Your efforts help improve the project for everyone.
+
+
 
 ## 📜 License
 
