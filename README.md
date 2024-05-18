@@ -167,4 +167,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## 📸 Screenshots
 <a id="screenshots"></a>
+<img width="1002" alt="Capture d’écran 2024-05-18 à 16 44 09" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/a44379f4-8cf2-4ac8-b370-36fee552ee6a">
+
 
