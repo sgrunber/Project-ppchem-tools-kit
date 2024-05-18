@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from Project_ppchem import relative_to_assets, ASSETS_PATH
+from ToolsKit.Project_ppchem import relative_to_assets, ASSETS_PATH
 
 
 #RELATIVETOASSETS
@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
 
 #NAMETOSMILES
-from Project_ppchem import name_to_smiles
+from ToolsKit.Project_ppchem import name_to_smiles
 
 class TestChemFunctions(unittest.TestCase):
     @patch('Project_ppchem.pcp.get_compounds')
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 
 
 #SMILESTOMOLARMASS
-from Project_ppchem import smiles_to_molar_mass
+from ToolsKit.Project_ppchem import smiles_to_molar_mass
 
 class TestMolecularFunctions(unittest.TestCase):
     @patch('Project_ppchem.Chem.MolFromSmiles')
@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
 
 #LINEARREG & MAKEGRAPH
-from Project_ppchem import linear_regression, make_graph
+from ToolsKit.Project_ppchem import linear_regression, make_graph
 
 class TestPlottingFunctions(unittest.TestCase):
     @patch('Project_ppchem.pd.read_excel')
