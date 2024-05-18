@@ -1,8 +1,6 @@
-
 <p align="center">
-  <img src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2e4590b3-7015-4f69-9746-d950e87a7f8f.png" alt="Tools Kit Logo">
+  <img src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/91afff6f-db4a-4233-94d9-59432eabec23.png" alt="Tools Kit Logo">
 </p>
-
 <h1 align="center">🧰 Tools Kit</h1>
 
 <p align="center">
