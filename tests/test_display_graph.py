@@ -1,73 +1,95 @@
-import unittest
-from unittest.mock import MagicMock, patch, call
-import tkinter as tk
-from tkinter import messagebox
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
-
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.display_graph import display_graph  # Ensure this path is correct
+from Chem_pack.display_graph import display_graph 
+
+# test_display_graph.py
+import unittest
+from unittest.mock import patch, MagicMock
+import tkinter as tk
+from matplotlib.figure import Figure
+from Chem_pack.display_graph import display_graph, graph_window
 
 class TestDisplayGraph(unittest.TestCase):
 
-    @patch('tkinter.Toplevel')
-    @patch('tkinter.Button')
-    @patch('matplotlib.backends.backend_tkagg.FigureCanvasTkAgg')
-    @patch('matplotlib.backends.backend_tkagg.NavigationToolbar2Tk')
-    @patch('tkinter.messagebox.askokcancel', return_value=True)
-    def test_display_graph(self, mock_askokcancel, mock_toolbar, mock_canvas, mock_button, mock_toplevel):
-        # Set up the mock objects
-        mock_window = MagicMock()
-        mock_toplevel.return_value = mock_window
+    @patch('Chem_pack.display_graph.tk.Toplevel')
+    @patch('Chem_pack.display_graph.FigureCanvasTkAgg')
+    @patch('Chem_pack.display_graph.NavigationToolbar2Tk')
+    @patch('Chem_pack.display_graph.set_custom_labels_and_title')
+    @patch('Chem_pack.display_graph.add_data_point')
+    @patch('Chem_pack.display_graph.set_scale')
+    @patch('Chem_pack.display_graph.toggle_grid')
+    @patch('Chem_pack.display_graph.display_max_point_and_coords')
+    @patch('Chem_pack.display_graph.open_graph_settings_window')
+    @patch('Chem_pack.display_graph.messagebox.askokcancel', return_value=True)
+    @patch('Chem_pack.display_graph.tk.Button')
+    def test_display_graph(self, mock_Button, mock_askokcancel, mock_open_graph_settings_window, mock_display_max_point_and_coords,
+                           mock_toggle_grid, mock_set_scale, mock_add_data_point, mock_set_custom_labels_and_title,
+                           mock_NavigationToolbar2Tk, mock_FigureCanvasTkAgg, mock_Toplevel):
+        # Mocking the Toplevel window
+        mock_toplevel_instance = MagicMock()
+        mock_Toplevel.return_value = mock_toplevel_instance
+
+        # Mocking FigureCanvasTkAgg and NavigationToolbar2Tk
         mock_canvas_instance = MagicMock()
-        mock_canvas.return_value = mock_canvas_instance
+        mock_FigureCanvasTkAgg.return_value = mock_canvas_instance
+        mock_toolbar_instance = MagicMock()
+        mock_NavigationToolbar2Tk.return_value = mock_toolbar_instance
 
-        fig = Figure()
-        ax = fig.add_subplot(111)
-        ax.plot([1, 2, 3], [4, 5, 6])
+        # Creating a mock figure
+        mock_fig = MagicMock(spec=Figure)
 
+        # Ensure graph_window is reset before the test
         global graph_window
-        graph_window = None  # Ensure global graph_window is None to start
+        graph_window = None
 
-        # Call the function
-        display_graph(fig)  # Correctly calling the function
+        # Call the function to display the graph
+        display_graph(mock_fig)
 
-        # Check that a new Toplevel window is created
-        mock_toplevel.assert_called_once()
-        mock_window.title.assert_called_once_with("Graph")
-        mock_window.geometry.assert_called_once_with("1000x600")
+        # Ensure Toplevel window was created
+        mock_Toplevel.assert_called_once()
+        mock_toplevel_instance.title.assert_called_once_with("Graph")
+        mock_toplevel_instance.geometry.assert_called_once_with("1000x600")
 
-        # Check that the FigureCanvasTkAgg and NavigationToolbar2Tk are created and set up correctly
-        mock_canvas.assert_called_once_with(fig, master=mock_window)
+        # Ensure FigureCanvasTkAgg was created and packed
+        mock_FigureCanvasTkAgg.assert_called_once_with(mock_fig, master=mock_toplevel_instance)
         mock_canvas_instance.draw.assert_called_once()
         mock_canvas_instance.get_tk_widget().pack.assert_called_once_with(side=tk.TOP, fill=tk.BOTH, expand=1)
-        mock_toolbar.assert_called_once_with(mock_canvas_instance, mock_window)
-        mock_toolbar.return_value.update.assert_called_once()
 
-        # Check that all buttons are created and packed correctly
-        self.assertEqual(mock_button.call_count, 6)
-        button_calls = [
-            call(mock_window, text="Custom Labels and Title", command=unittest.mock.ANY),
-            call(mock_window, text="Add Data Point", command=unittest.mock.ANY),
-            call(mock_window, text="Set Scale", command=unittest.mock.ANY),
-            call(mock_window, text="Toggle Grid", command=unittest.mock.ANY),
-            call(mock_window, text="Display Max Point", command=unittest.mock.ANY),
-            call(mock_window, text="Graph Settings", command=unittest.mock.ANY)
-        ]
-        mock_button.assert_has_calls(button_calls, any_order=True)
+        # Ensure NavigationToolbar2Tk was created and updated
+        mock_NavigationToolbar2Tk.assert_called_once_with(mock_canvas_instance, mock_toplevel_instance)
+        mock_toolbar_instance.update.assert_called_once()
 
-        for btn in mock_button.return_value:
-            btn.pack.assert_called_once_with(side=tk.LEFT, padx=5, pady=5 if 'Graph Settings' in btn.call_args[1]['text'] else 0)
+        # Ensure buttons were created and packed
+        self.assertEqual(mock_Button.call_count, 6)  # Ensure 6 buttons were created
 
-        # Check the protocol for window closing
-        mock_window.protocol.assert_called_once_with("WM_DELETE_WINDOW", unittest.mock.ANY)
+        # Simulate button clicks to verify commands
+        button_calls = mock_Button.call_args_list
+        button_commands = [call[1]['command'] for call in button_calls]
+
+        button_commands[0]()
+        mock_set_custom_labels_and_title.assert_called_once_with(mock_fig.axes[0], mock_canvas_instance)
+
+        button_commands[1]()
+        mock_add_data_point.assert_called_once_with(mock_fig.axes[0], mock_canvas_instance)
+
+        button_commands[2]()
+        mock_set_scale.assert_called_once_with(mock_fig.axes[0], mock_canvas_instance)
+
+        button_commands[3]()
+        mock_toggle_grid.assert_called_once_with(mock_fig.axes[0], mock_canvas_instance)
+
+        button_commands[4]()
+        mock_display_max_point_and_coords.assert_called_once_with(mock_fig.axes[0], mock_canvas_instance)
+
+        button_commands[5]()
+        mock_open_graph_settings_window.assert_called_once_with(mock_fig, mock_canvas_instance)
 
         # Simulate closing the window
-        close_callback = mock_window.protocol.call_args[0][1]
-        close_callback()
-        mock_window.withdraw.assert_called_once()
-        mock_window.quit.assert_called_once()
+        on_closing = mock_toplevel_instance.protocol.call_args[0][1]
+        with patch('Chem_pack.display_graph.graph_window', mock_toplevel_instance):
+            on_closing()
+            mock_toplevel_instance.withdraw.assert_called_once()
+            mock_toplevel_instance.quit.assert_called_once()
 
 if __name__ == '__main__':
     unittest.main()

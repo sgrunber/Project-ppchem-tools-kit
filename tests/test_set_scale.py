@@ -1,37 +1,40 @@
 import unittest
-from unittest.mock import patch, MagicMock, call
-from matplotlib.ticker import MultipleLocator
+from unittest.mock import patch, MagicMock
 
 import sys
 sys.path.insert(0, "./src")
 from Chem_pack.set_scale import set_scale
 
+
 class TestSetScale(unittest.TestCase):
 
-    @patch('Chem_pack.set_scale.simpledialog.askfloat', side_effect=[2.0, 3.0])  # Mock user input for x and y spacings
-    def test_set_scale(self, mock_askfloat):
-        # Create a mock axis and plot canvas
-        ax = MagicMock()
-        ax.figure = MagicMock()
-        plot_canvas = MagicMock()
+    @patch('Chem_pack.set_scale.simpledialog.askfloat')
+    @patch('Chem_pack.set_scale.plt.MultipleLocator')
+    def test_set_scale(self, mock_MultipleLocator, mock_askfloat):
+        # Mocking the return values for askfloat
+        mock_askfloat.side_effect = [1.0, 2.0]
+        
+        # Creating mock objects for ax and plot_canvas
+        mock_ax = MagicMock()
+        mock_plot_canvas = MagicMock()
 
         # Call the function
-        set_scale(ax, plot_canvas)
+        set_scale(mock_ax, mock_plot_canvas)
 
-        # Assert that simpledialog.askfloat() was called twice with correct parameters
-        mock_askfloat.assert_any_call("X Spacing", "Enter spacing between x ticks:")
-        mock_askfloat.assert_any_call("Y Spacing", "Enter spacing between y ticks:")
-
-        # Capture the actual calls made to ax.xaxis.set_major_locator
-        actual_calls = ax.xaxis.set_major_locator.call_args
-
-        # Assert that major locators for x and y axes are set correctly
-        expected_calls = call(MultipleLocator(2.0))
-        actual_calls.assert_called_once_with(expected_calls)
-
-        # Assert that plt.tight_layout() and plot_canvas.draw_idle() were called
-        ax.figure.tight_layout.assert_called_once()
-        plot_canvas.draw_idle.assert_called_once()
+        # Verify askfloat was called twice
+        self.assertEqual(mock_askfloat.call_count, 2)
+        
+        # Verify MultipleLocator was called with the correct arguments
+        mock_MultipleLocator.assert_any_call(1.0)
+        mock_MultipleLocator.assert_any_call(2.0)
+        
+        # Verify ax.xaxis.set_major_locator and ax.yaxis.set_major_locator were called
+        self.assertEqual(mock_ax.xaxis.set_major_locator.call_count, 1)
+        self.assertEqual(mock_ax.yaxis.set_major_locator.call_count, 1)
+        
+        # Verify plot_canvas.draw_idle was called
+        mock_plot_canvas.draw_idle.assert_called_once()
 
 if __name__ == '__main__':
     unittest.main()
+

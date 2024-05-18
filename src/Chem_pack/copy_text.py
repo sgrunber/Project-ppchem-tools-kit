@@ -1,4 +1,4 @@
-window = None
+window = None 
 
 def copy_text(event):
     """Copies selected text to the clipboard. Bound to an event.

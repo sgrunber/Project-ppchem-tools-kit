@@ -1,8 +1,12 @@
+import threading
+import time
 import unittest
+import tkinter as tk
 from unittest.mock import patch
 
 import sys
 sys.path.insert(0, "./src")
+from Chem_pack.error_calculation_interface import error_calculation_interface
 from Chem_pack.error_calculation_interface import calculate_error_propagation, copy_latex_code, calculate_and_display, add_variable_entry, remove_variable_entry
 
 class TestCalculateErrorPropagation(unittest.TestCase):
@@ -244,9 +248,8 @@ class TestErrorCalculationInterface(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
 '''
-
-
 
 '''
 class TestErrorCalculationInterface(unittest.TestCase):

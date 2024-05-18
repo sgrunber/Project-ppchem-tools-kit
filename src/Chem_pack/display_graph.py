@@ -9,6 +9,7 @@ from Chem_pack.toggle_grid import toggle_grid
 from Chem_pack.display_max_point_and_coords import display_max_point_and_coords
 from Chem_pack.open_graph_settings_window import open_graph_settings_window
 
+graph_window = None
 
 def display_graph(fig):
     global graph_window
