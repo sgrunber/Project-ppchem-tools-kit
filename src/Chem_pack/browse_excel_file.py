@@ -1,4 +1,5 @@
 from tkinter import filedialog
+import tkinter as tk
 
 def browse_excel_file():
     """Opens a file dialog to select an Excel file, and updates the input field with the selected file path. Copies the file path to the clipboard.
