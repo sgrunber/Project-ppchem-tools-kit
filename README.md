@@ -1,9 +1,11 @@
-<p align="center">
-</h<img width="1245" alt="logo_3" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2cd965b1-c81f-4828-8671-1ec25f8a6204"></p>
-<h1 align="center">🧰 Tools Kit
-h1>
 
 <p align="center">
+  <img width="1245" alt="logo_3" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2cd965b1-c81f-4828-8671-1ec25f8a6204">
+ </p>
+
+ <h1 align="center">🧰 Tools Kit</h1>
+
+ <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status"></a>
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit"><img src="https://img.shields.io/badge/coverage-95%25-brightgreen" alt="Coverage"></a>
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
