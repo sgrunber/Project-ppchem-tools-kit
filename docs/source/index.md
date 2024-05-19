@@ -1,4 +1,4 @@
-![Project Logo](./_static/images/logo.png)
+![Project Logo](./_static/images/logo_project.png)
 
 # Tools Kit
 Welcome to the documentation for **Tools Kit**.

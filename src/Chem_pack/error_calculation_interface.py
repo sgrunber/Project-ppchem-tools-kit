@@ -1,19 +1,14 @@
+# Chem_pack/error_calculation.py
 import tkinter as tk
 import pyperclip
 
-
+def calculate_error_propagation(derivatives, uncertainties):
+    average_values = sum(derivatives) / len(derivatives)
+    error = sum((unc / deriv) ** 2 for deriv, unc in zip(derivatives, uncertainties))
+    standard_dev = (error ** 0.5) * average_values
+    return standard_dev, average_values
 
 def error_calculation_interface():
-    # Fonction pour calculer la propagation d'erreur
-    def calculate_error_propagation(derivatives, uncertainties):
-        average_values = sum(derivatives) / len(derivatives)
-        error = sum((unc / deriv) ** 2 for deriv, unc in zip(derivatives, uncertainties))
-        standard_dev = (error** 0.5) * average_values
-        return standard_dev, average_values 
-
-
-
-
     def copy_latex_code(latex_code):
         pyperclip.copy(latex_code)
         result_window.clipboard_clear()
@@ -42,32 +37,40 @@ def error_calculation_interface():
         for var_name, var_value, var_uncertainty in data:
             result_text += f"{var_name}: Value: {var_value}, Uncertainty: {var_uncertainty}\n"
 
-      
         latex_code = r"""
 
+        \subsection*{Propagation of Uncertainty ($\Delta\bar{z}$)}
 
-        Propagation of Uncertainty ($\Delta z$)
         The propagation of uncertainty is calculated as follows:
+
         \begin{equation}
         \Delta \bar{z} = \bar{z} \times \sqrt{\left(\left(\frac{\Delta x}{x}\right)^2 + \left(\frac{\Delta y}{y}\right)^2 + \ldots\right)}
         \end{equation}
+
+        The calculated uncertainty is:
+
         \[
-        \Delta z = """ + f"{error:.6f}" + r"""
+        \Delta \bar{z} = """ + f"{error:.6f}" + r"""
         \]
-        
+
         The average value is calculated as follows:
-        
+
         \begin{equation}
         \bar{z} = \frac{1}{N} \sum_{i=1}^{N} z_i
         \end{equation}
+
+        The calculated average value is:
+
         \[
         \bar{z} = """ + f"{average:.6f}" + r"""
         \]
 
-        The details of variables:
+        \subsection*{Details of Variables}
+
         \begin{itemize}
-        """ + "\n".join([f"    \item {var_name}: Value: {var_value}, Uncertainty: {var_uncertainty}" for var_name, var_value, var_uncertainty in data]) + r"""
+        """ + "\n".join([f"    \\item {var_name}: Value: {var_value}, Uncertainty: {var_uncertainty}" for var_name, var_value, var_uncertainty in data]) + r"""
         \end{itemize}
+
         """
 
         # Create a new window to display the result
@@ -83,7 +86,6 @@ def error_calculation_interface():
         # Button to copy LaTeX code to clipboard
         copy_button = tk.Button(result_window, text="Copy LaTeX Code", command=lambda: copy_latex_code(latex_code))
         copy_button.grid(row=1, column=0, padx=5, pady=5)
-
 
     def add_variable_entry():
         # Ajouter des champs d'entrée pour une nouvelle variable
