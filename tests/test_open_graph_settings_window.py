@@ -4,7 +4,7 @@ import tkinter as tk
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.open_graph_settings_window import open_graph_settings_window
+from project_ppchem_tools_kit.open_graph_settings_window import open_graph_settings_window
 
 
 class TestOpenGraphSettingsWindow(unittest.TestCase):

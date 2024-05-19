@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.copy_text import copy_text
+from project_ppchem_tools_kit.copy_text import copy_text
 from io import StringIO
 
 class TestCopyText(unittest.TestCase):

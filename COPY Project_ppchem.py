@@ -55,9 +55,9 @@ import sys
 sys.path.insert(0, "../src")
 #from "src/name_to_smiles" import name_to_smiles
 
-from Chem_pack.smiles_to_molar_mass import smiles_to_molar_mass
-from Chem_pack.name_to_smiles import name_to_smiles
-from Chem_pack.display_molecule import display_molecule
+from project_ppchem_tools_kit.smiles_to_molar_mass import smiles_to_molar_mass
+from project_ppchem_tools_kit.name_to_smiles import name_to_smiles
+from project_ppchem_tools_kit.display_molecule import display_molecule
 
 set_matplotlib_formats('png', 'pdf')
 plt.rcParams['font.family'] = 'Times New Roman'

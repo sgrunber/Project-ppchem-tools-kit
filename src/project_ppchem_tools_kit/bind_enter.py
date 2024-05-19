@@ -1,4 +1,4 @@
-from Chem_pack.process_input import process_input
+from project_ppchem_tools_kit.process_input import process_input
 window = None
 
 def bind_enter(event):

@@ -1,13 +1,13 @@
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.display_graph import display_graph 
+from project_ppchem_tools_kit.display_graph import display_graph 
 
 # test_display_graph.py
 import unittest
 from unittest.mock import patch, MagicMock
 import tkinter as tk
 from matplotlib.figure import Figure
-from Chem_pack.display_graph import display_graph, graph_window
+from project_ppchem_tools_kit.display_graph import display_graph, graph_window
 
 class TestDisplayGraph(unittest.TestCase):
 

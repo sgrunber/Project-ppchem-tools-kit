@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.set_scale import set_scale
+from project_ppchem_tools_kit.set_scale import set_scale
 
 
 class TestSetScale(unittest.TestCase):

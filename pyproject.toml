@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "Chem-tools-kit"
-version = "0.1.0"
+name = "Project-ppchem-tools-kit"
+version = "0.1.1"
 description = "Basic Chemistry Toolkit"
 authors = ["Méloé Enzinger <meloe.enzinger@epfl.ch> and Sébastien Grunberg <sebastien.grunberg@epfl.ch>"]
 license = "MIT"

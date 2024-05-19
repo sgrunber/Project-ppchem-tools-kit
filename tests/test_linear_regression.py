@@ -4,7 +4,7 @@ import pandas as pd
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.linear_regression import linear_regression
+from project_ppchem_tools_kit.linear_regression import linear_regression
 
 
 class TestLinearRegression(unittest.TestCase):

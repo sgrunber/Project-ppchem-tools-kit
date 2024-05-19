@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.add_data_point import add_data_point
+from project_ppchem_tools_kit.add_data_point import add_data_point
 
 class TestAddDataPoint(unittest.TestCase):
     def setUp(self):

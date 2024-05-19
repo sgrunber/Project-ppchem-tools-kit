@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import Canvas
 window = None
 selected_radio=None
-from Chem_pack.on_radio_select import on_radio_select
+from project_ppchem_tools_kit.on_radio_select import on_radio_select
 
 canvas = Canvas(window, bg="#1B262C", height=800, width=1000, bd=0, highlightthickness=0, relief="ridge")
 

@@ -5,7 +5,7 @@ import sys
 # Adjust the path to include the directory containing your Chem_pack module
 sys.path.insert(0, "./src")
 
-from Chem_pack.display_molecule import display_molecule
+from project_ppchem_tools_kit.display_molecule import display_molecule
 
 class TestDisplayMolecule(unittest.TestCase):
     def setUp(self):

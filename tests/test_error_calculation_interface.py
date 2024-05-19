@@ -3,7 +3,7 @@ import unittest
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.error_calculation_interface import calculate_error_propagation
+from project_ppchem_tools_kit.error_calculation_interface import calculate_error_propagation
 
 class TestErrorCalculation(unittest.TestCase):
 

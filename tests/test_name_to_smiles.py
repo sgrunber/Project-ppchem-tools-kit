@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.name_to_smiles import name_to_smiles
+from project_ppchem_tools_kit.name_to_smiles import name_to_smiles
 
 #2.NAMETOSMILES
 class TestChemFunctions(unittest.TestCase):

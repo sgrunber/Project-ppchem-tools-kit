@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.set_background_color import set_background_color
+from project_ppchem_tools_kit.set_background_color import set_background_color
 
 class TestSetBackgroundColor(unittest.TestCase):
 

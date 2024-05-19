@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 from tkinter import messagebox
-from Chem_pack.graph_function import display_graph
+from project_ppchem_tools_kit.graph_function import display_graph
 
 def make_graph(entry_input, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
     try:

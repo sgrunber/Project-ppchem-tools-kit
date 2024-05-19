@@ -5,8 +5,8 @@ from io import StringIO
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.bind_enter import bind_enter
-from Chem_pack.process_input import process_input
+from project_ppchem_tools_kit.bind_enter import bind_enter
+from project_ppchem_tools_kit.process_input import process_input
 
 
 class TestBindEnter(unittest.TestCase):

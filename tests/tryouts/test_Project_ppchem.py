@@ -15,12 +15,12 @@ import sys
 sys.path.insert(0, "./src")
 
 #importing functions from src/Chem_pack 
-from Chem_pack.smiles_to_molar_mass import smiles_to_molar_mass
-from Chem_pack.name_to_smiles import name_to_smiles
-from Chem_pack.display_molecule import display_molecule
-from Chem_pack.make_graph import make_graph
-from Chem_pack.linear_regression import linear_regression
-from Chem_pack.error_calculation_interface import error_calculation_interface
+from project_ppchem_tools_kit.smiles_to_molar_mass import smiles_to_molar_mass
+from project_ppchem_tools_kit.name_to_smiles import name_to_smiles
+from project_ppchem_tools_kit.display_molecule import display_molecule
+from project_ppchem_tools_kit.make_graph import make_graph
+from project_ppchem_tools_kit.linear_regression import linear_regression
+from project_ppchem_tools_kit.error_calculation_interface import error_calculation_interface
 
 import unittest
 from unittest.mock import patch, MagicMock

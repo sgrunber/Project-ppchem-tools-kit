@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.display_max_point_and_coords import display_max_point_and_coords
+from project_ppchem_tools_kit.display_max_point_and_coords import display_max_point_and_coords
 
 class TestDisplayMaxPointAndCoords(unittest.TestCase):
     def setUp(self):

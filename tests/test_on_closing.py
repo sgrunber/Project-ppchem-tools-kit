@@ -4,7 +4,7 @@ from tkinter import messagebox
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.on_closing import on_closing
+from project_ppchem_tools_kit.on_closing import on_closing
 
 class TestOnClosing(unittest.TestCase):
 

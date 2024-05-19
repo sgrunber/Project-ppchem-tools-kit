@@ -5,7 +5,7 @@ from datetime import datetime
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.update_clock import update_clock
+from project_ppchem_tools_kit.update_clock import update_clock
 
 class TestUpdateClock(unittest.TestCase):
 

@@ -1,9 +1,9 @@
 import tkinter as tk
 from tkinter import Button
-from Chem_pack.set_axes_color import set_axes_color
-from Chem_pack.set_grid_color import set_grid_color
-from Chem_pack.set_label_color import set_label_color
-from Chem_pack.set_background_color import set_background_color
+from project_ppchem_tools_kit.set_axes_color import set_axes_color
+from project_ppchem_tools_kit.set_grid_color import set_grid_color
+from project_ppchem_tools_kit.set_label_color import set_label_color
+from project_ppchem_tools_kit.set_background_color import set_background_color
 
 def open_graph_settings_window(fig, plot_canvas):
     graph_settings_window = tk.Toplevel()

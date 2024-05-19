@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.welcome_message import welcome_message
+from project_ppchem_tools_kit.welcome_message import welcome_message
 
 class TestWelcomeMessage(unittest.TestCase):
 

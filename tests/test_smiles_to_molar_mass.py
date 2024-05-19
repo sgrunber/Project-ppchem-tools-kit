@@ -1,6 +1,6 @@
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.smiles_to_molar_mass import smiles_to_molar_mass
+from project_ppchem_tools_kit.smiles_to_molar_mass import smiles_to_molar_mass
 
 import unittest
 from unittest.mock import patch, MagicMock

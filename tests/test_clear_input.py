@@ -7,7 +7,7 @@ from unittest.mock import patch, MagicMock
 import sys
 sys.path.insert(0, "./src")
 
-from Chem_pack.clear_input import clear_input
+from project_ppchem_tools_kit.clear_input import clear_input
 
 class TestClearInput(unittest.TestCase):
 

@@ -5,7 +5,7 @@ import sys
 import tkinter as tk  # Import tk module
 
 sys.path.insert(0, "./src")
-from Chem_pack.browse_excel_file import browse_excel_file
+from project_ppchem_tools_kit.browse_excel_file import browse_excel_file
 
 class TestBrowseExcelFile(unittest.TestCase):
 

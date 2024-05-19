@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 
 import sys
 sys.path.insert(0, "./src")
-from Chem_pack.set_custom_labels_and_title import set_custom_labels_and_title
+from project_ppchem_tools_kit.set_custom_labels_and_title import set_custom_labels_and_title
 
 class TestSetCustomLabelsAndTitle(unittest.TestCase):
 

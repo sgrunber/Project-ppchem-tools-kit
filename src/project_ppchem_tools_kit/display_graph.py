@@ -2,12 +2,12 @@ import tkinter as tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from tkinter import messagebox
 
-from Chem_pack.set_custom_labels_and_title import set_custom_labels_and_title
-from Chem_pack.add_data_point import add_data_point
-from Chem_pack.set_scale import set_scale
-from Chem_pack.toggle_grid import toggle_grid
-from Chem_pack.display_max_point_and_coords import display_max_point_and_coords
-from Chem_pack.open_graph_settings_window import open_graph_settings_window
+from project_ppchem_tools_kit.set_custom_labels_and_title import set_custom_labels_and_title
+from project_ppchem_tools_kit.add_data_point import add_data_point
+from project_ppchem_tools_kit.set_scale import set_scale
+from project_ppchem_tools_kit.toggle_grid import toggle_grid
+from project_ppchem_tools_kit.display_max_point_and_coords import display_max_point_and_coords
+from project_ppchem_tools_kit.open_graph_settings_window import open_graph_settings_window
 
 graph_window = None
 
