@@ -37,6 +37,9 @@ To start, fork the repository to your own GitHub account.
 To do so, navigate to the repository page and click the *"Fork"* button. The repository will then be copied to your account, and you will be able to access it.
 
 ### 2. 📥 Clone the Repository
+
+  <a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white" alt="GitHub"></a>
+
 Next, clone the repository using the following command (replace *username* with your GitHub username):
 
 ```bash
@@ -44,6 +47,9 @@ git clone https://github.com/*username*/Project-ppchem-tools-kit.git
 ```
 
 ### 3. ⬇️ Install with pip
+
+  <a href="https://pypi.org/"><img src="https://img.shields.io/badge/PyPI-v1.0.0-blue.svg" alt="PyPI"></a>
+
 You can also install Tools Kit using pip:
 
 ```bash
@@ -56,6 +62,8 @@ pip install Project_ppchem-tools-kit
 To use Tools Kit and access its features, follow these steps after cloning the repository:
 
 ### Using Jupyter Notebook:
+
+  <a href="https://jupyter.org/"><img src="https://img.shields.io/badge/Jupyter-Notebook-F37626.svg?logo=jupyter&logoColor=white" alt="Jupyter Notebook"></a>
 
 1. Launch Jupyter Notebook by navigating to the cloned repository directory in your terminal and running the command:
    ```bash
@@ -70,6 +78,8 @@ This notebook provides an interactive environment for convenient usage of Tools 
 
 
 ### Usage with Visual Studio Code:
+
+  <a href="https://code.visualstudio.com/"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC.svg?logo=visual-studio-code&logoColor=white" alt="VSCode"></a>
 
 1. Open Visual Studio Code and navigate to the cloned directory.
 
@@ -153,6 +163,9 @@ Thank you for your contribution! Your efforts help improve the project for every
 
 If you use Tools Kit in your research work or academic projects, we would appreciate it if you could cite us. You can use the following BibTeX entry:
 
+  <a href="http://www.bibtex.org/"><img src="https://img.shields.io/badge/BibTeX-0.99d-blue.svg" alt="BibTeX"></a>
+
+
 ```bibtex
 @misc{project-ppchem-tools-kit,
   title = {Project-ppchem-tools-kit},
@@ -165,6 +178,9 @@ If you use Tools Kit in your research work or academic projects, we would apprec
 ```
 
 ### Chicago Style
+
+  <a href="https://www.chicagomanualofstyle.org/home.html"><img src="https://img.shields.io/badge/Chicago%20Style-17th%20Ed.-5579A1.svg" alt="Chicago Style"></a>
+
 ```bash
 Enzinger, Méloé, and Sébastien Grunberg. 2024. Project-ppchem-tools-kit. Computer software. GitHub. https://github.com/username/Project-ppchem-tools-kit.` 
 ```
