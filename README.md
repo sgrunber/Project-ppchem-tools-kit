@@ -15,15 +15,16 @@
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
 
 
-<a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen?style=flat&logo=appveyor&logoColor=white" alt="Build Status"></a>
-<a href="https://github.com/sgrunber/Project-ppchem-tools-kit"><img src="https://img.shields.io/badge/coverage-95%25-brightgreen?style=for-the-badge&logo=appveyor&logoColor=white" alt="Coverage"></a>
-<a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=plastic&logo=appveyor&logoColor=white" alt="License"></a>
-<a href="https://jupyter.org/"><img src="https://img.shields.io/badge/Jupyter-Notebook-F37626.svg?logo=jupyter&logoColor=white&style=flat-square&logoWidth=40&logoColor=red" alt="Jupyter Notebook"></a>
-<a href="https://code.visualstudio.com/"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC.svg?logo=visual-studio-code&logoColor=white&style=for-the-badge&logoWidth=60&logoColor=orange" alt="VSCode"></a>
-<a href="https://pypi.org/"><img src="https://img.shields.io/badge/PyPI-v1.0.0-blue.svg?style=plastic&logo=appveyor&logoColor=white" alt="PyPI"></a>
-<a href="https://www.chicagomanualofstyle.org/home.html"><img src="https://img.shields.io/badge/Chicago%20Style-17th%20Ed.-5579A1.svg?style=flat-square&logo=appveyor&logoColor=white" alt="Chicago Style"></a>
-<a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&logoWidth=40&logoColor=yellow" alt="GitHub"></a>
-<a href="http://www.bibtex.org/"><img src="https://img.shields.io/badge/BibTeX-0.99d-blue.svg?style=flat-square&logo=appveyor&logoColor=white" alt="BibTeX"></a>
+<a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
+<a href="https://github.com/sgrunber/Project-ppchem-tools-kit"><img src="https://img.shields.io/badge/coverage-95%25-brightgreen?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Coverage"></a>
+<a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="License"></a>
+<a href="https://jupyter.org/"><img src="https://img.shields.io/badge/Jupyter-Notebook-F37626.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Jupyter Notebook"></a>
+<a href="https://code.visualstudio.com/"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VSCode"></a>
+<a href="https://pypi.org/"><img src="https://img.shields.io/badge/PyPI-v1.0.0-blue.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="PyPI"></a>
+<a href="https://www.chicagomanualofstyle.org/home.html"><img src="https://img.shields.io/badge/Chicago%20Style-17th%20Ed.-5579A1.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Chicago Style"></a>
+<a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&logoWidth=40&logoColor=white" alt="GitHub"></a>
+<a href="http://www.bibtex.org/"><img src="https://img.shields.io/badge/BibTeX-0.99d-blue.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="BibTeX"></a>
+
 
 
 
