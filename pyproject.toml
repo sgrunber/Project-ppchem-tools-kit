@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Project-ppchem-tools-kit"
-version = "0.1.1"
+version = "0.1.2"
 description = "Basic Chemistry Toolkit"
 authors = ["Méloé Enzinger <meloe.enzinger@epfl.ch> and Sébastien Grunberg <sebastien.grunberg@epfl.ch>"]
 license = "MIT"
@@ -19,6 +19,7 @@ matplotlib = "3.7.2"
 pandas = "2.0.3"
 reportlab = "4.2.0"
 pyperclip = "1.8.2"
+openpyxl = "3.1.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.0"
