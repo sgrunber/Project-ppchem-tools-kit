@@ -13,7 +13,13 @@
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen" alt="Build Status"></a>
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit"><img src="https://img.shields.io/badge/coverage-95%25-brightgreen" alt="Coverage"></a>
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue" alt="License"></a>
-      <a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge" alt="GitHub"></a>
+
+  <a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&color=blue" alt="GitHub"></a>
+<a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&labelColor=orange" alt="GitHub"></a>
+<a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&labelColor=blue&color=green&labelWidth=80&logoWidth=40&logoHeight=40&logoSvg=cloud" alt="GitHub"></a>
+<a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&labelColor=red&labelFontSize=20px" alt="GitHub"></a>
+<a href="https://github.com/"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&labelColor=purple&logo=git&labelFontSize=16px" alt="GitHub"></a>
+
 
 </p>
 
