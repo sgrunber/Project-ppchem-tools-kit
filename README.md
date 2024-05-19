@@ -1,6 +1,6 @@
 
 <p align="center">
-   <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/220f8af2-3da1-4e15-8a1a-85d8f1c74ec6">
+   <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
 
  </p>
 
