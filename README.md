@@ -1,7 +1,9 @@
 
 <p align="center">
-  <img width="1245" alt="logo_3" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2cd965b1-c81f-4828-8671-1ec25f8a6204">
+  <img width="1245" alt="logo_project" src="https://raw.githubusercontent.com/sgrunber/Project-ppchem-tools-kit/master/docs/source/_static/images/logo_project.png">
+
  </p>
+
 
  <h1 align="center">🧰 Tools Kit</h1>
 
