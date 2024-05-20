@@ -11,13 +11,13 @@ from project_ppchem_tools_kit.clear_input import clear_input
 
 class TestClearInput(unittest.TestCase):
 
-    @patch('Chem_pack.clear_input.tk.END')
+    @patch('project_ppchem_tools_kit.clear_input.tk.END')
     def test_clear_input(self, mock_end):
         # Create a mock entry_input widget
         entry_input_mock = MagicMock()
 
         # Patch the tk.Entry widget
-        with patch('Chem_pack.clear_input.entry_input', entry_input_mock):
+        with patch('project_ppchem_tools_kit.clear_input.entry_input', entry_input_mock):
             # Call the clear_input function
             clear_input()
 

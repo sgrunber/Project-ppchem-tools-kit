@@ -9,8 +9,8 @@ from project_ppchem_tools_kit.browse_excel_file import browse_excel_file
 
 class TestBrowseExcelFile(unittest.TestCase):
 
-    @patch('Chem_pack.browse_excel_file.filedialog.askopenfilename')
-    @patch('Chem_pack.browse_excel_file.tk.Entry')
+    @patch('project_ppchem_tools_kit.browse_excel_file.filedialog.askopenfilename')
+    @patch('project_ppchem_tools_kit.browse_excel_file.tk.Entry')
     def test_browse_excel_file(self, mock_entry, mock_askopenfilename):
         # Mock the return value of askopenfilename
         mock_askopenfilename.return_value = 'test_file.xlsx'
@@ -31,8 +31,8 @@ class TestBrowseExcelFile(unittest.TestCase):
         mock_entry_input.insert.assert_called_once_with(0, 'test_file.xlsx')
         mock_askopenfilename.assert_called_once_with(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
 
-    @patch('Chem_pack.browse_excel_file.filedialog.askopenfilename')
-    @patch('Chem_pack.browse_excel_file.tk.Entry')
+    @patch('project_ppchem_tools_kit.browse_excel_file.filedialog.askopenfilename')
+    @patch('project_ppchem_tools_kit.browse_excel_file.tk.Entry')
     def test_browse_excel_file_no_selection(self, mock_entry, mock_askopenfilename):
         # Mock the return value of askopenfilename to simulate no file selected
         mock_askopenfilename.return_value = ''
@@ -53,8 +53,8 @@ class TestBrowseExcelFile(unittest.TestCase):
         mock_entry_input.insert.assert_not_called()
         mock_askopenfilename.assert_called_once_with(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
 
-    @patch('Chem_pack.browse_excel_file.filedialog.askopenfilename')
-    @patch('Chem_pack.browse_excel_file.tk.Entry')
+    @patch('project_ppchem_tools_kit.browse_excel_file.filedialog.askopenfilename')
+    @patch('project_ppchem_tools_kit.browse_excel_file.tk.Entry')
     def test_browse_excel_file_exception_handling(self, mock_entry, mock_askopenfilename):
         # Mock the return value of askopenfilename
         mock_askopenfilename.return_value = 'test_file.xlsx'

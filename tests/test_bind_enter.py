@@ -10,8 +10,8 @@ from project_ppchem_tools_kit.process_input import process_input
 
 
 class TestBindEnter(unittest.TestCase):
-    @patch('Chem_pack.bind_enter.window')
-    @patch('Chem_pack.process_input')
+    @patch('project_ppchem_tools_kit.bind_enter.window')
+    @patch('project_ppchem_tools_kit.process_input')
     def test_bind_enter_with_return_key(self, mock_process_input, mock_window):
         # Mock event with keysym "Return"
         mock_event = MagicMock()
@@ -22,8 +22,8 @@ class TestBindEnter(unittest.TestCase):
         mock_process_input.assert_called_once()
         self.assertIsNone(result)
 
-    @patch('Chem_pack.bind_enter.window')
-    @patch('Chem_pack.process_input')
+    @patch('project_ppchem_tools_kit.bind_enter')
+    @patch('project_ppchem_tools_kit.process_input')
     def test_bind_enter_with_non_return_key(self, mock_process_input, mock_window):
         # Mock event with keysym other than "Return"
         mock_event = MagicMock()
@@ -34,8 +34,8 @@ class TestBindEnter(unittest.TestCase):
         mock_process_input.assert_not_called()
         self.assertIsNone(result)
 
-    @patch('Chem_pack.bind_enter.window')
-    @patch('Chem_pack.process_input')
+    @patch('project_ppchem_tools_kit.bind_enter.window')
+    @patch('project_ppchem_tools_kit.process_input')
     def test_bind_enter_raises_exception(self, mock_process_input, mock_window):
         # Mock event with keysym "Return" and process_input raising an exception
         mock_event = MagicMock()
@@ -48,7 +48,7 @@ class TestBindEnter(unittest.TestCase):
 
         result = bind_enter(mock_event)
         
-        sys.stdout = sys.__stdout__  # Reset redirect.
+        sys.stdout = sys.__stdout__  
 
         self.assertIn("Error while binding Enter key: Test Exception", captured_output.getvalue())
         self.assertIsNone(result)

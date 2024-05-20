@@ -8,8 +8,8 @@ from project_ppchem_tools_kit.set_scale import set_scale
 
 class TestSetScale(unittest.TestCase):
 
-    @patch('Chem_pack.set_scale.simpledialog.askfloat')
-    @patch('Chem_pack.set_scale.plt.MultipleLocator')
+    @patch('project_ppchem_tools_kit.set_scale.simpledialog.askfloat')
+    @patch('project_ppchem_tools_kit.set_scale.plt.MultipleLocator')
     def test_set_scale(self, mock_MultipleLocator, mock_askfloat):
         # Mocking the return values for askfloat
         mock_askfloat.side_effect = [1.0, 2.0]

@@ -8,7 +8,7 @@ from project_ppchem_tools_kit.set_grid_color import set_grid_color
 
 class TestSetGridColor(unittest.TestCase):
 
-    @patch('Chem_pack.set_grid_color.colorchooser.askcolor', return_value=((255, 0, 0), '#ff0000'))
+    @patch('project_ppchem_tools_kit.set_grid_color.colorchooser.askcolor', return_value=((255, 0, 0), '#ff0000'))
     def test_set_grid_color(self, mock_askcolor):
         # Create a mock axis and plot canvas
         ax = MagicMock(spec=plt.Axes)
