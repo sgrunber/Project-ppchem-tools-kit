@@ -184,7 +184,7 @@ If you use Tools Kit in your research work or academic projects, we would apprec
 <a href="https://www.chicagomanualofstyle.org/home.html"><img src="https://img.shields.io/badge/Chicago%20Style-17th%20Ed.-5579A1.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Chicago Style"></a>
 
 ```bash
-Méloé Enzinger, and Sébastien Grunberg. 2024. Project-ppchem-tools-kit. Computer software. GitHub. https://github.com/username/Project-ppchem-tools-kit.` 
+Méloé Enzinger and Sébastien Grunberg. 2024. Project-ppchem-tools-kit. Computer software. GitHub. https://github.com/username/Project-ppchem-tools-kit.` 
 ```
 ## 📜 License
 
@@ -226,4 +226,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 <img width="398" alt="show_molecule" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/691fda4c-1f1d-4aa3-90ef-88cf759a4f70">
  </p>
 
- Note: Graphs have much better quality when saved to your computer.
