@@ -1,72 +1,43 @@
-
-
-from tkinter import ttk
 import tkinter as tk
 from tkinter import simpledialog, colorchooser
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from pathlib import Path
-from IPython.display import display, Image
-import os
 import pubchempy as pcp
 
 
-from tkinterweb import HtmlFrame
-
 from tkinter import *
-from matplotlib import colors as mcolors
 import numpy as np
-from PIL import Image, ImageDraw, ImageTk
 from tkinter import messagebox
 from tkinter import filedialog
 from tkinter import colorchooser
-import subprocess
 
 from rdkit import Chem
-from rdkit.Chem import Draw
-import tempfile
-import requests
-from rdkit.Chem import ChemicalFeatures, MolFromSmiles, Draw
-from rdkit.Chem import Draw, Lipinski, Crippen, Descriptors
-from rdkit.Chem import ChemicalFeatures
-from rdkit.Chem.Draw import rdMolDraw2D
+from rdkit.Chem import Draw, Descriptors
 from rdkit.Chem.Draw.rdMolDraw2D import *
 from rdkit.Chem import rdDepictor
 rdDepictor.SetPreferCoordGen(True)
-from rdkit.Chem.Draw import IPythonConsole
-from IPython.display import SVG
 from rdkit import Chem
-from rdkit.Chem import Draw, AllChem
-from rdkit.Chem.Draw import rdMolDraw2D
-from collections import defaultdict
 
 import matplotlib.pyplot as plt
 import pandas as pd
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
-from tkinter import IntVar, Radiobutton
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk, FigureCanvasTk
+from tkinter import Canvas, Entry, Button, PhotoImage
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 import matplotlib.pyplot as plt
 from matplotlib_inline.backend_inline import set_matplotlib_formats
-from matplotlib.figure import Figure
 from datetime import datetime
 set_matplotlib_formats('png', 'pdf')
 plt.rcParams['font.family'] = 'Times New Roman'
-'''import sys
-sys.path.insert(0, "./src")
-#from "src/name_to_smiles" import name_to_smiles``
-'''
-import pyperclip
 
-'''from Chem_pack.smiles_to_molar_mass import smiles_to_molar_mass
-from Chem_pack.name_to_smiles import name_to_smiles
-from Chem_pack.display_molecule import display_molecule'''
+import pyperclip
 
 set_matplotlib_formats('png', 'pdf')
 plt.rcParams['font.family'] = 'Times New Roman'
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path("/Users/meloenzinger/Documents/GitHub/Project-ppchem-tools-kit-bis/assets/frame0")
+from pathlib import Path
+import os
+OUTPUT_PATH = Path(os.getcwd())
+ASSETS_PATH = OUTPUT_PATH / Path("./assets/frame0")
 
 def relative_to_assets(path: str) -> Path:
     """Constructs a path to a file located in the assets directory by combining the provided relative path with the ASSETS_PATH
@@ -131,31 +102,30 @@ def smiles_to_molar_mass(smiles):
         return None
 
 def display_molecule(entry_input):
-    
-    smiles = entry_input.get().strip()  # Obtenir la chaîne SMILES à partir de l'entrée utilisateur
-    mol = Chem.MolFromSmiles(smiles)  # Générer la structure moléculaire à partir de la chaîne SMILES
+    """Displays the 2D structure of a molecule from a given SMILES string.
+
+    Args:
+        entry_input (tk.Entry): The entry widget containing the SMILES string.
+    """
+    smiles = entry_input.get().strip()  
+    mol = Chem.MolFromSmiles(smiles)  
 
     if mol is not None:
-        # Fonction pour afficher la molécule en 2D
         def show_molecule_2d():
             img = Draw.MolToImage(mol)
 
-            # Créer une nouvelle fenêtre Tkinter pour afficher la structure moléculaire en 2D
             mol_window = tk.Toplevel()
             mol_window.title("Molecular Structure")
 
-            # Convertir l'image en format Tkinter PhotoImage
             pimg = FigureCanvasTkAgg(plt.Figure(figsize=(4, 3)), master=mol_window)
             ax = pimg.figure.add_subplot(111)
             ax.imshow(img, interpolation='bilinear')
             ax.axis('off')
 
-            # Créer un canevas Tkinter pour afficher l'image
             canvas = pimg.get_tk_widget()
             canvas.pack()
 
-            # Ajouter la barre d'outils de navigation
-            toolbar = NavigationToolbar2Tk(pimg, mol_window)  # Passer la figure à la barre d'outils
+            toolbar = NavigationToolbar2Tk(pimg, mol_window)  
             toolbar.update()
             toolbar.pack()
 
@@ -163,7 +133,7 @@ def display_molecule(entry_input):
 
         show_molecule_2d()
     else:
-        print("Erreur : Impossible de générer une structure moléculaire à partir du SMILES fourni.")
+        print("Error : Can not generate a molecular structure from the input SMILES.")
 
 
 def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
@@ -181,7 +151,7 @@ def make_graph(filepath, x_label, y_label, title, grid=True, save_as=None, line_
     """
     try:
        
-        df = pd.read_excel(entry_input.get().strip())  # Utilisez entry_input pour obtenir le chemin du fichier
+        df = pd.read_excel(entry_input.get().strip())
         data_list = df.values.tolist()
         x_values = [row[0] for row in data_list]
         y_values = [row[1] for row in data_list]
@@ -250,43 +220,60 @@ def linear_regression(file_path, x_label, y_label, title, grid=True, save_as=Non
     except FileNotFoundError:
         messagebox.showerror("Error", "The data file was not found.")
 
+
 def display_max_point_and_coords(ax, plot_canvas):
+    """Performs a linear regression from an Excel file and plots the graph and R^2 value.
+
+    Args:
+        file_path (str): Path to the Excel file containing the data.
+        x_label (str): x-axis label.
+        y_label (str): y-axis label.
+        title (str): Title of the graph.
+        grid (bool): Whether to display grid lines on the plot. Defaults to True.
+        save_as (str, optional): File path to save the graph. Defaults to None, in which case it is not saved.
+        line_style (str, optional): Style of the line plot. Defaults to '-'.
+        line_color (str, optional): Color of the plot line. Defaults to 'k' (black).
+
+    Raises:
+        FileNotFoundError: If the specified file_path does not exist.
+    """
     def display_max_point(color):
-        # Trouver l'indice du maximum de la courbe
+        """Displays the maximum point on the plot with its coordinates.
+
+        Args:
+            color (str): Color of the marker and text.
+
+        Raises:
+            None
+        """
         max_index = np.argmax(ax.lines[0].get_ydata())
         
-        # Récupérer les coordonnées du maximum
         max_x = ax.lines[0].get_xdata()[max_index]
         max_y = ax.lines[0].get_ydata()[max_index]
 
-        # Déterminer la position relative du maximum par rapport aux axes
+
         x_lim = ax.get_xlim()
         y_lim = ax.get_ylim()
         
         if x_lim[0] < max_x < x_lim[1] and y_lim[0] < max_y < y_lim[1]:
-            # Déterminer la position relative du point sur les axes
             x_rel = (max_x - x_lim[0]) / (x_lim[1] - x_lim[0])
             y_rel = (max_y - y_lim[0]) / (y_lim[1] - y_lim[0])
             
-            # Calculer les décalages en fonction de la position relative
             dx = 0.03 * (x_lim[1] - x_lim[0])
             dy = 0.03 * (y_lim[1] - y_lim[0])
             
-            # Si le point est proche du bord droit, décaler à gauche
             if x_rel > 0.95:
                 ha = 'right'
                 dx = -dx
             else:
                 ha = 'left'
                 
-            # Si le point est proche du bord supérieur, décaler vers le bas
             if y_rel > 0.95:
                 va = 'top'
                 dy = -dy
             else:
                 va = 'bottom'
                 
-            # Afficher les coordonnées dans le graphique avec une seule décimale
             ax.scatter(max_x, max_y, color=color, zorder=10)
             ax.text(max_x + dx, max_y + dy, f'({max_x:.1f}, {max_y:.1f})', fontsize=14, fontweight='bold', ha=ha, va=va, color=color, bbox=dict(facecolor='white', edgecolor=color, boxstyle='round,pad=0.3'))
             plot_canvas.draw_idle()
@@ -294,43 +281,64 @@ def display_max_point_and_coords(ax, plot_canvas):
             messagebox.showwarning("Warning", "Max point coordinates are out of range.")
 
     def choose_color():
-        color = colorchooser.askcolor(color='red')[1]  # Choisissez la couleur par défaut ici
+        """Opens a color chooser dialog and calls display_max_point with the chosen color.
+
+        Args:
+            None
+
+        Raises:
+            None
+        """
+        color = colorchooser.askcolor(color='red')[1]  
         if color:
             display_max_point(color)
 
     choose_color()
 
+
 def add_data_point(ax, plot_canvas):
-    # Demander à l'utilisateur de choisir une couleur
+    """Adds data points to the graph with a chosen color.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     color = colorchooser.askcolor()[1]
     if color:
-        # Récupérer les données x et y du graphique
         x_data = ax.lines[0].get_xdata()
         y_data = ax.lines[0].get_ydata()
 
-        # Ajouter les points avec la couleur spécifiée à l'aide de ax.scatter
         
         ax.scatter(x_data, y_data, color=color, zorder=10) 
 
-        # Mettre à jour le canvas pour afficher les modifications
         plot_canvas.draw_idle()
 
 def set_line_color(ax, plot_canvas):
+    """Sets the line color and style for the plot.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     color = colorchooser.askcolor()[1]
     line_style = simpledialog.askstring("Line Style", "Enter line style ('-', '--', ':', '-.'):")
     if color and line_style:
-        ax.lines[0].set_color(color)  # Change seulement la couleur de la première ligne (la courbe)
+        ax.lines[0].set_color(color) 
         ax.lines[0].set_linestyle(line_style)  
         plot_canvas.draw_idle()
 
-
 def set_axes_color(ax, plot_canvas):
+    """Sets the color of the axes and their tick marks.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     color = colorchooser.askcolor()[1]
     if color:
         for spine in ax.spines.values():
             spine.set_color(color)
         
-        # Changer la couleur des valeurs sur les axes
         ax.tick_params(axis='x', colors=color)
         ax.tick_params(axis='y', colors=color)
 
@@ -338,12 +346,24 @@ def set_axes_color(ax, plot_canvas):
 
 
 def set_grid_color(ax, plot_canvas):
+    """Sets the grid line color for the plot.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     color = colorchooser.askcolor()[1]
     if color:
         ax.grid(color=color)
         plot_canvas.draw_idle()
 
 def set_label_color(ax, plot_canvas):
+    """Sets the color of the axis labels and title.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     color = colorchooser.askcolor()[1]
     if color:
         ax.xaxis.label.set_color(color)
@@ -352,9 +372,15 @@ def set_label_color(ax, plot_canvas):
         plot_canvas.draw_idle()
 
 def set_background_color(ax, plot_canvas):
+    """Sets the background color of the plot and canvas.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     color = colorchooser.askcolor()[1]
     if color:
-        # Set the background color of the entire plot
+
         fig = ax.figure
         fig.set_facecolor(color)
 
@@ -368,10 +394,15 @@ def set_background_color(ax, plot_canvas):
         plot_canvas.draw_idle()
     
 def open_graph_settings_window(fig, plot_canvas):
+    """Opens a new window with options to customize the graph settings.
+
+    Args:
+        fig (matplotlib.figure.Figure): The Figure object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     graph_settings_window = tk.Toplevel()
     graph_settings_window.title("Graph Settings")
 
-    # Boutons pour les paramètres du graphique
     set_line_color_button = tk.Button(graph_settings_window, text="Set Line Color", command=lambda: set_axes_color(fig.axes[0], plot_canvas))
     set_line_color_button.pack(side=tk.TOP, padx=5, pady=5)
 
@@ -387,17 +418,27 @@ def open_graph_settings_window(fig, plot_canvas):
     set_background_color_button = tk.Button(graph_settings_window, text="Set Background Color", command=lambda: set_background_color(fig.axes[0], plot_canvas))
     set_background_color_button.pack(side=tk.TOP, padx=5, pady=5)
 
-    # Bouton pour fermer la fenêtre des paramètres du graphique
     close_button = tk.Button(graph_settings_window, text="Close", command=graph_settings_window.destroy)
     close_button.pack(side=tk.BOTTOM, padx=5, pady=5)
 
 
 def toggle_grid(ax, plot_canvas):
-    # Set the grid lines visibility to True
+    """Toggles the visibility of grid lines on the plot.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     ax.grid(True)
     plot_canvas.draw_idle()
 
 def set_scale(ax, plot_canvas):
+    """Sets the scale of the x and y axes.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     x_spacing = simpledialog.askfloat("X Spacing", "Enter spacing between x ticks:")
     y_spacing = simpledialog.askfloat("Y Spacing", "Enter spacing between y ticks:")
     if x_spacing and y_spacing:
@@ -407,6 +448,12 @@ def set_scale(ax, plot_canvas):
         plot_canvas.draw_idle()
 
 def set_custom_labels_and_title(ax, plot_canvas):
+    """Sets custom labels and title for the plot.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     x_label = simpledialog.askstring("Custom Labels and Title", "Enter X-axis Label:")
     y_label = simpledialog.askstring("Custom Labels and Title", "Enter Y-axis Label:")
     title = simpledialog.askstring("Custom Labels and Title", "Enter Graph Title:")
@@ -418,8 +465,12 @@ def set_custom_labels_and_title(ax, plot_canvas):
         plot_canvas.draw_idle()
         
 
-
 def display_graph(fig):
+    """Displays the graph in a new window with options to customize it.
+
+    Args:
+        fig (matplotlib.figure.Figure): The Figure object containing the plot.
+    """
     global graph_window
     if graph_window:
         graph_window.destroy()
@@ -464,6 +515,19 @@ def display_graph(fig):
     
     
     def on_closing_graph():
+        """Handle the closing event for the graph window.
+
+        This function is triggered when the user attempts to close the graph window.
+        It prompts the user with a confirmation dialog to ensure they want to quit.
+        If the user confirms (clicks 'OK'), the graph window is hidden and the 
+        main event loop is terminated.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         if messagebox.askokcancel("Quit", "Are you sure you want to quit?"):
             graph_window.withdraw()  # Hide the window
             graph_window.quit()  # Quit the main loop
@@ -473,21 +537,66 @@ def display_graph(fig):
     graph_window.mainloop()
 
 
-def error_calculation_interface():
-    # Fonction pour calculer la propagation d'erreur
-    def calculate_error_propagation(derivatives, uncertainties):
-        average_values = sum(derivatives) / len(derivatives)
-        error = sum((unc / deriv) ** 2 for deriv, unc in zip(derivatives, uncertainties))
-        standard_dev = (error** 0.5) * average_values
-        return standard_dev, average_values 
+def calculate_error_propagation(derivatives, uncertainties):
+    """
+    Calculate the propagation of error using given derivatives and uncertainties.
 
+    This function computes the standard deviation and the average value based on
+    the derivatives and uncertainties provided. It follows the formula for error
+    propagation in a system where each variable contributes to the overall uncertainty.
+
+    Args:
+        derivatives (list of float): The derivatives with respect to each variable.
+        uncertainties (list of float): The uncertainties associated with each variable.
+
+    Returns:
+        tuple: A tuple containing the standard deviation (float) and the average value (float).
+    """
+    average_values = sum(derivatives) / len(derivatives)
+    error = sum((unc / deriv) ** 2 for deriv, unc in zip(derivatives, uncertainties))
+    standard_dev = (error ** 0.5) * average_values
+    return standard_dev, average_values
+
+def error_calculation_interface():
+    """
+    Provide a graphical interface for error calculation and LaTeX code generation.
+
+    This function sets up a Tkinter window where users can input variable names,
+    values, and uncertainties. It calculates the propagation of uncertainty and 
+    displays the result. It also generates LaTeX code for the calculated values, 
+    which can be copied to the clipboard.
+
+    The interface includes:
+        - Adding and removing variable entries.
+        - Calculating and displaying the propagation of uncertainty.
+        - Generating and copying LaTeX code for the results.
+
+    Inner Functions:
+        copy_latex_code(latex_code): Copy generated LaTeX code to the clipboard.
+        calculate_and_display(): Calculate propagation of uncertainty and display results.
+        add_variable_entry(): Add a new row of input fields for a variable.
+        remove_variable_entry(row): Remove a specific row of input fields.
+    """
     def copy_latex_code(latex_code):
+        """
+        Copy the generated LaTeX code to the clipboard.
+
+        Args:
+            latex_code (str): The LaTeX code to be copied.
+        """
         pyperclip.copy(latex_code)
         result_window.clipboard_clear()
         result_window.clipboard_append(latex_code)
         result_window.update()
 
     def calculate_and_display():
+        """
+        Calculate the propagation of uncertainty and display the results.
+
+        This function retrieves data from the input fields, calculates the error 
+        propagation and average value, and displays the results in a new window. 
+        It also generates the corresponding LaTeX code for the calculations.
+        """
         data = []
         values = []
         uncertainties = []
@@ -499,42 +608,48 @@ def error_calculation_interface():
             values.append(var_value)
             uncertainties.append(var_uncertainty)
 
-        # Calculate the propagation of uncertainty
         error, average = calculate_error_propagation(values, uncertainties)
 
-        # Display the result with calculation details
         result_text = f"Propagation of Uncertainty (∆z): {error:.6f}\n"
         result_text += f"Average Value: {average:.6f}\n\n"
         result_text += "Calculation Details:\n"
         for var_name, var_value, var_uncertainty in data:
             result_text += f"{var_name}: Value: {var_value}, Uncertainty: {var_uncertainty}\n"
 
-      
         latex_code = r"""
 
+        \subsection*{Propagation of Uncertainty ($\Delta\bar{z}$)}
 
-        Propagation of Uncertainty ($\Delta z$)
         The propagation of uncertainty is calculated as follows:
+
         \begin{equation}
         \Delta \bar{z} = \bar{z} \times \sqrt{\left(\left(\frac{\Delta x}{x}\right)^2 + \left(\frac{\Delta y}{y}\right)^2 + \ldots\right)}
         \end{equation}
+
+        The calculated uncertainty is:
+
         \[
-        \Delta z = """ + f"{error:.6f}" + r"""
+        \Delta \bar{z} = """ + f"{error:.6f}" + r"""
         \]
-        
+
         The average value is calculated as follows:
-        
+
         \begin{equation}
         \bar{z} = \frac{1}{N} \sum_{i=1}^{N} z_i
         \end{equation}
+
+        The calculated average value is:
+
         \[
         \bar{z} = """ + f"{average:.6f}" + r"""
         \]
 
-        The details of variables:
+        \subsection*{Details of Variables}
+
         \begin{itemize}
-        """ + "\n".join([f"    \item {var_name}: Value: {var_value}, Uncertainty: {var_uncertainty}" for var_name, var_value, var_uncertainty in data]) + r"""
+        """ + "\n".join([f"    \\item {var_name}: Value: {var_value}, Uncertainty: {var_uncertainty}" for var_name, var_value, var_uncertainty in data]) + r"""
         \end{itemize}
+
         """
 
         # Create a new window to display the result
@@ -551,9 +666,13 @@ def error_calculation_interface():
         copy_button = tk.Button(result_window, text="Copy LaTeX Code", command=lambda: copy_latex_code(latex_code))
         copy_button.grid(row=1, column=0, padx=5, pady=5)
 
-        
     def add_variable_entry():
-        # Ajouter des champs d'entrée pour une nouvelle variable
+        """
+        Add a new row of input fields for a variable.
+
+        This function dynamically adds input fields for a new variable's name, 
+        value, and uncertainty to the interface.
+        """
         row = len(entries) + 1
 
         var_name_label = tk.Label(error_calc_window, text="Variable Name", bg="#1B262C", fg="white")
@@ -585,6 +704,14 @@ def error_calculation_interface():
         remove_buttons.append(remove_variable_button)
 
     def remove_variable_entry(row):
+        """
+        Remove a specific row of input fields.
+
+        This function removes the input fields for a variable specified by the row number.
+
+        Args:
+            row (int): The row number of the variable to be removed.
+        """
         entry = entries.pop(row - 1)
         for widget in entry:
             widget.destroy()
@@ -593,20 +720,19 @@ def error_calculation_interface():
         remove_buttons.pop(row - 1).destroy()
 
     error_calc_window = tk.Tk()
-    error_calc_window.title("Calcul d'erreur")
+    error_calc_window.title("Error calculation")
     error_calc_window.configure(bg="#1B262C")
 
-    add_variable_button = tk.Button(error_calc_window, text="Ajouter une variable", command=add_variable_entry, height=2,
+    add_variable_button = tk.Button(error_calc_window, text="Add a variable", command=add_variable_entry, height=2,
                                     bg="#0000FF", fg="#1B262C", font=("Times New Roman", 15))
     add_variable_button.grid(row=0, column=2, columnspan=3, padx=5, pady=5, sticky="")
 
-    # Pour le bouton "Calculer la propagation d'erreur"
-    calculate_error_button = tk.Button(error_calc_window, text="Calculer la propagation d'erreur",
+    calculate_error_button = tk.Button(error_calc_window, text="Calcule the error propagation",
                                         command=calculate_and_display, height=2, bg="#008000", fg="#1B262C",
                                         font=("Times New Roman", 15))
     calculate_error_button.grid(row=20, column=2, columnspan=3, padx=5, pady=5, sticky="")
 
-    # Listes pour stocker les widgets d'entrée
+    # List to stock input widgets
     entries = []
     entry_vars = []
     entry_values = []
@@ -644,10 +770,10 @@ def process_input(event=None):
             make_graph(entry_input, x_label, y_label, title)
         else:
             linear_regression(entry_input, x_label, y_label, title)
-        return  # Return to prevent displaying the result window
-    elif selected_radio.get() == "5":  # Ajouter cette condition pour le bouton radio "5"
-        display_molecule(entry_input)  # Appeler la fonction pour afficher la structure moléculaire
-        return  # Return to prevent displaying the result window
+        return
+    elif selected_radio.get() == "5": 
+        display_molecule(entry_input)
+        return 
 
     elif selected_radio.get() == "6":
         error_calculation_interface()
@@ -655,9 +781,6 @@ def process_input(event=None):
         result_text = "Please select an input type."
 
     display_result(result_text)
-
-
-
 
 
 def display_result(result_text):
@@ -668,7 +791,6 @@ def display_result(result_text):
     """
     result_window = tk.Toplevel(window)
     result_window.title("Result")
-
 
     result_textbox = tk.Text(result_window, wrap="word", font=("Times New Roman", 25), fg="#BBE1FA", bg = "#1B262C", height=10, width=30)
     result_textbox.insert("1.0", result_text)
@@ -693,6 +815,14 @@ def browse_excel_file():
             print("Error:", e)
 
 def select_all(event):
+    """Selects all text in a widget when an event is triggered.
+
+    Args:
+        event: The event that triggered the function.
+
+    Returns:
+        str: "break" to prevent further propagation of the event.
+    """
     if window and window.winfo_exists():
         event.widget.tag_add("sel", "1.0", "end")
     return "break"
@@ -705,7 +835,7 @@ def copy_text(event):
         event: The event that triggered the function.
 
     Returns:
-        None: Does not return any values.
+        str: "break" to prevent further propagation of the event.
     """
     try:
         if window and window.winfo_exists():
@@ -716,17 +846,18 @@ def copy_text(event):
     return "break"
 
 
-# Avant de détruire la fenêtre principale, détacher les gestionnaires d'événements
-
-
 def bind_enter(event):
+    """Binds the Enter key to the process_input function.
+
+    Args:
+        event: The event that triggered the function.
+    """
     try:
         if event.keysym == "Return":
             process_input()
     except Exception as e:
         print("Error while binding Enter key:", e)
 
-# Attachez le gestionnaire d'événements à la fenêtre principale
 if window:
     window.bind("<KeyPress>", bind_enter)
 
@@ -744,22 +875,26 @@ input_type = tk.IntVar() #creates a Tkinter IntVar variable, which is used to tr
 input_type.set(1)
 
 
-
 def welcome_message():
+    """Displays a welcome message with project information in a new window."""
     global entry_input
     welcome_window = tk.Toplevel(window)
     welcome_window.title("Welcome Message")
 
     welcome_text = (
-        "Welcome!\n\n"
-        "Here is our project: https://github.com/sgrunber/Project-ppchem-tools-kit\n\n"
-        "Enjoy ;)"
+        "✨ Welcome to Our Project! ✨\n\n"
+        "We are excited to share our project with you.\n\n"
+        "Discover all the details on our GitHub repository:\n"
+        "🔗 [Project ppchem Tools Kit] (https://github.com/sgrunber/Project-ppchem-tools-kit)\n\n"
+        "Happy exploring! 🚀\n\n"
     )
-    welcome_textbox = tk.Text(welcome_window, wrap="word", font=("Times New Roman", 25), fg="#BBE1FA", bg = "#1B262C", height=7, width=45)
+
+    welcome_textbox = tk.Text(welcome_window, wrap="word", font=("Times New Roman", 20), fg="#BBE1FA", bg = "#1B262C", height=10, width=50)
     welcome_textbox.insert("1.0", welcome_text)
     welcome_textbox.config(state="disabled")
+    welcome_textbox.tag_configure("center", justify="center")
+    welcome_textbox.tag_add("center", "1.0", "end")
     welcome_textbox.grid(row=0, column=0, padx=0, pady=0)
-
 
 
 
@@ -842,8 +977,8 @@ for data in radio_button_data:
     create_radio_button(*data)
 
 
-
 def update_clock():
+    """Updates the clock label with the current time and date every second."""
     current_time = datetime.now().strftime('%H:%M:%S')
     current_date = datetime.now().strftime('%Y-%m-%d')
     clock_label.config(text=current_time)
@@ -861,6 +996,14 @@ update_clock()
 window.unbind_all("<Return>")
 
 def on_closing():
+    """
+    Handle the closing event for the graph window.
+
+    This function is triggered when the user attempts to close the graph window. 
+    It prompts the user with a confirmation dialog to ensure they want to quit. 
+    If the user confirms (clicks 'OK'), the graph window is hidden and the 
+    main event loop is terminated.
+    """
     global window
     if messagebox.askokcancel("Quit", "Are you sure you want to quit?"):
         window.destroy()

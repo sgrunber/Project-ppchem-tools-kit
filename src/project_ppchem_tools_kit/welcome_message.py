@@ -2,6 +2,7 @@ import tkinter as tk
 window = None
 
 def welcome_message():
+    """Displays a welcome message with project information in a new window."""
     global entry_input
     welcome_window = tk.Toplevel(window)
     welcome_window.title("Welcome Message")

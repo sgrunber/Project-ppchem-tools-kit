@@ -7,7 +7,7 @@ def copy_text(event):
         event: The event that triggered the function.
 
     Returns:
-        None: Does not return any values.
+        str: "break" to prevent further propagation of the event.
     """
     try:
         if window and window.winfo_exists():
