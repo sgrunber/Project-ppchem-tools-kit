@@ -35,10 +35,10 @@ def process_input(event=None):
             make_graph(entry_input, x_label, y_label, title)
         else:
             linear_regression(entry_input, x_label, y_label, title)
-        return  # Return to prevent displaying the result window
-    elif selected_radio.get() == "5":  # Ajouter cette condition pour le bouton radio "5"
-        display_molecule(entry_input)  # Appeler la fonction pour afficher la structure moléculaire
-        return  # Return to prevent displaying the result window
+        return
+    elif selected_radio.get() == "5": 
+        display_molecule(entry_input)
+        return 
 
     elif selected_radio.get() == "6":
         error_calculation_interface()

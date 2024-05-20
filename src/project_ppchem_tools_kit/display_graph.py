@@ -12,6 +12,11 @@ from project_ppchem_tools_kit.open_graph_settings_window import open_graph_setti
 graph_window = None
 
 def display_graph(fig):
+    """Displays the graph in a new window with options to customize it.
+
+    Args:
+        fig (matplotlib.figure.Figure): The Figure object containing the plot.
+    """
     global graph_window
     if graph_window:
         graph_window.destroy()
@@ -56,6 +61,19 @@ def display_graph(fig):
     
     
     def on_closing_graph():
+        """Handle the closing event for the graph window.
+
+        This function is triggered when the user attempts to close the graph window.
+        It prompts the user with a confirmation dialog to ensure they want to quit.
+        If the user confirms (clicks 'OK'), the graph window is hidden and the 
+        main event loop is terminated.
+
+        Args:
+            None
+
+        Returns:
+            None
+        """
         if messagebox.askokcancel("Quit", "Are you sure you want to quit?"):
             graph_window.withdraw()  # Hide the window
             graph_window.quit()  # Quit the main loop

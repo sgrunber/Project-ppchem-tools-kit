@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 def update_clock():
-
+    """Updates the clock label with the current time and date every second."""
     current_time = datetime.now().strftime('%H:%M:%S')
     current_date = datetime.now().strftime('%Y-%m-%d')
     clock_label.config(text=current_time)

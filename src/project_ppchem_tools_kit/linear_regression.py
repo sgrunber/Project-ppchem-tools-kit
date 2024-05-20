@@ -8,9 +8,23 @@ import numpy as np
 
 
 def linear_regression(entry_input, x_label, y_label, title, grid=True, save_as=None, line_style='-', line_color='k'):
+    """Performs a linear regression from an Excel file and plots the graph and R^2 value.
+
+    Args:
+        file_path (str): Path to the Excel file containing the data.
+        x_label (str): x-axis label.
+        y_label (str): y-axis label.
+        title (str): Title of the graph.
+        grid (bool): Whether to display grid lines on the plot. Defaults to True.
+        save_as (str, optional): File path to save the graph. Defaults to None, in which case it is not saved.
+        line_style (str, optional): Style of the line plot. Defaults to '-'.
+        line_color (str, optional): Color of the plot line. Defaults to 'k' (black).
+
+    Raises:
+        FileNotFoundError: If the specified file_path does not exist.
+    """    
     try:
-        # Récupérez les données du fichier Excel ou d'une autre source
-        df = pd.read_excel(entry_input.get().strip())  # Utilisez entry_input pour obtenir le chemin du fichier
+        df = pd.read_excel(entry_input.get().strip())  
         data_list = df.values.tolist()
         x_values = np.array([row[0] for row in data_list]).reshape(-1, 1)
         y_values = [row[1] for row in data_list]

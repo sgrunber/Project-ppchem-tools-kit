@@ -2,6 +2,12 @@ from tkinter import simpledialog
 import matplotlib.pyplot as plt
 
 def set_custom_labels_and_title(ax, plot_canvas):
+    """Sets custom labels and title for the plot.
+
+    Args:
+        ax (matplotlib.axes.Axes): The Axes object containing the plot.
+        plot_canvas (FigureCanvasTkAgg): The canvas on which the plot is drawn.
+    """
     x_label = simpledialog.askstring("Custom Labels and Title", "Enter X-axis Label:")
     y_label = simpledialog.askstring("Custom Labels and Title", "Enter Y-axis Label:")
     title = simpledialog.askstring("Custom Labels and Title", "Enter Graph Title:")
