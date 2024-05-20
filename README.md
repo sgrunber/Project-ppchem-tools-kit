@@ -108,6 +108,7 @@ This notebook provides an interactive environment for convenient usage of Tools 
 3. 📈 Linear Regression
    - Input: Excel document (imported by pressing the Browse button)
    - Output: Linear regression graph with the R<sup>2</sup> value
+        - Options: The graph allows customization of various parameters such as changing scales, axis labels, title, displaying maximum values, enabling gridlines, adjusting line types and colors, modifying grid and label axes, and background color.
 
 4. 📊 Graph Maker
    - Input: Excel document with x and y values arranged in two columns
@@ -123,7 +124,7 @@ This notebook provides an interactive environment for convenient usage of Tools 
    - Input: SMILES
    - Output: Molecular structure
 
-The graphs in sections 3 and 4 can also include input for the title and X, Y axis labels.
+
 
 ## 🤝 Contributing
 <a id="contributing"></a>
