@@ -116,11 +116,11 @@ This notebook provides an interactive environment for convenient usage of Tools 
       - Options: The graph allows customization of various parameters such as changing scales, axis labels, title, displaying maximum values, enabling gridlines, adjusting line types and colors, modifying grid and label axes, and background color.
 
 
-5. 📉 Error Propagation
+5. 🧮 Error Propagation
    - Input: Variables, their values, and their uncertainties.
    - Output: Mean value, its uncertainty, and the result can be copied as LaTeX code for easy inclusion in documents.
 
-6. 🧪 Show Molecule
+6. 🔬 Show Molecule
    - Input: SMILES
    - Output: Molecular structure
 
