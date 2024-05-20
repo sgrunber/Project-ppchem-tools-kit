@@ -2,7 +2,10 @@ window = None
 import tkinter as tk
 from datetime import datetime
 
+
+
 def update_clock():
+
     current_time = datetime.now().strftime('%H:%M:%S')
     current_date = datetime.now().strftime('%Y-%m-%d')
     clock_label.config(text=current_time)
