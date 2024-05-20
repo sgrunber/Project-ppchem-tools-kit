@@ -196,28 +196,29 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## 📸 Screenshots
 <a id="screenshots"></a>
-##Ineterface
+## Ineterface
 <p align="center">
 <img width="700" alt="Capture d’écran 2024-05-18 à 16 44 09" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/screen.png">
    </p>
    
-##Graph
+## Graph
 <p align="center">
 <img width="700" alt="graph" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/8d1f8352-3815-4d5d-9545-0a7138f132a5">
     </p>
-##Linear Regression
+    
+## Linear Regression
 <p align="center">
 <img width="700" alt="linear_reg" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/eb1a56fb-d801-457b-9a1d-56fc258a6478">
  </p>
 
-##Graph & Linear Regression Settings
+## Graph & Linear Regression Settings
 <p align="center">
 <img width="220" alt="scale" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/8bf14d9a-a573-43fd-bfce-721dccda3415">
 <img width="178" alt="graph_option" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/2d08b793-6903-418b-a83d-ae3d24d36171">
 <img width="220" alt="Label" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/ad9da31f-5d76-495b-8f81-b3324c2944a6">
  </p>
 
-##Show Molecule
+## Show Molecule
 <p align="center">
 <img width="398" alt="show_molecule" src="https://github.com/sgrunber/Project-ppchem-tools-kit/assets/160881864/691fda4c-1f1d-4aa3-90ef-88cf759a4f70">
  </p>
