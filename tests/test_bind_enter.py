@@ -13,6 +13,7 @@ class TestBindEnter(unittest.TestCase):
     @patch('project_ppchem_tools_kit.bind_enter.window')
     @patch('project_ppchem_tools_kit.process_input')
     def test_bind_enter_with_return_key(self, mock_process_input, mock_window):
+        # Mock event with keysym "Return"
         mock_event = MagicMock()
         mock_event.keysym = "Return"
         
@@ -24,6 +25,7 @@ class TestBindEnter(unittest.TestCase):
     @patch('project_ppchem_tools_kit.bind_enter')
     @patch('project_ppchem_tools_kit.process_input')
     def test_bind_enter_with_non_return_key(self, mock_process_input, mock_window):
+        # Mock event with keysym other than "Return"
         mock_event = MagicMock()
         mock_event.keysym = "Escape"
         
@@ -35,10 +37,12 @@ class TestBindEnter(unittest.TestCase):
     @patch('project_ppchem_tools_kit.bind_enter.window')
     @patch('project_ppchem_tools_kit.process_input')
     def test_bind_enter_raises_exception(self, mock_process_input, mock_window):
+        # Mock event with keysym "Return" and process_input raising an exception
         mock_event = MagicMock()
         mock_event.keysym = "Return"
         mock_process_input.side_effect = Exception("Test Exception")
         
+        # Redirect stdout to capture print statements
         captured_output = StringIO()
         sys.stdout = captured_output
 

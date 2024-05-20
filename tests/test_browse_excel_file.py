@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from io import StringIO
 import sys
-import tkinter as tk  
+import tkinter as tk  # Import tk module
 
 sys.path.insert(0, "./src")
 from project_ppchem_tools_kit.browse_excel_file import browse_excel_file
@@ -12,16 +12,21 @@ class TestBrowseExcelFile(unittest.TestCase):
     @patch('project_ppchem_tools_kit.browse_excel_file.filedialog.askopenfilename')
     @patch('project_ppchem_tools_kit.browse_excel_file.tk.Entry')
     def test_browse_excel_file(self, mock_entry, mock_askopenfilename):
+        # Mock the return value of askopenfilename
         mock_askopenfilename.return_value = 'test_file.xlsx'
         
+        # Create a mock entry widget
         mock_entry_input = MagicMock()
         mock_entry.return_value = mock_entry_input
 
+        # Set the global variable entry_input to the mock entry
         global entry_input
         entry_input = mock_entry_input
 
+        # Call the function to be tested
         browse_excel_file()
 
+        # Check if the correct file path was set in the entry widget
         mock_entry_input.delete.assert_called_once_with(0, tk.END)
         mock_entry_input.insert.assert_called_once_with(0, 'test_file.xlsx')
         mock_askopenfilename.assert_called_once_with(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
@@ -29,16 +34,21 @@ class TestBrowseExcelFile(unittest.TestCase):
     @patch('project_ppchem_tools_kit.browse_excel_file.filedialog.askopenfilename')
     @patch('project_ppchem_tools_kit.browse_excel_file.tk.Entry')
     def test_browse_excel_file_no_selection(self, mock_entry, mock_askopenfilename):
+        # Mock the return value of askopenfilename to simulate no file selected
         mock_askopenfilename.return_value = ''
         
+        # Create a mock entry widget
         mock_entry_input = MagicMock()
         mock_entry.return_value = mock_entry_input
 
+        # Set the global variable entry_input to the mock entry
         global entry_input
         entry_input = mock_entry_input
 
+        # Call the function to be tested
         browse_excel_file()
 
+        # Check that delete and insert were not called
         mock_entry_input.delete.assert_not_called()
         mock_entry_input.insert.assert_not_called()
         mock_askopenfilename.assert_called_once_with(title="Select Excel File", filetypes=(("Excel files", "*.xlsx"), ("All files", "*.*")))
