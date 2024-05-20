@@ -51,7 +51,7 @@ git clone https://github.com/sgrunber/Project-ppchem-tools-kit.git
 
 ### 3. ⬇️ Install with pip
 
-  <a href="https://pypi.org/project/Project-ppchem-tools-kit/"><img src="https://img.shields.io/badge/PyPI-v0.1.3-blue.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="PyPI"></a>
+  <a href="https://pypi.org/project/Project-ppchem-tools-kit/"><img src="https://img.shields.io/badge/PyPI-v1.0.0-blue.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="PyPI"></a>
 
 You can also install Tools Kit using pip:
 
