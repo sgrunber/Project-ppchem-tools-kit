@@ -11,17 +11,17 @@ from project_ppchem_tools_kit.display_graph import display_graph, graph_window
 
 class TestDisplayGraph(unittest.TestCase):
 
-    @patch('Chem_pack.display_graph.tk.Toplevel')
-    @patch('Chem_pack.display_graph.FigureCanvasTkAgg')
-    @patch('Chem_pack.display_graph.NavigationToolbar2Tk')
-    @patch('Chem_pack.display_graph.set_custom_labels_and_title')
-    @patch('Chem_pack.display_graph.add_data_point')
-    @patch('Chem_pack.display_graph.set_scale')
-    @patch('Chem_pack.display_graph.toggle_grid')
-    @patch('Chem_pack.display_graph.display_max_point_and_coords')
-    @patch('Chem_pack.display_graph.open_graph_settings_window')
-    @patch('Chem_pack.display_graph.messagebox.askokcancel', return_value=True)
-    @patch('Chem_pack.display_graph.tk.Button')
+    @patch('project_ppchem_tools_kit.display_graph.tk.Toplevel')
+    @patch('project_ppchem_tools_kit.display_graph.FigureCanvasTkAgg')
+    @patch('project_ppchem_tools_kit.display_graph.NavigationToolbar2Tk')
+    @patch('project_ppchem_tools_kit.display_graph.set_custom_labels_and_title')
+    @patch('project_ppchem_tools_kit.display_graph.add_data_point')
+    @patch('project_ppchem_tools_kit.display_graph.set_scale')
+    @patch('project_ppchem_tools_kit.display_graph.toggle_grid')
+    @patch('project_ppchem_tools_kit.display_graph.display_max_point_and_coords')
+    @patch('project_ppchem_tools_kit.display_graph.open_graph_settings_window')
+    @patch('project_ppchem_tools_kit.display_graph.messagebox.askokcancel', return_value=True)
+    @patch('project_ppchem_tools_kit.display_graph.tk.Button')
     def test_display_graph(self, mock_Button, mock_askokcancel, mock_open_graph_settings_window, mock_display_max_point_and_coords,
                            mock_toggle_grid, mock_set_scale, mock_add_data_point, mock_set_custom_labels_and_title,
                            mock_NavigationToolbar2Tk, mock_FigureCanvasTkAgg, mock_Toplevel):
@@ -86,7 +86,7 @@ class TestDisplayGraph(unittest.TestCase):
 
         # Simulate closing the window
         on_closing = mock_toplevel_instance.protocol.call_args[0][1]
-        with patch('Chem_pack.display_graph.graph_window', mock_toplevel_instance):
+        with patch('project_ppchem_tools_kit.display_graph.graph_window', mock_toplevel_instance):
             on_closing()
             mock_toplevel_instance.withdraw.assert_called_once()
             mock_toplevel_instance.quit.assert_called_once()

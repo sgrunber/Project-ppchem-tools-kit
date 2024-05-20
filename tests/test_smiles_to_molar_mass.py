@@ -8,8 +8,8 @@ from unittest.mock import patch, MagicMock
 
 #3.SMILESTOMOLARMASS
 class TestMolecularFunctions(unittest.TestCase):
-    @patch('Chem_pack.smiles_to_molar_mass.Chem.MolFromSmiles')
-    @patch('Chem_pack.smiles_to_molar_mass.Descriptors.ExactMolWt')
+    @patch('project_ppchem_tools_kit.smiles_to_molar_mass.Chem.MolFromSmiles')
+    @patch('project_ppchem_tools_kit.smiles_to_molar_mass.Descriptors.ExactMolWt')
     def test_smiles_to_molar_mass(self, mock_ExactMolWt, mock_MolFromSmiles):
         # Setup
         mock_mol = MagicMock()

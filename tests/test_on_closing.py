@@ -13,7 +13,7 @@ class TestOnClosing(unittest.TestCase):
         self.window = MagicMock()
         self.window.destroy = MagicMock()
 
-    @patch('Chem_pack.on_closing.messagebox.askokcancel', return_value=True)
+    @patch('project_ppchem_tools_kit.on_closing.messagebox.askokcancel', return_value=True)
     def test_on_closing_quit(self, mock_askokcancel):
         # Call the on_closing function
         on_closing(self.window)
@@ -24,7 +24,7 @@ class TestOnClosing(unittest.TestCase):
         # Assert that the window's destroy method was called
         self.window.destroy.assert_called_once()
 
-    @patch('Chem_pack.on_closing.messagebox.askokcancel', return_value=False)
+    @patch('project_ppchem_tools_kit.on_closing.messagebox.askokcancel', return_value=False)
     def test_on_closing_cancel(self, mock_askokcancel):
         # Call the on_closing function
         on_closing(self.window)

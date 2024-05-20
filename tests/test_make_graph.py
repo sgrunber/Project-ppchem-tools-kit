@@ -9,8 +9,8 @@ from project_ppchem_tools_kit.make_graph import make_graph
 selected_radio = None
 
 class TestMakeGraph(unittest.TestCase):
-    @patch('Chem_pack.make_graph.pd.read_excel')
-    @patch('Chem_pack.make_graph.display_graph')
+    @patch('project_ppchem_tools_kit.make_graph.pd.read_excel')
+    @patch('project_ppchem_tools_kit.make_graph.display_graph')
     def test_make_graph(self, mock_display_graph, mock_read_excel):
         # Mock the return value of pd.read_excel
         mock_read_excel.return_value = pd.DataFrame({
