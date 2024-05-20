@@ -8,7 +8,7 @@ from project_ppchem_tools_kit.set_axes_color import set_axes_color
 
 class TestSetAxesColor(unittest.TestCase):
 
-    @patch('Chem_pack.set_axes_color.colorchooser.askcolor', return_value=((255, 0, 0), '#ff0000'))
+    @patch('project_ppchem_tools_kit.set_axes_color.colorchooser.askcolor', return_value=((255, 0, 0), '#ff0000'))
     def test_set_axes_color(self, mock_askcolor):
         # Create a mock axis and plot canvas
         ax = MagicMock()

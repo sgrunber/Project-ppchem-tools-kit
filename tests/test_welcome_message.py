@@ -7,8 +7,8 @@ from project_ppchem_tools_kit.welcome_message import welcome_message
 
 class TestWelcomeMessage(unittest.TestCase):
 
-    @patch('Chem_pack.welcome_message.tk.Toplevel', return_value=None)
-    @patch('Chem_pack.welcome_message.tk.Text')
+    @patch('project_ppchem_tools_kit.welcome_message.tk.Toplevel', return_value=None)
+    @patch('project_ppchem_tools_kit.welcome_message.tk.Text')
     def test_welcome_message(self, mock_text, mock_toplevel):
         mock_toplevel_instance = MagicMock()
         mock_toplevel.return_value = mock_toplevel_instance

@@ -9,12 +9,12 @@ from project_ppchem_tools_kit.open_graph_settings_window import open_graph_setti
 
 class TestOpenGraphSettingsWindow(unittest.TestCase):
 
-    @patch('Chem_pack.open_graph_settings_window.tk.Button')
-    @patch('Chem_pack.open_graph_settings_window.tk.Toplevel')
-    @patch('Chem_pack.open_graph_settings_window.set_axes_color')
-    @patch('Chem_pack.open_graph_settings_window.set_grid_color')
-    @patch('Chem_pack.open_graph_settings_window.set_label_color')
-    @patch('Chem_pack.open_graph_settings_window.set_background_color')
+    @patch('project_ppchem_tools_kit.open_graph_settings_window.tk.Button')
+    @patch('project_ppchem_tools_kit.open_graph_settings_window.tk.Toplevel')
+    @patch('project_ppchem_tools_kit.open_graph_settings_window.set_axes_color')
+    @patch('project_ppchem_tools_kit.open_graph_settings_window.set_grid_color')
+    @patch('project_ppchem_tools_kit.open_graph_settings_window.set_label_color')
+    @patch('project_ppchem_tools_kit.open_graph_settings_window.set_background_color')
     def test_open_graph_settings_window(self, mock_set_background_color, mock_set_label_color, mock_set_grid_color, mock_set_axes_color, mock_toplevel, mock_button):
         # Mocking the Toplevel window
         mock_toplevel_instance = MagicMock()

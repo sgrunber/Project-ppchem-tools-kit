@@ -10,23 +10,23 @@ from project_ppchem_tools_kit.display_molecule import display_molecule
 class TestDisplayMolecule(unittest.TestCase):
     def setUp(self):
         # Patch the Chem module
-        self.patcher_chem = patch('Chem_pack.display_molecule.Chem.MolFromSmiles', autospec=True)
+        self.patcher_chem = patch('project_ppchem_tools_kit.display_molecule.Chem.MolFromSmiles', autospec=True)
         self.mock_mol_from_smiles = self.patcher_chem.start()
 
         # Patch the Draw module
-        self.patcher_draw = patch('Chem_pack.display_molecule.Draw.MolToImage', autospec=True)
+        self.patcher_draw = patch('project_ppchem_tools_kit.display_molecule.Draw.MolToImage', autospec=True)
         self.mock_mol_to_image = self.patcher_draw.start()
 
         # Patch the Tkinter components
-        self.patcher_tk = patch('Chem_pack.display_molecule.tk.Toplevel', autospec=True)
+        self.patcher_tk = patch('project_ppchem_tools_kit.display_molecule.tk.Toplevel', autospec=True)
         self.mock_toplevel = self.patcher_tk.start()
 
         # Mock for FigureCanvasTkAgg
-        self.patcher_canvas = patch('Chem_pack.display_molecule.FigureCanvasTkAgg', autospec=True)
+        self.patcher_canvas = patch('project_ppchem_tools_kit.display_molecule.FigureCanvasTkAgg', autospec=True)
         self.mock_canvas = self.patcher_canvas.start()
 
         # Mock for NavigationToolbar2Tk
-        self.patcher_toolbar = patch('Chem_pack.display_molecule.NavigationToolbar2Tk', autospec=True)
+        self.patcher_toolbar = patch('project_ppchem_tools_kit.display_molecule.NavigationToolbar2Tk', autospec=True)
         self.mock_toolbar = self.patcher_toolbar.start()
 
         # Create a mock figure to be returned by FigureCanvasTkAgg

@@ -8,8 +8,8 @@ from project_ppchem_tools_kit.linear_regression import linear_regression
 
 
 class TestLinearRegression(unittest.TestCase):
-    @patch('Chem_pack.linear_regression.pd.read_excel')
-    @patch('Chem_pack.linear_regression.display_graph')
+    @patch('project_ppchem_tools_kit.linear_regression.pd.read_excel')
+    @patch('project_ppchem_tools_kit.linear_regression.display_graph')
     def test_linear_regression(self, mock_display_graph, mock_read_excel):
         # Mock the return value of pd.read_excel
         mock_read_excel.return_value = pd.DataFrame({

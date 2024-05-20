@@ -7,7 +7,7 @@ from project_ppchem_tools_kit.copy_text import copy_text
 from io import StringIO
 
 class TestCopyText(unittest.TestCase):
-    @patch('Chem_pack.copy_text.window')
+    @patch('project_ppchem_tools_kit.copy_text.window')
     def test_copy_text_with_valid_event_and_window(self, mock_window):
         # Mock window and event
         mock_window.winfo_exists.return_value = True
@@ -20,7 +20,7 @@ class TestCopyText(unittest.TestCase):
         mock_event.widget.event_generate.assert_called_once_with("<<Copy>>")
         self.assertEqual(result, "break")
 
-    @patch('Chem_pack.copy_text.window')
+    @patch('project_ppchem_tools_kit.copy_text.window')
     def test_copy_text_with_no_window(self, mock_window):
         # Set window to None
         mock_window.winfo_exists.return_value = False
@@ -38,7 +38,7 @@ class TestCopyText(unittest.TestCase):
         
         self.assertEqual(result, "break")
 
-    @patch('Chem_pack.copy_text.window')
+    @patch('project_ppchem_tools_kit.copy_text.window')
     def test_copy_text_with_no_widget_in_event(self, mock_window):
         # Mock window and event without widget
         mock_window.winfo_exists.return_value = True
@@ -50,7 +50,7 @@ class TestCopyText(unittest.TestCase):
         
         self.assertEqual(result, "break")
 
-    @patch('Chem_pack.copy_text.window')
+    @patch('project_ppchem_tools_kit.copy_text.window')
     def test_copy_text_with_event_widget_not_existing(self, mock_window):
         # Mock window and event with widget not existing
         mock_window.winfo_exists.return_value = True
@@ -63,7 +63,7 @@ class TestCopyText(unittest.TestCase):
         mock_event.widget.event_generate.assert_not_called()
         self.assertEqual(result, "break")
 
-    @patch('Chem_pack.copy_text.window')
+    @patch('project_ppchem_tools_kit.copy_text.window')
     def test_copy_text_raises_exception(self, mock_window):
         # Mock window and event with an exception being raised
         mock_window.winfo_exists.side_effect = Exception("Test Exception")
