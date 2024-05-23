@@ -4,13 +4,23 @@
    
  </p>
  
- <div align="center">
-  <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Tools Kit</h1>
-</div>
-
-<div align="center" style="border: 2px solid #333; padding: 10px;">
+<div align="center" style="border: 2px solid #333; padding: 10px; animation: pulse 1s infinite;">
   <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0; padding: 10px;">Tools Kit</h1>
 </div>
+
+<style>
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
 
  <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
