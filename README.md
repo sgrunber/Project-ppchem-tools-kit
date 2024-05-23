@@ -2,13 +2,12 @@
 <p align="center">
    <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
    
-
-
  </p>
-
-<div style="width: 50%; margin: 0 auto; padding: 20px; border: 2px solid #000; text-align: center;">
-    <h1 style="font-family: 'Arial Black', sans-serif; margin: 0;">
-        🧰 𝕋𝕠𝕠𝕝𝕤 𝕂𝕚𝕥 🧰
+ 
+<div style="background-color: #f0f0f0; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+    <h1 style="font-family: 'Arial Black', sans-serif; margin: 0; color: #4CAF50; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+        <span style="font-size: 36px;">🛠️ 𝓣𝓸𝓸𝓵𝓼 𝓚𝓲𝓽 🛠️</span><br>
+        <span style="font-size: 20px; color: #555555;">Crafting Excellence</span>
     </h1>
 </div>
 
