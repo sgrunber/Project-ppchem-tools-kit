@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 import matplotlib.pyplot as plt
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.set_background_color import set_background_color
 
 class TestSetBackgroundColor(unittest.TestCase):

@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.set_line_color import set_line_color
 
 class TestSetLineColor(unittest.TestCase):

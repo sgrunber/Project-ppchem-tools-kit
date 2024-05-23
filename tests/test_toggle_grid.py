@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import MagicMock
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.toggle_grid import toggle_grid
 
 class TestToggleGrid(unittest.TestCase):

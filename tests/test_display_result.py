@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 import tkinter as tk
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.display_result import display_result
 
 class TestDisplayResult(unittest.TestCase):

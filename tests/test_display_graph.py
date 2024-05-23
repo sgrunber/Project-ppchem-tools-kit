@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.display_graph import display_graph 
 
 # test_display_graph.py

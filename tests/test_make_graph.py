@@ -3,7 +3,7 @@ from unittest.mock import Mock, patch
 import pandas as pd 
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.make_graph import make_graph
 
 selected_radio = None

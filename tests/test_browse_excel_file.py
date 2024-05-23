@@ -4,7 +4,6 @@ from io import StringIO
 import sys
 import tkinter as tk  # Import tk module
 
-sys.path.insert(0, "./src")
 from project_ppchem_tools_kit.browse_excel_file import browse_excel_file
 
 class TestBrowseExcelFile(unittest.TestCase):

@@ -4,7 +4,7 @@ from tkinter import Label
 from datetime import datetime
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.update_clock import update_clock
 
 class TestUpdateClock(unittest.TestCase):

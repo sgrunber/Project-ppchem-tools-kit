@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.name_to_smiles import name_to_smiles
 
 #2.NAMETOSMILES

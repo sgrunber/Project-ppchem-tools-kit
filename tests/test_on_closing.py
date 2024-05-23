@@ -3,7 +3,7 @@ from unittest.mock import MagicMock, patch
 from tkinter import messagebox
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.on_closing import on_closing
 
 class TestOnClosing(unittest.TestCase):

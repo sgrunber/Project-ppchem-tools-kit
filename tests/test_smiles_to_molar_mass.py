@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.smiles_to_molar_mass import smiles_to_molar_mass
 
 import unittest

@@ -3,7 +3,7 @@ from unittest.mock import MagicMock
 from tkinter import Canvas
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.create_radio_button import create_radio_button
 
 class TestCreateRadioButton(unittest.TestCase):

@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import MagicMock, patch
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.select_all import select_all
 
 class TestSelectAll(unittest.TestCase):

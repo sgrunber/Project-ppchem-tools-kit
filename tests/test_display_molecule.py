@@ -3,7 +3,7 @@ from unittest.mock import patch, MagicMock
 import sys
 
 # Adjust the path to include the directory containing your Chem_pack module
-sys.path.insert(0, "./src")
+
 
 from project_ppchem_tools_kit.display_molecule import display_molecule
 

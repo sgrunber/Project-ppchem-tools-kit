@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.process_input import process_input
 
 

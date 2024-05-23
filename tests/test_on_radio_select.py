@@ -3,7 +3,7 @@ from unittest.mock import patch
 import tkinter as tk
 
 import sys
-sys.path.insert(0, "./src")
+
 from project_ppchem_tools_kit.clear_input import clear_input
 from project_ppchem_tools_kit.on_radio_select import on_radio_select  # Import the function you want to test
 
