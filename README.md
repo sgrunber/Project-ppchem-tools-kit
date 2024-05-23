@@ -6,7 +6,11 @@
 
  </p>
 
-# 🧰 𝕋𝕠𝕠𝕝𝕤 𝕂𝕚𝕥 🧰
+<div style="border: 1px solid #000; padding: 10px;">
+    <h1 style="font-family: 'Arial Black', sans-serif; text-align: center; margin: 0;">
+        🧰 𝕋𝕠𝕠𝕝𝕤 𝕂𝕚𝕥 🧰
+    </h1>
+</div>
 
 
  <p align="center">
