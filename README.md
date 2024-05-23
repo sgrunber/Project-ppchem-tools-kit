@@ -8,9 +8,38 @@
 
 
 
-
-
-<h1 style="font-family: Arial, sans-serif; font-size: 36px; color: #333333; text-align: center;">🛠️ Tools Kit 🛠️</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🛠️ Tools Kit 🛠️</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+  .title {
+    font-size: 36px;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">🛠️ Tools Kit 🛠️</h1>
+  </div>
+</body>
 
 
 
