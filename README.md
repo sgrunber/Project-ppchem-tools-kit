@@ -43,11 +43,21 @@ To do so, navigate to the repository page and click the *"Fork"* button. The rep
 
  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/tree/main"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&logoWidth=40&logoColor=white" alt="GitHub"></a>
 
-Next, clone the repository using the following command (replace *username* with your GitHub username):
+Next, clone the repository using the following command:
+
+#### a) Using HTTPS (default):
 
 ```bash
 git clone https://github.com/sgrunber/Project-ppchem-tools-kit.git
 ```
+#### b) Using SSH (recommended for users who have set up SSH):
+
+To clone with SSH, use the following command:
+
+```bash
+git clone git@github.com:sgrunber/Project-ppchem-tools-kit.git
+```
+
 
 ### 3. ⬇️ Install with pip
 
