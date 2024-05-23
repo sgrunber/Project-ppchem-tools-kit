@@ -9,13 +9,10 @@
 
 
 
-<div style="text-align: justify; margin: 0 auto; padding: 0 10px; max-width: 900px;">
-  <h1 style="text-align: center; font-size: 3.5em; color: #1E90FF; border: 2px solid #1E90FF; animation: glow 1s infinite alternate; padding: 10px;">🛠️ Tools Kit 🛠️</h1>
 
-  <h2 style="color: #1E90FF;">Your Section Title</h2>
-  <p style="line-height: 1.6;">Your paragraph text goes here.</p>
-  <hr style="border: 1px solid #1E90FF;">
-</div>
+<h1 style="text-align: center; font-size: 3.5em; color: #1E90FF; border: 2px solid #1E90FF; animation: glow 1s infinite alternate; padding: 10px;">🛠️ Tools Kit 🛠️</h1>
+
+
 
  <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
