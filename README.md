@@ -6,7 +6,7 @@
 
  </p>
 
-
+# 🛠️ Tools Kit 🛠️
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +40,7 @@
     <h1 class="title">🛠️ Tools Kit 🛠️</h1>
   </div>
 </body>
-
-
+</html>
 
  <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
