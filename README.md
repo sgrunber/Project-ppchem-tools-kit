@@ -9,6 +9,23 @@
 </div>
 
 
+<div align="center" style="background: linear-gradient(135deg, #ff416c, #ff4b2b); border-radius: 10px; padding: 20px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+  <h1 style="font-family: 'Arial', sans-serif; font-size: 4em; color: #fff; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin: 0; padding-bottom: 10px;">Tools Kit</h1>
+  <p style="font-size: 1.2em; color: #fff; margin-top: 10px;">Un ensemble complet d'outils pour simplifier votre workflow.</p>
+  <ul style="list-style-type: none; padding: 0; margin-top: 20px; text-align: left;">
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Productivité:</span> Boostez votre efficacité avec nos outils intuitifs.</li>
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Polyvalence:</span> Adapté à une variété de tâches et de projets.</li>
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Personnalisable:</span> Configurez selon vos préférences et besoins.</li>
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Intégration:</span> S'intègre facilement à votre environnement de développement.</li>
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Collaboration:</span> Facilitez la collaboration et la communication au sein de votre équipe.</li>
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Support:</span> Assistance technique et communauté engagée à votre disposition.</li>
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Évolutif:</span> Évoluez avec vos besoins grâce à des mises à jour régulières.</li>
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Sécurité:</span> Protégez vos données et assurez la confidentialité de vos projets.</li>
+    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Performances:</span> Des outils optimisés pour des performances maximales.</li>
+    <li><span style="font-weight: bold;">Innovation:</span> Restez à la pointe de la technologie avec nos fonctionnalités innovantes.</li>
+  </ul>
+</div>
+
  <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
 <a href="https://github.com/sgrunber/Project-ppchem-tools-kit"><img src="https://img.shields.io/badge/coverage-95%25-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Coverage"></a>
