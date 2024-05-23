@@ -8,15 +8,11 @@
   <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0;">Tools Kit</h1>
 </div>
 
-<div align="center" style="background-color: #f8f9fa; border-radius: 20px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <h1 style="font-family: 'Roboto', sans-serif; font-size: 4.5em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0; padding: 10px;">
-    Tools Kit
-  </h1>
-  <p style="font-family: 'Arial', sans-serif; font-size: 1.2em; color: #666; margin: 10px 0 0;">All-in-One Toolkit for Your Needs</p>
-  <div style="margin-top: 20px;">
-    <a href="#" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 1.1em; color: #fff; background-color: #007bff; padding: 10px 20px; border-radius: 8px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Get Started</a>
-  </div>
+
+<div align="center" style="background-color: #ffffff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+  <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #1E90FF; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0;">Tools Kit</h1>
 </div>
+
 
  <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
