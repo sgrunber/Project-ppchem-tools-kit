@@ -8,22 +8,14 @@
   <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0;">Tools Kit</h1>
 </div>
 
-
-<div align="center" style="background: linear-gradient(135deg, #ff416c, #ff4b2b); border-radius: 10px; padding: 20px; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
-  <h1 style="font-family: 'Arial', sans-serif; font-size: 4em; color: #fff; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); margin: 0; padding-bottom: 10px;">Tools Kit</h1>
-  <p style="font-size: 1.2em; color: #fff; margin-top: 10px;">Un ensemble complet d'outils pour simplifier votre workflow.</p>
-  <ul style="list-style-type: none; padding: 0; margin-top: 20px; text-align: left;">
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Productivité:</span> Boostez votre efficacité avec nos outils intuitifs.</li>
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Polyvalence:</span> Adapté à une variété de tâches et de projets.</li>
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Personnalisable:</span> Configurez selon vos préférences et besoins.</li>
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Intégration:</span> S'intègre facilement à votre environnement de développement.</li>
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Collaboration:</span> Facilitez la collaboration et la communication au sein de votre équipe.</li>
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Support:</span> Assistance technique et communauté engagée à votre disposition.</li>
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Évolutif:</span> Évoluez avec vos besoins grâce à des mises à jour régulières.</li>
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Sécurité:</span> Protégez vos données et assurez la confidentialité de vos projets.</li>
-    <li style="margin-bottom: 10px;"><span style="font-weight: bold;">Performances:</span> Des outils optimisés pour des performances maximales.</li>
-    <li><span style="font-weight: bold;">Innovation:</span> Restez à la pointe de la technologie avec nos fonctionnalités innovantes.</li>
-  </ul>
+<div align="center" style="background-color: #f8f9fa; border-radius: 10px; padding: 30px; box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);">
+  <h1 style="font-family: 'Montserrat', sans-serif; font-size: 4em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0; letter-spacing: 3px;">🛠️ Tools Kit</h1>
+  <p style="font-family: 'Arial', sans-serif; font-size: 1.2em; color: #555; margin-top: 10px;">Unlocking Solutions with Precision</p>
+  <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0;">
+  <div style="display: flex; justify-content: center;">
+    <a href="#features" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 1.1em; color: #007bff; margin-right: 20px;">Features</a>
+    <a href="#usage" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 1.1em; color: #007bff;">Usage</a>
+  </div>
 </div>
 
  <p align="center">
