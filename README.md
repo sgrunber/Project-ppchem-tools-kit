@@ -8,6 +8,10 @@
   <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Tools Kit</h1>
 </div>
 
+<div align="center" style="border: 2px solid #333; padding: 10px;">
+  <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0; padding: 10px;">Tools Kit</h1>
+</div>
+
  <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
 <a href="https://github.com/sgrunber/Project-ppchem-tools-kit"><img src="https://img.shields.io/badge/coverage-95%25-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Coverage"></a>
