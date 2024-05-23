@@ -8,13 +8,13 @@
   <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0;">Tools Kit</h1>
 </div>
 
-<div align="center" style="background-color: #f8f9fa; border-radius: 10px; padding: 30px; box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);">
-  <h1 style="font-family: 'Montserrat', sans-serif; font-size: 4em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0; letter-spacing: 3px;">🛠️ Tools Kit</h1>
-  <p style="font-family: 'Arial', sans-serif; font-size: 1.2em; color: #555; margin-top: 10px;">Unlocking Solutions with Precision</p>
-  <hr style="border: none; border-top: 1px solid #ccc; margin: 20px 0;">
-  <div style="display: flex; justify-content: center;">
-    <a href="#features" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 1.1em; color: #007bff; margin-right: 20px;">Features</a>
-    <a href="#usage" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 1.1em; color: #007bff;">Usage</a>
+<div align="center" style="background-color: #f8f9fa; border-radius: 20px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+  <h1 style="font-family: 'Roboto', sans-serif; font-size: 4.5em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0; padding: 10px;">
+    Tools Kit
+  </h1>
+  <p style="font-family: 'Arial', sans-serif; font-size: 1.2em; color: #666; margin: 10px 0 0;">All-in-One Toolkit for Your Needs</p>
+  <div style="margin-top: 20px;">
+    <a href="#" style="text-decoration: none; font-family: 'Arial', sans-serif; font-size: 1.1em; color: #fff; background-color: #007bff; padding: 10px 20px; border-radius: 8px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Get Started</a>
   </div>
 </div>
 
