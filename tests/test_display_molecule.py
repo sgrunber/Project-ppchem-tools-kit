@@ -74,7 +74,7 @@ class TestDisplayMolecule(unittest.TestCase):
         # Call the function and capture print output
         with patch('builtins.print') as mocked_print:
             display_molecule(mock_entry_input)
-            mocked_print.assert_called_once_with("Erreur : Impossible de générer une structure moléculaire à partir du SMILES fourni.")
+            mocked_print.assert_called_once_with("Error : Can not generate a molecular structure from the input SMILES.")
 
 if __name__ == '__main__':
     unittest.main()
