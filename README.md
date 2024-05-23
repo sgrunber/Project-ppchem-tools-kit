@@ -6,8 +6,8 @@
 
  </p>
 
-<div style="border: 1px solid #000; padding: 10px;">
-    <h1 style="font-family: 'Arial Black', sans-serif; text-align: center; margin: 0;">
+<div style="width: 50%; margin: 0 auto; padding: 20px; border: 2px solid #000; text-align: center;">
+    <h1 style="font-family: 'Arial Black', sans-serif; margin: 0;">
         🧰 𝕋𝕠𝕠𝕝𝕤 𝕂𝕚𝕥 🧰
     </h1>
 </div>
