@@ -61,6 +61,9 @@ git clone git@github.com:sgrunber/Project-ppchem-tools-kit.git
 
 ### 3. ⬇️ Install with pip
 
+<a href="#"><img src="https://img.shields.io/badge/Local%20Install-v1.0.0-blue.svg?style=for-the-badge&logo=python&logoColor=white" alt="Local Install"></a>
+
+
 After cloning, navigate into the cloned directory and install the package locally using pip:
 
 ```bash
@@ -73,7 +76,7 @@ This will install the package and its dependencies from the cloned repository, a
 
   <a href="https://pypi.org/project/Project-ppchem-tools-kit/"><img src="https://img.shields.io/badge/PyPI-v1.0.0-blue.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="PyPI"></a>
 
-You can also install Tools Kit using pip:
+Alternatively, you can install Tools Kit using pip, which will fetch and install the latest updated version from PyPI:
 
 ```bash
 pip install Project_ppchem-tools-kit
