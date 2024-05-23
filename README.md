@@ -2,14 +2,13 @@
 <p align="center">
    <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
    
-
-
  </p>
 
 
+<div align="center">
+  <h1 style="font-size: 3em;">🛠️ Tools Kit 🛠 </h1>
+</div>
 
-
- <h1 align="center">🧰 Tools Kit</h1>
 
  <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
@@ -43,17 +42,38 @@ To do so, navigate to the repository page and click the *"Fork"* button. The rep
 
  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/tree/main"><img src="https://img.shields.io/badge/GitHub--181717.svg?logo=github&logoColor=white&style=for-the-badge&logoWidth=40&logoColor=white" alt="GitHub"></a>
 
-Next, clone the repository using the following command (replace *username* with your GitHub username):
+Next, clone the repository using the following command:
+
+#### a) Using HTTPS (default):
 
 ```bash
 git clone https://github.com/sgrunber/Project-ppchem-tools-kit.git
 ```
+#### b) Using SSH (recommended for users who have set up SSH):
+
+To clone with SSH, use the following command:
+
+```bash
+git clone git@github.com:sgrunber/Project-ppchem-tools-kit.git
+```
+
 
 ### 3. ⬇️ Install with pip
 
+
+After cloning, navigate into the cloned directory and install the package locally using pip:
+
+```bash
+cd path/to/Project-ppchem-tools-kit
+pip install .
+```
+This will install the package and its dependencies from the cloned repository, automatically fetching the latest version:
+
+
+
   <a href="https://pypi.org/project/Project-ppchem-tools-kit/"><img src="https://img.shields.io/badge/PyPI-v1.0.0-blue.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="PyPI"></a>
 
-You can also install Tools Kit using pip:
+Alternatively, you can install Tools Kit using pip, which will fetch and install the latest updated version from PyPI:
 
 ```bash
 pip install Project_ppchem-tools-kit
