@@ -10,7 +10,7 @@
 
 
 
-<h1 style="text-align: center; font-size: 3.5em; color: #1E90FF; border: 2px solid #1E90FF; animation: glow 1s infinite alternate; padding: 10px;">🛠️ Tools Kit 🛠️</h1>
+<h1 style="font-family: Arial, sans-serif; font-size: 36px; color: #333333; text-align: center;">🛠️ Tools Kit 🛠️</h1>
 
 
 
