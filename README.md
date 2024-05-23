@@ -61,8 +61,6 @@ git clone git@github.com:sgrunber/Project-ppchem-tools-kit.git
 
 ### 3. ⬇️ Install with pip
 
-<a href="#"><img src="https://img.shields.io/badge/Local%20Install-v1.0.0-blue.svg?style=for-the-badge&logo=python&logoColor=white" alt="Local Install"></a>
-
 
 After cloning, navigate into the cloned directory and install the package locally using pip:
 
