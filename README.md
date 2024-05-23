@@ -6,43 +6,8 @@
 
  </p>
 
-# 🛠️ Tools Kit 🛠️
+# 🧰 𝕋𝕠𝕠𝕝𝕤 𝕂𝕚𝕥 🧰
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🛠️ Tools Kit 🛠️</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-  }
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  .title {
-    font-size: 36px;
-    color: #333333;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-</style>
-</head>
-<body>
-  <div class="container">
-    <h1 class="title">🛠️ Tools Kit 🛠️</h1>
-  </div>
-</body>
-</html>
-```
 
  <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
