@@ -3,13 +3,10 @@
    <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
    
  </p>
- 
-<div align="center" style="background-color: #f8f9fa; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0;">Tools Kit</h1>
-</div>
+
 
 <div align="center">
-  <h1>🛠️ Tools Kit 🧰</h1>
+  <h1 style="font-size: 3em;">🛠️ Tools Kit 🛠 </h1>
 </div>
 
 
