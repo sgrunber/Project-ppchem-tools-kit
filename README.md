@@ -8,9 +8,8 @@
   <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #333; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0;">Tools Kit</h1>
 </div>
 
-
-<div align="center" style="background-color: #ffffff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <h1 style="font-family: 'Arial', sans-serif; font-size: 3em; color: #1E90FF; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); margin: 0;">Tools Kit</h1>
+<div align="center">
+  <h1>🛠️ Tools Kit 🧰</h1>
 </div>
 
 
