@@ -23,6 +23,15 @@
   <text x="50%" y="50%" font-size="50" text-anchor="middle" fill="url(#gradient)" dy=".3em">🛠️ Tools Kit 🛠️</text>
 </svg>
 
+<p align="center">
+  <img src="https://path-to-your-hosted-svg-file/gradient-text.svg" alt="Tools Kit">
+</p>
+
+<p align="center">
+  <a href="https://img.shields.io/badge/version-1.0-blue"><img src="https://img.shields.io/badge/version-1.0-blue"></a>
+  <a href="https://img.shields.io/badge/license-MIT-green"><img src="https://img.shields.io/badge/license-MIT-green"></a>
+</p>
+
 <div class="title-container">
   <div class="gradient-text">🛠️ Tools Kit 🛠️</div>
 </div>
