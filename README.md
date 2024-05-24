@@ -13,31 +13,6 @@
              ██║   ╚██████╔╝╚██████╔╝███████╗███████║    ██║  ██╗██║   ██║   
              ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝    ╚═╝  ╚═╝╚═╝   ╚═╝                                                                                                                                           
 ```                                                                   
-<svg width="100%" height="100" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff8a00;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#da1b60;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <text x="50%" y="50%" font-size="50" text-anchor="middle" fill="url(#gradient)" dy=".3em">🛠️ Tools Kit 🛠️</text>
-</svg>
-
-<p align="center">
-  <img src="https://path-to-your-hosted-svg-file/gradient-text.svg" alt="Tools Kit">
-</p>
-
-<p align="center">
-  <a href="https://img.shields.io/badge/version-1.0-blue"><img src="https://img.shields.io/badge/version-1.0-blue"></a>
-  <a href="https://img.shields.io/badge/license-MIT-green"><img src="https://img.shields.io/badge/license-MIT-green"></a>
-</p>
-
-<div class="title-container">
-  <div class="gradient-text">🛠️ Tools Kit 🛠️</div>
-</div>
-
-
-
 
 
 <p align="center">
