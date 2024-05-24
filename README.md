@@ -3,15 +3,11 @@
   <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
 </p>
 
-  _____           _       _    _ _   
- |_   _|__   ___ | |___  | | _(_) |_ 
-   | |/ _ \ / _ \| / __| | |/ / | __|
-   | | (_) | (_) | \__ \ |   <| | |_ 
-   |_|\___/ \___/|_|___/ |_|\_\_|\__|
 
 
+<div align="center">
+  
 ```
-
 ████████╗ ██████╗  ██████╗ ██╗     ███████╗    ██╗  ██╗██╗████████╗
 ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝    ██║ ██╔╝██║╚══██╔══╝
    ██║   ██║   ██║██║   ██║██║     ███████╗    █████╔╝ ██║   ██║   
@@ -19,6 +15,8 @@
    ██║   ╚██████╔╝╚██████╔╝███████╗███████║    ██║  ██╗██║   ██║   
    ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝    ╚═╝  ╚═╝╚═╝   ╚═╝   
 ```                                                                   
+</div>
+
 
 <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions">
@@ -32,11 +30,6 @@
   </a>
 </p>
 
-  _____           _       _    _ _   
- |_   _|__   ___ | |___  | | _(_) |_ 
-   | |/ _ \ / _ \| / __| | |/ / | __|
-   | | (_) | (_) | \__ \ |   <| | |_ 
-   |_|\___/ \___/|_|___/ |_|\_\_|\__|
 
 ## 📖 Description
 The **Tools Kit** package allows chemistry students to find basic information on molecules and provides easy access to some graphs and calculations required in experimental laboratories.
