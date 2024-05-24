@@ -3,11 +3,12 @@
   <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
 </p>
 
-<h1 align="center">
-  <span style="font-size: 3em; color: #1E90FF; text-shadow: 2px 2px 4px #000000; font-family: 'Courier New', Courier, monospace;">
-    🛠️ Tools Kit 🛠️
-  </span>
-</h1>
+  _____           _       _    _ _   
+ |_   _|__   ___ | |___  | | _(_) |_ 
+   | |/ _ \ / _ \| / __| | |/ / | __|
+   | | (_) | (_) | \__ \ |   <| | |_ 
+   |_|\___/ \___/|_|___/ |_|\_\_|\__|
+                                     
 
 <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions">
