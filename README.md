@@ -13,18 +13,15 @@
              ██║   ╚██████╔╝╚██████╔╝███████╗███████║    ██║  ██╗██║   ██║   
              ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝    ╚═╝  ╚═╝╚═╝   ╚═╝                                                                                                                                           
 ```                                                                   
-<style>
-  .gradient-text {
-    font-size: 3em;
-    font-weight: bold;
-    background: -webkit-linear-gradient(#ff8a00, #da1b60);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .title-container {
-    text-align: center;
-  }
-</style>
+<svg width="100%" height="100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff8a00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#da1b60;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <text x="50%" y="50%" font-size="50" text-anchor="middle" fill="url(#gradient)" dy=".3em">🛠️ Tools Kit 🛠️</text>
+</svg>
 
 <div class="title-container">
   <div class="gradient-text">🛠️ Tools Kit 🛠️</div>
