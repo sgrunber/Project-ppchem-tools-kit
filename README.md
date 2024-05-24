@@ -10,11 +10,16 @@
 </div>
 
 
- <p align="center">
-  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions"><img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Build Status"></a>
-<a href="https://github.com/sgrunber/Project-ppchem-tools-kit"><img src="https://img.shields.io/badge/coverage-95%25-brightgreen.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="Coverage"></a>
-<a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="License"></a>
-
+<p align="center">
+  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions">
+    <img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=github&logoColor=white" alt="Build Status">
+  </a>
+  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit">
+    <img src="https://img.shields.io/badge/coverage-95%25-brightgreen.svg?style=for-the-badge&logo=github&logoColor=white" alt="Coverage">
+  </a>
+  <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge&logo=github&logoColor=white" alt="License">
+  </a>
 </p>
 
 ## 📖 Description
