@@ -3,11 +3,11 @@
   <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
 </p>
 
-<div align="center">
-  <h1 style="font-size: 4em; color: #1E90FF; text-shadow: 2px 2px 4px #000000; font-family: 'Courier New', Courier, monospace;">
-    <span style="display: inline-block; animation: glow 1s infinite alternate;">🛠️ Tools Kit 🛠️</span>
-  </h1>
-</div>
+<h1 align="center">
+  <span style="font-size: 3em; color: #1E90FF; text-shadow: 2px 2px 4px #000000; font-family: 'Courier New', Courier, monospace;">
+    🛠️ Tools Kit 🛠️
+  </span>
+</h1>
 
 <style>
   @keyframes glow {
