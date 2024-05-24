@@ -9,14 +9,6 @@
   </span>
 </h1>
 
-<style>
-  @keyframes glow {
-    0% { text-shadow: 0 0 10px #1E90FF; }
-    50% { text-shadow: 0 0 20px #1E90FF; }
-    100% { text-shadow: 0 0 10px #1E90FF; }
-  }
-</style>
-
 <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions">
     <img src="https://img.shields.io/badge/build-passing-brightgreen.svg?style=for-the-badge&logo=github&logoColor=white" alt="Build Status">
