@@ -1,14 +1,21 @@
 
 <p align="center">
-   <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
-   
- </p>
-
+  <img width="1245" alt="logo_project" src="https://github.com/sgrunber/Project-ppchem-tools-kit/raw/main/docs/source/_static/images/logo_project.png">
+</p>
 
 <div align="center">
-  <h1 style="font-size: 3em;">🛠️ Tools Kit 🛠 </h1>
+  <h1 style="font-size: 4em; color: #1E90FF; text-shadow: 2px 2px 4px #000000; font-family: 'Courier New', Courier, monospace;">
+    <span style="display: inline-block; animation: glow 1s infinite alternate;">🛠️ Tools Kit 🛠️</span>
+  </h1>
 </div>
 
+<style>
+  @keyframes glow {
+    0% { text-shadow: 0 0 10px #1E90FF; }
+    50% { text-shadow: 0 0 20px #1E90FF; }
+    100% { text-shadow: 0 0 10px #1E90FF; }
+  }
+</style>
 
 <p align="center">
   <a href="https://github.com/sgrunber/Project-ppchem-tools-kit/actions">
