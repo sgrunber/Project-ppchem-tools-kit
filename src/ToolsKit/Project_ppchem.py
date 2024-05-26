@@ -1,3 +1,5 @@
+#In order to use the Tools Kit, the code must be run from its notebook file. Nonetheless, a raw code .py file containing the entirety of the code has been provided. This .py file includes all the necessary functions, classes, and logic implemented in the notebook. By reviewing the .py file, you can see the complete, unformatted version of the code in one place. This can be useful for those who prefer working directly with Python scripts or need to integrate the code into other projects. However, for the best results and to ensure all dependencies and inline outputs are correctly handled, please run the test from the provided notebook file.
+
 import tkinter as tk
 from tkinter import simpledialog, colorchooser
 from sklearn.linear_model import LinearRegression
